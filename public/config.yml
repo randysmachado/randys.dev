@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: randysmachado/randys.dev
+  branch: main
+  base_url: https://randys.dev/
+  auth_endpoint: api/auth/
+
+publish_mode: editorial_workflow
+media_folder: "public/images" #images that are uploaded via Netlify Cms interface will be stored in this folder
+public_folder: "images" #I dont know
+
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "src/posts" # The path to the folder where the markdown files are stored
+    create: true # Allow users to create new markdown files.
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for front matter. You will need to modify fields according to your project.
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss'}
+      - {label: "Category", name: "category", widget: "select", options: ["JS", "CSS", "HTML", "Dev"]}
+      - {label: "Category Color", name: "color", widget: "select", options: [
+          {label: "JS", value: "#FEDC20"},
+          {label: "CSS", value: "#F26636"},
+          {label: "HTML", value: "#14A0DC"},
+          {label: "Dev", value: "#49E82F"}
+        ]}
+      - {label: "Body", name: "body", widget: "markdown"}
