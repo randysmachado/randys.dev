@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Comments = () => (
-  <>
-    <script
-      async
-      src="https://utteranc.es/client.js"
-      repo="randysmachado/randys.dev"
-      issue-term="pathname"
-      theme="github-dark"
-      crossOrigin="anonymous"
-    ></script>
-  </>
-)
+export default class Comments extends Component {
+  constructor(props) {
+    super(props)
+    this.commentBox = React.createRef()
+  }
 
-export default Comments
+  componentDidMount() {
+    let scriptEl = document.createElement('script')
+    scriptEl.setAttribute('src', 'https://utteranc.es/client.js')
+    scriptEl.setAttribute('crossorigin', 'anonymous')
+    scriptEl.setAttribute('async', true)
+    scriptEl.setAttribute('repo', 'randysmachado/randys.dev')
+    scriptEl.setAttribute('issue-term', 'title')
+    scriptEl.setAttribute('theme', 'github-dark')
+    this.commentBox.current.appendChild(scriptEl)
+  }
+
+  render() {
+    return (
+      <div style={{ width: '100%' }} id="comments">
+        <div ref={this.commentBox}></div>
+      </div>
+    )
+  }
+}
