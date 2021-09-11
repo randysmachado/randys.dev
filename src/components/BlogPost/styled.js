@@ -61,13 +61,15 @@ export const Content = styled.div`
   }
 
   p {
+    font-size: 2.2rem;
     margin-bottom: 2.4rem;
+    line-height: 3.6rem;
   }
 
-  p,
   li {
     font-size: 2.2rem;
-    line-height: 3rem;
+    line-height: 4rem;
+    margin-bottom: 2rem;
   }
 
   ul,
