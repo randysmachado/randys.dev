@@ -1,6 +1,6 @@
 ---
 title: "Backstage: porque resolvi criar um blog"
-description: Conheça também as tecnologias foram utilizadas para criar este blog
+description: Conheça também as tecnologias que foram utilizadas
 date: 2021-09-11 11:38:14
 category: Dev
 color: "#49E82F"
