@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Prism from 'prismjs'
 import { useEffect } from 'react'
 
+import Comments from 'components/Commnets'
+
 import * as S from './styled'
 
 const BlogPost = ({ post }) => {
@@ -42,6 +44,8 @@ const BlogPost = ({ post }) => {
         <S.Description>{post.frontmatter.description}</S.Description>
       </S.Header>
       <S.Content dangerouslySetInnerHTML={{ __html: post.content }} />
+
+      <Comments />
     </S.Wrapper>
   )
 }
