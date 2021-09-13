@@ -1,13 +1,22 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.article`
   max-width: 1120px;
   padding: 0 2rem;
   margin: 4rem auto;
+
+  ${media.lessThan('medium')`
+    margin: 2rem auto;
+  `}
 `
 
 export const Header = styled.header`
   margin: 6rem 0 8rem 0;
+
+  ${media.lessThan('medium')`
+    margin: 2rem 0 6rem 0;
+  `}
 `
 
 export const EntryHeader = styled.div`
@@ -37,11 +46,19 @@ export const EntryHeader = styled.div`
 
 export const Title = styled.h1`
   font-size: 6rem;
+
+  ${media.lessThan('medium')`
+    font-size: 3.6rem;
+  `}
 `
 
 export const Description = styled.h2`
   font-size: 2.6rem;
   font-weight: 400;
+
+  ${media.lessThan('medium')`
+    font-size: 2.2rem;
+  `}
 `
 
 export const Content = styled.div`
