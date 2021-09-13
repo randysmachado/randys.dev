@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.main`
   max-width: 1120px;
@@ -26,6 +27,10 @@ export const PostsListItem = styled.section`
     &:hover {
       color: var(--highlight);
     }
+
+    ${media.lessThan('medium')`
+      font-size: 3rem;
+    `}
   }
 
   & + section {
@@ -36,4 +41,8 @@ export const PostsListItem = styled.section`
 export const Description = styled.h2`
   font-size: 2.4rem;
   font-weight: 400;
+
+  ${media.lessThan('medium')`
+    font-size: 2rem;
+  `}
 `

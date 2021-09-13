@@ -16,7 +16,7 @@ export const Content = styled.div`
 
   ${media.lessThan('medium')`
     flex-direction: column-reverse;
-    padding: 1rem 2rem;
+    padding: 2rem;
   `}
 `
 
