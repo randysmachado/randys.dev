@@ -2,9 +2,9 @@ import { getServerSideSitemap } from 'next-sitemap'
 
 import { getAllPosts } from 'services/api'
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = (ctx) => {
   // Method to source urls from cms
-  const allPosts = await getAllPosts()
+  const allPosts = getAllPosts()
 
   const fields = allPosts.map(({ slug }) => ({
     loc: `https://randys.dev/${slug}`,
@@ -21,6 +21,8 @@ export const getServerSideProps = async (ctx) => {
       lastmod: new Date().toISOString()
     }
   )
+
+  console.log(fields)
 
   return getServerSideSitemap(ctx, fields)
 }
