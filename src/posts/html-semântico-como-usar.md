@@ -7,21 +7,27 @@ color: "#14A0DC"
 ---
 Neste primeiro post tenho a intenção de começar uma série de posts onde quero falar sobre HTML semântico um assunto bem bacana e que gera um pouco de confusão para quem esta começando a codar. Quero abordar o uso de tags como: `<header>`, `<article>`, `<section>`, `<aside>` e muitas outras, então cola aqui que vai ser massa 🚀.
 
-HTML
+## HTML
 
-HTML significa HyperText Markup Language ou seja, Linguagem de Marcação de HiperTexto, que foi criada para estruturar o conteúdo da web, não vou entrar muita história do HTML pois já presumo que você já sabe alguma coisa sobre o assunto, mas vale lembrar que até o HTML4 toda a marcação dos bloco era escrita de forma pura, ou seja, com `<div>`, mas com a chegada do HTML5 tudo mudou dando lugar a semântica.
 
-O que significa semântica?
+
+HTML significa **HyperText Markup Language**, ou seja, **Linguagem de Marcação de HiperTexto**, que foi criada para estruturar o conteúdo da web, não vou entrar muita na história do HTML porque presumo que você já sabe alguma coisa sobre o assunto, mas vale lembrar que com a chegada do HTML5 tudo mudou dando lugar a semântica.
+
+## O que significa semântica?
+
+
 
 > Semântica é um ramo da linguística que estuda o significado da palavras.
 
 Mas a final de contas o que tem haver semântica um termo da linguística com HTML?
 
-Com o uso da semântica aplicada ao HTML tornou mais claro toda a estrutura do código, dividindo e nomeando cada pedaço, facilitando a identificação de cada bloco. 
+Com o uso da semântica aplicada ao HTML tornou mais claro toda a estrutura do código, dividindo e nomeando cada pedaço, facilitando a identificação de cada bloco de código. 
 
 Ainda ficou confuso? Não tem problemas, vou explicar com mais detalhes.
 
-HTML puro
+## HTML puro
+
+
 
 Nos primórdios o HTML era escrito com a marcação de tags juntamente com a estilização da página, era algo mais ou menos assim:
 
@@ -65,9 +71,11 @@ Com o chegada do CSS as coisas melhoram um pouco pois foi possível tirar toda a
 
 Isso funcionou por muito tempo, mas estava longe de ser algo de fácil entendimento. 
 
-HTML 5
+## HTML 5
 
-Com a chegada do HTML5 outra prática foi adota, a semântica. Ao invés de utilizar somente `div` a nova versão trouxe consigo outras tags, a linguagem não seria apenas estrutural passou a dar um maior significado através das novas tags.
+
+
+Com a chegada do HTML5 outra prática foi adota, a semântica. Ao invés de utilizar somente `div` a nova versão trouxe consigo outras tags, a linguagem não seria apenas estrutural passou a dar um maior significado código através das novas tags.
 
 ```html
 <header></header>
@@ -84,11 +92,11 @@ Com a chegada do HTML5 outra prática foi adota, a semântica. Ao invés de util
 <footer></footer>
 ```
 
-Perceba no código acima que é possível identificar com mais facilidade o significado de bloco de código. A coisa boa é que em geral as tags tem o mesmo comportamento de uma `div`, ou seja, é possível adequar um código antigo com as novas tags sem muitos breaking changes. 
+Perceba que no código acima já é possível identificar com mais facilidade o significado de cada bloco de código. A coisa boa é que em geral as novas tags tem o mesmo comportamento de uma `div`, ou seja, é possível adequar um código antigo com as  tags novas sem muitos breaking changes. 
 
-Bom, este post já está bem extenso e por se tratar de uma série de posts continuarei a falar de cada tag em específico em outros posts, pois também quero desenvolver um pequeno projeto para deixar o mais didático possível.
+Bom, este post já está bem extenso e por se tratar de uma série de posts continuarei a falar de cada tag em específico em outros artigos, além disso quero aproveitar para desenvolver um pequeno projeto utilizando as tags  semânticas do HTML para deixar tudo o mais didático possível.
 
-Nos vemos depois, grande abraço!
+Até a próxima, grande abraço!
 
 
 
