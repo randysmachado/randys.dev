@@ -15,7 +15,7 @@
     "gray-matter": "^4.0.3",
     "netlify-cms-app": "^2.15.40",
     "next": "11.1.2",
-    "next-seo": "^4.26.0",
+    "next-seo": "^4.28.0",
     "next-sitemap": "^1.6.168",
     "nextjs-progressbar": "^0.0.11",
     "prismjs": "^1.24.1",
