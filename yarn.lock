@@ -162,11 +162,6 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
-"@corex/deepmerge@^2.6.34":
-  version "2.6.34"
-  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.6.34.tgz#8dd084f2bcc9cf54f6b1210a1aebd25206de2a84"
-  integrity sha512-5l3bQRGOoCJ1nYTxEaOW/MRuwNDq32KYatWO5rwOlOzxY4beVCrxDBaDBX5wpDn0PYm0QAul/vAC9GDHShEbTw==
-
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
@@ -3280,13 +3275,6 @@ markdown-table@^2.0.0:
   dependencies:
     repeat-string "^1.0.0"
 
-matcher@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/matcher/-/matcher-4.0.0.tgz#a42a05a09aaed92e2d241eb91fddac689461ea51"
-  integrity sha512-S6x5wmcDmsDRRU/c2dkccDwQPXoFczc5+HpQ2lON8pnvHlnvHAHj5WlLVvw6n6vNyHuVugYrFohYxbS+pvFpKQ==
-  dependencies:
-    escape-string-regexp "^4.0.0"
-
 material-colors@^1.2.1:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
@@ -3813,7 +3801,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.0, minimist@^1.2.5:
+minimist@^1.2.0:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -4181,15 +4169,6 @@ next-seo@^4.28.0:
   version "4.28.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.28.0.tgz#1200c2b1d567ae009826d103c82be5c007a9af29"
   integrity sha512-jlB7GBX7LA5UAzFbsSdaQQ//lDz1RU+6a1JtrDQPPtk0/Wk07kU/NmZLAx1U087355u5ToWZjQB8W0rQb4C3Gg==
-
-next-sitemap@^1.6.192:
-  version "1.6.192"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.192.tgz#2f5c4e4b8ac12e2edcf8d2caffdd3b320b2b47a8"
-  integrity sha512-Pvxi5ttn/pedojrCvhGrvXsXg0bSV/scWCLrivO1xeBd+OVGiFyn60WHfx7I0HfW7nFQmbvwGfYffkUMOj/ptg==
-  dependencies:
-    "@corex/deepmerge" "^2.6.34"
-    matcher "^4.0.0"
-    minimist "^1.2.5"
 
 next-themes@^0.0.15:
   version "0.0.15"
