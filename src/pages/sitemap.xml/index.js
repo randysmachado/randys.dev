@@ -1,32 +1,28 @@
-import { getServerSideSitemap } from 'next-sitemap'
+const generateSitemap = (data, origin) => {
+  let xml = ''
 
-import { getAllPosts } from 'services/api'
+  data.pages.map((page) => {
+    xml += `<url>
+      <loc>${origin + page.location}</loc>
+      <lastmod>${page.lastMod}</lastmod>
+    </url>`
+  })
 
-export const getServerSideProps = (ctx) => {
-  // Method to source urls from cms
-  const allPosts = getAllPosts()
-
-  const fields = allPosts.map(({ slug }) => ({
-    loc: `https://randys.dev/${slug}`,
-    lastmod: new Date().toISOString()
-  }))
-
-  fields.push(
-    {
-      loc: 'https://randys.dev',
-      lastmod: new Date().toISOString()
-    },
-    {
-      loc: 'https://randys.dev/about',
-      lastmod: new Date().toISOString()
-    }
-  )
-
-  console.log(fields)
-
-  return getServerSideSitemap(ctx, fields)
+  return `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      ${xml}
+    </urlset>`
 }
 
-// Default export to prevent next.js errors
-// eslint-disable-next-line import/no-anonymous-default-export
-export default () => {}
+export async function getServerSideProps({ res }) {
+  const data = res.setHeader('Content-Type', 'text/xml')
+  res.write(generateSitemap(data, 'https://randys.dev'))
+  res.end()
+
+  return {
+    props: {}
+  }
+}
+
+const SitemapIndex = () => null
+export default SitemapIndex
