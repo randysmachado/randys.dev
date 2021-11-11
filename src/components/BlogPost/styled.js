@@ -1,51 +1,44 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.article`
-  max-width: 1120px;
-  padding: 0 2rem;
-  margin: 4rem auto;
-
-  ${media.lessThan('medium')`
-    margin: 2rem auto;
-  `}
-`
-
 export const Header = styled.header`
-  margin: 6rem 0 8rem 0;
+  background-color: var(--profile-bg);
+  border-bottom: 2px solid var(--profile-border);
+
+  margin-bottom: 8rem;
 
   ${media.lessThan('medium')`
-    margin: 2rem 0 6rem 0;
+    padding: 2rem 0;
+    margin-bottom: 4rem;
   `}
 `
 
 export const EntryHeader = styled.div`
   font-size: 1.8rem;
 
-  span + span {
-    margin-left: 1rem;
-  }
-
   a {
-    display: block;
     max-width: 180px;
     font-size: 2rem;
-    margin-bottom: 4rem;
-
     color: var(--highlight);
-    border-bottom: 2px solid var(--highlight);
-    padding: 0 0.3rem;
-    transition: background-color 0.3s;
 
     &:hover {
-      background-color: var(--highlight);
-      color: var(--primary);
+      border-bottom: 2px solid var(--highlight);
     }
   }
 `
 
+export const Time = styled.time`
+  display: block;
+  margin-top: 4rem;
+
+  span + span {
+    margin-left: 1rem;
+  }
+`
+
 export const Title = styled.h1`
-  font-size: 6rem;
+  font-size: 5rem;
+  line-height: 1.3;
 
   ${media.lessThan('medium')`
     font-size: 3.6rem;
@@ -64,16 +57,14 @@ export const Description = styled.h2`
 export const Content = styled.div`
   max-width: 850px;
   margin: 0 auto;
+  padding: 0 2rem;
 
   a {
     color: var(--highlight);
-    border-bottom: 2px solid var(--highlight);
     padding: 0 0.3rem;
-    transition: background-color 0.3s;
 
     &:hover {
-      background-color: var(--highlight);
-      color: var(--primary);
+      border-bottom: 2px solid var(--highlight);
     }
   }
 
@@ -101,12 +92,13 @@ export const Content = styled.div`
 
   blockquote {
     border-left: 5px solid var(--highlight);
-    background-color: var(--surface);
+    background-color: var(--profile-border);
     padding: 2rem;
     margin-bottom: 2rem;
 
     p {
       margin: 0;
+      color: var(--gray-1);
     }
   }
 

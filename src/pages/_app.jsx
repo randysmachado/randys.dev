@@ -1,14 +1,16 @@
+import NextNprogress from 'nextjs-progressbar'
+import { ThemeProvider } from 'next-themes'
+import { DefaultSeo } from 'next-seo'
+
 import Head from 'next/head'
 
-import { DefaultSeo } from 'next-seo'
 import SEO from '../../next-seo.config'
-
 import GlobalStyles from 'styles/global'
-import NextNprogress from 'nextjs-progressbar'
+import ThemeChanger from 'components/ThemeChanger'
 
 function App({ Component, pageProps }) {
   return (
-    <>
+    <ThemeProvider>
       <Head>
         <link
           rel="apple-touch-icon"
@@ -73,22 +75,23 @@ function App({ Component, pageProps }) {
           sizes="16x16"
           href="/images/favicon-16x16.png"
         />
-        <meta name="theme-color" content="#1E2235" />
+        <meta name="theme-color" content="#111827" />
       </Head>
       <DefaultSeo {...SEO} />
 
       <GlobalStyles />
 
       <NextNprogress
-        color="#E9424F"
+        color="#3B82F6"
         startPosition={0.3}
         stopDelayMs={200}
         height={3}
         showOnShallow={true}
       />
+      <ThemeChanger />
 
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 }
 
