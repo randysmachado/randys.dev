@@ -2,15 +2,11 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.header`
-  background-color: var(--surface);
-  border-bottom: 2px solid #282b3b;
+  background-color: var(--profile-bg);
+  border-bottom: 2px solid var(--profile-border);
 `
 
 export const Content = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-
   display: flex;
   justify-content: space-between;
 
@@ -39,7 +35,6 @@ export const Info = styled.div`
 export const Title = styled.h1`
   font-size: 4rem;
   font-weight: bold;
-  color: var(--highlight);
 
   ${media.lessThan('medium')`
     font-size: 3rem;
@@ -61,34 +56,25 @@ export const Description = styled.p`
 
     &:nth-child(1) {
       color: #1da1f2;
-      border-bottom: 2px solid #1da1f2;
-      transition: background-color 0.3s;
 
       &:hover {
-        color: var(--primary);
-        background-color: #1da1f2;
+        border-bottom: 2px solid #1da1f2;
       }
     }
 
     &:nth-child(2) {
-      color: #bbc6cc;
-      border-bottom: 2px solid #bbc6cc;
-      transition: background-color 0.3s;
+      color: #778187;
 
       &:hover {
-        color: var(--primary);
-        background-color: #bbc6cc;
+        border-bottom: 2px solid #778187;
       }
     }
 
     &:nth-child(3) {
       color: #d62976;
-      border-bottom: 2px solid #d62976;
-      transition: background-color 0.3s;
 
       &:hover {
-        color: var(--primary);
-        background-color: #d62976;
+        border-bottom: 2px solid #d62976;
       }
     }
   }
