@@ -12,7 +12,7 @@
     "@openlab/vercel-netlify-cms-github": "^1.1.1",
     "date-fns": "^2.25.0",
     "gray-matter": "^4.0.3",
-    "netlify-cms-app": "^2.15.53",
+    "netlify-cms-app": "^2.15.59",
     "next": "11.1.2",
     "next-seo": "^4.28.0",
     "next-themes": "^0.0.15",
