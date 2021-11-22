@@ -3,7 +3,7 @@ backend:
   repo: randysmachado/randys.dev
   branch: main
   base_url: https://randys.dev/
-  auth_endpoint: api/auth
+  auth_endpoint: api/auth/
 
 publish_mode: editorial_workflow
 media_folder: "public/images" #images that are uploaded via Netlify Cms interface will be stored in this folder
