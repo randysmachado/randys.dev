@@ -23,6 +23,7 @@ export const PostsListItem = styled.section`
     color: var(--white);
     font-weight: bold;
     transition: color 0.3s;
+    line-height: 1.2;
 
     &:hover {
       color: var(--highlight);

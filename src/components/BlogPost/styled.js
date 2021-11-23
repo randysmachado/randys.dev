@@ -38,7 +38,7 @@ export const Time = styled.time`
 
 export const Title = styled.h1`
   font-size: 5rem;
-  line-height: 1.3;
+  line-height: 1.2;
 
   ${media.lessThan('medium')`
     font-size: 3.6rem;
@@ -48,6 +48,7 @@ export const Title = styled.h1`
 export const Description = styled.h2`
   font-size: 2.6rem;
   font-weight: 400;
+  margin-top: 1.6rem;
 
   ${media.lessThan('medium')`
     font-size: 2.2rem;
@@ -71,13 +72,13 @@ export const Content = styled.div`
   p {
     font-size: 2.2rem;
     margin-bottom: 2.4rem;
-    line-height: 3.6rem;
+    line-height: 1.5;
   }
 
   li {
     font-size: 2.2rem;
     line-height: 4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   ul,
@@ -104,7 +105,8 @@ export const Content = styled.div`
 
   h2 {
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
   }
 
   h3 {
