@@ -1,6 +1,6 @@
 ---
 title: Qual a melhor maneira de estudar programação? Parte 01
-description: Descubra qual método eu utilizo e que realmente funciona.
+description: Descubra quais método utilizo e que realmente funciona.
 date: 2021-11-23 12:20:32
 category: Dev
 color: "#49E82F"
