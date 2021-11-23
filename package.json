@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@openlab/vercel-netlify-cms-github": "^1.1.1",
+    "@styled-icons/boxicons-logos": "^10.38.0",
     "date-fns": "^2.25.0",
     "gray-matter": "^4.0.3",
     "netlify-cms-app": "^2.15.59",

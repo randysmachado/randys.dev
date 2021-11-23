@@ -39,6 +39,10 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Jost', sans-serif;
   }
 
+  main {
+    height: 100vh;
+  }
+
   img {
     display: block;
     max-width: 100%;

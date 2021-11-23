@@ -6,6 +6,16 @@ export const Wrapper = styled.header`
   border-bottom: 2px solid var(--profile-border);
 `
 
+export const Container = styled.div`
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  ${media.lessThan('medium')`
+    padding: 0 2rem;
+  `}
+`
+
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
@@ -17,20 +27,17 @@ export const Content = styled.div`
 `
 
 export const Avatar = styled.img`
-  max-width: 200px;
+  max-width: 15rem;
   border-radius: 50%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 6px 10px;
+  margin-right: 10rem;
 
   ${media.lessThan('medium')`
    max-width: 100px;
   `}
 `
 
-export const Info = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-`
+export const Info = styled.div``
 
 export const Title = styled.h1`
   font-size: 4rem;
@@ -44,40 +51,12 @@ export const Title = styled.h1`
 
 export const Description = styled.p`
   font-size: 2.4rem;
-  margin-top: 2rem;
   max-width: 700px;
+  margin-bottom: 1.6rem;
 
   ${media.lessThan('medium')`
     font-size: 2rem;
   `}
-
-  a {
-    padding: 0 0.3rem;
-
-    &:nth-child(1) {
-      color: #1da1f2;
-
-      &:hover {
-        border-bottom: 2px solid #1da1f2;
-      }
-    }
-
-    &:nth-child(2) {
-      color: #778187;
-
-      &:hover {
-        border-bottom: 2px solid #778187;
-      }
-    }
-
-    &:nth-child(3) {
-      color: #d62976;
-
-      &:hover {
-        border-bottom: 2px solid #d62976;
-      }
-    }
-  }
 `
 
 export const Social = styled.ul`
@@ -86,41 +65,21 @@ export const Social = styled.ul`
 `
 
 export const SocialItem = styled.li`
+  svg {
+    width: 3.6rem;
+  }
+
   a {
     font-size: 1.8rem;
-  }
-
-  &:nth-child(1) a {
-    color: #bbc6cc;
-    padding: 0.5rem;
+    color: var(--white);
+    transition: color 0.3s;
 
     &:hover {
-      color: var(--primary);
-      background-color: #bbc6cc;
+      color: var(--highlight);
     }
   }
 
-  &:nth-child(2) a {
-    color: #1da1f2;
-    padding: 0.5rem;
-
-    &:hover {
-      color: var(--primary);
-      background-color: #1da1f2;
-    }
-  }
-
-  &:nth-child(3) a {
-    color: #d62976;
-    padding: 0.5rem;
-
-    &:hover {
-      color: var(--primary);
-      background-color: #d62976;
-    }
-  }
-
-  + li {
-    margin-left: 10px;
+  &:not(:first-child) {
+    margin-left: 1.6rem;
   }
 `
