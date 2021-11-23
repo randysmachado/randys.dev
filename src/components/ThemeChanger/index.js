@@ -16,7 +16,7 @@ const ThemeChanger = () => {
   return (
     <S.Wrapper>
       {theme === 'dark' ? (
-        <S.Button onClick={() => setTheme('light')}>
+        <S.Button onClick={() => setTheme('light')} aria-label="tema claro">
           <svg
             className="w-8 h-8"
             fill="none"
@@ -33,7 +33,7 @@ const ThemeChanger = () => {
           </svg>
         </S.Button>
       ) : (
-        <S.Button onClick={() => setTheme('dark')}>
+        <S.Button onClick={() => setTheme('dark')} aria-label="tema escuro">
           <svg
             fill="none"
             viewBox="0 0 24 24"
