@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import Image from 'next/image'
 
 export const Wrapper = styled.header`
   background-color: var(--profile-bg);
@@ -26,8 +27,7 @@ export const Content = styled.div`
   `}
 `
 
-export const Avatar = styled.img`
-  max-width: 15rem;
+export const Avatar = styled(Image)`
   border-radius: 50%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 6px 10px;
   margin-right: 10rem;
