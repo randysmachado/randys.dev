@@ -21,6 +21,14 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
 
+  img {
+    width: 100%;
+
+    > div {
+      position: unset !important;
+    }
+  }
+
   ${media.lessThan('medium')`
     flex-direction: column-reverse;
     padding: 2rem;
@@ -34,7 +42,7 @@ export const Avatar = styled(Image)`
 
   ${media.lessThan('medium')`
    max-width: 100px;
-  `}
+  `};
 `
 
 export const Info = styled.div``

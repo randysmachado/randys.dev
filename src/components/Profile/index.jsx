@@ -54,6 +54,8 @@ const Profile = () => {
             title="Randys Machado"
             width={150}
             height={150}
+            quality={75}
+            layout="fixed"
           />
         </S.Content>
       </S.Container>

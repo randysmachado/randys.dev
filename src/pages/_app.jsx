@@ -82,7 +82,6 @@ function App({ Component, pageProps }) {
           sizes="16x16"
           href="/images/favicons/favicon-16x16.png"
         />
-        <link rel="manifest" href="/manifest.json" />
 
         <meta name="theme-color" content="#111827" />
       </Head>
