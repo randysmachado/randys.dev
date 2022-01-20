@@ -8,7 +8,7 @@ export const Wrapper = styled.header`
 `
 
 export const Container = styled.div`
-  max-width: 1120px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 2rem;
 
@@ -37,11 +37,10 @@ export const Content = styled.div`
 
 export const Avatar = styled(Image)`
   border-radius: 50%;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 6px 10px;
   margin-right: 10rem;
 
   ${media.lessThan('medium')`
-   max-width: 100px;
+    max-width: 100px;
   `};
 `
 

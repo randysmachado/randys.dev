@@ -9,16 +9,16 @@ const GlobalStyles = createGlobalStyle`
 
     --text: #838A97;
 
-    --highlight: #3B82F6;
+    --highlight: #5773ff;
 
     --white: #111827;
   }
 
   [data-theme='dark'] {
-    --primary: #111827;
+    --primary: #16181D;
 
-    --profile-bg: #1A2130;
-    --profile-border: #212536;
+    --profile-bg: #1C1E24;
+    --profile-border: #29353F;
 
     --white: #f7f7f7;
   }

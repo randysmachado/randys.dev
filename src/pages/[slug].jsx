@@ -2,8 +2,15 @@ import BlogPost from 'components/BlogPost'
 import { getAllPosts, getPosts } from 'services/api'
 import markdown from 'services/markdown'
 
+import Footer from 'components/Footer'
+
 export default function Page({ post }) {
-  return <BlogPost post={post} />
+  return (
+    <>
+      <BlogPost post={post} />
+      <Footer />
+    </>
+  )
 }
 
 export async function getStaticProps({ params }) {
