@@ -7,12 +7,12 @@ const HomeTemplate = ({ posts }) => {
   return (
     <>
       <NextSeo
-        title="Randys Machado Blog"
+        title="Olá, sou o Randys Machado"
         description="Blog sobre desenvolvimento front-end escrito por Randys Machado"
         canonical="https://randys.dev"
         openGraph={{
           url: 'https://randys.dev',
-          title: 'Randys Machado Blog',
+          title: 'Olá, sou o Randys Machado',
           description:
             'Blog sobre desenvolvimento front-end escrito por Randys Machado.',
           images: [
@@ -20,10 +20,10 @@ const HomeTemplate = ({ posts }) => {
               url: 'https://randys.dev/images/cover.png',
               width: 1280,
               height: 720,
-              alt: 'Randys Machado Blog'
+              alt: 'Olá, sou o Randys Machado'
             }
           ],
-          site_name: 'Randys Machado Blog'
+          site_name: 'Olá, sou o Randys Machado'
         }}
       />
       <Profile />

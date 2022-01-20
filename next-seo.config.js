@@ -3,7 +3,7 @@ export default {
     type: 'website',
     locale: 'pt_BR',
     url: 'https:/randys.dev',
-    site_name: 'Randys Machado Blog'
+    site_name: 'Olá, sou o Randys Machado'
   },
   twitter: {
     handle: '@randysmachado',

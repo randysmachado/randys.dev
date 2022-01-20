@@ -1,9 +1,15 @@
 import HomeTemplate from 'templates/Home'
 
 import { getAllPosts } from 'services/api'
+import Footer from 'components/Footer'
 
 export default function Home({ posts }) {
-  return <HomeTemplate posts={posts} />
+  return (
+    <>
+      <HomeTemplate posts={posts} />
+      <Footer />
+    </>
+  )
 }
 
 export function getStaticProps() {

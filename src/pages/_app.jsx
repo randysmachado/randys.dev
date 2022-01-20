@@ -7,7 +7,6 @@ import Head from 'next/head'
 import SEO from '../../next-seo.config'
 import GlobalStyles from 'styles/global'
 import ThemeChanger from 'components/ThemeChanger'
-import Footer from 'components/Footer'
 
 function App({ Component, pageProps }) {
   return (
@@ -90,7 +89,7 @@ function App({ Component, pageProps }) {
       <GlobalStyles />
 
       <NextNprogress
-        color="#3B82F6"
+        color="#5773ff"
         startPosition={0.3}
         stopDelayMs={200}
         height={3}
@@ -99,7 +98,6 @@ function App({ Component, pageProps }) {
       <ThemeChanger />
 
       <Component {...pageProps} />
-      <Footer />
     </ThemeProvider>
   )
 }

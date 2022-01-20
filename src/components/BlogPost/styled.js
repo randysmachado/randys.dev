@@ -18,7 +18,7 @@ export const EntryHeader = styled.div`
 
   a {
     max-width: 180px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--highlight);
 
     &:hover {
@@ -37,7 +37,7 @@ export const Time = styled.time`
 `
 
 export const Title = styled.h1`
-  font-size: 5rem;
+  font-size: 4rem;
   line-height: 1.2;
 
   ${media.lessThan('medium')`
@@ -46,7 +46,7 @@ export const Title = styled.h1`
 `
 
 export const Description = styled.h2`
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: 400;
   margin-top: 1.6rem;
 
@@ -70,7 +70,7 @@ export const Content = styled.div`
   }
 
   p {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 2.4rem;
     line-height: 1.5;
   }
