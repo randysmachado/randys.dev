@@ -10,15 +10,13 @@ Quem nunca teve dor de cabeça na hora de fazer uma galeria de imagens/fotos que
 
 Se você é uma dessas pessoas vem comigo que neste artigo vou te apresentar uma dica que vai permitir que você  crie uma galeria de imagens/fotos e outros tipo de layout com a mesma técnica.
 
-Vamos utilizar a propriedade`grid`do **CSS** que oferece um sistema de layout baseado em grid, com linhas e colunas.
+Vamos utilizar a propriedade `grid` do **CSS** que oferece um sistema de layout baseado em grid, com linhas e colunas. 
 
 ## CSS Grid
 
 > CSS Grid layout é uma especificação do W3C projetada para proporcionar um método bi-dimensional para criação de layout CSS que oferece a possibilidade de "layoutar" itens da página com uso de linhas e colunas. 
 
 Referência: [MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Grid_Layout)
-
-
 
 ## Layout
 
@@ -53,14 +51,11 @@ Para nosso layout eu criei um arquivo HTML simples com imagens geradas randomica
     </main>
   </body>
 </html>
-
 ```
 
 > Para gerar as imagens de forma randômicas utilizei este link do unsplah `https://source.unsplash.com/random`
 
 Perceba que é um arquivo HTML simples que chama um arquivo de estilo e contém algumas imagens.
-
-
 
 ## CSS
 
@@ -105,12 +100,9 @@ img {
   margin-bottom: 2rem;
   text-align: center;
 }
-
 ```
 
-No arquivo estilo eu simplesmente fiz um reset básico e defini alguns estilos para nossas imagens, título e o tamanho do nosso container.
-
-
+No arquivo de estilo eu simplesmente fiz um reset básico e defini alguns estilos para nossas imagens, título e o tamanho do nosso container.
 
 ## O Poder o CSS Grid
 
@@ -124,8 +116,6 @@ No arquivo de HTML englobamos todas as imagens em uma classe chamada `grid`, ser
 
 No momento você vai perceber que não aconteceu nada. Mas vamos dizer que queremos que nossa galeria tenha  quatro colunas de 200px cada, para isso utilizaremos a propriedade `grid-template-columns`, e vamos aproveitar para deixar um espaço entre as imagens de 20px, com a propriedade `gap`.
 
-
-
 ```css
 .grid {
   display: grid;
@@ -133,6 +123,8 @@ No momento você vai perceber que não aconteceu nada. Mas vamos dizer que quere
   gap: 20px;
 }
 ```
+
+
 
 Teremos algo mais ou menos assim: 
 
@@ -160,8 +152,6 @@ O código ficará da seguinte forma:
 
 Ao olhar o layout você não perceberá muita diferença, mas quando diminuir o tamanho da tela...
 
-
-
 <!--StartFragment-->
 
 ![](https://i.giphy.com/media/aaxc7FnVbZDJ653ch9/giphy-downsized-large.gif)
@@ -169,8 +159,6 @@ Ao olhar o layout você não perceberá muita diferença, mas quando diminuir o 
 <!--EndFragment-->
 
 Agora temos uma galeria totalmente responsiva.
-
-
 
 ## Conclusão
 
@@ -181,8 +169,6 @@ Como foi mostrado neste artigo, com apenas 3 linhas de código criamos um layout
 [CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
 [MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/grid)
-
-
 
 Espero que tenha gostado. 
 
