@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: randysmachado/randys.dev
-  branch: main
+  branch: v1
   base_url: https://randys.dev/
   auth_endpoint: api/auth/ # Essa rota vai ser muito importante mais para frente
 
