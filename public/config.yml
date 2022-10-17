@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: randysmachado/netlify-cms-test
+  repo: randysmachado/randys.dev
   branch: main
-  base_url: https://netlify-cms-test-two.vercel.app/
+  base_url: https://randys.dev/
   auth_endpoint: api/auth/ # Essa rota vai ser muito importante mais para frente
 
 slug:
