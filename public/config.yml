@@ -1,13 +1,17 @@
 backend:
   name: github
-  repo: randysmachado/randys.dev
+  repo: randysmachado/netlify-cms-test
   branch: main
-  base_url: https://randys.dev/
-  auth_endpoint: api/auth/
+  base_url: https://netlify-cms-test-two.vercel.app/
+  auth_endpoint: api/auth/ # Essa rota vai ser muito importante mais para frente
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 publish_mode: editorial_workflow
-media_folder: "public/images" #images that are uploaded via Netlify Cms interface will be stored in this folder
-public_folder: "images" #I dont know
+media_folder: "public/images/uploads" #images that are uploaded via Netlify Cms interface will be stored in this folder
+public_folder: "/images/uploads" #I dont know
 
 collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
@@ -18,12 +22,8 @@ collections:
     fields: # The fields for front matter. You will need to modify fields according to your project.
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
-      - {label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss'}
       - {label: "Category", name: "category", widget: "select", options: ["JS", "CSS", "HTML", "Dev"]}
-      - {label: "Category Color", name: "color", widget: "select", options: [
-          {label: "JS", value: "#FEDC20"},
-          {label: "CSS", value: "#F26636"},
-          {label: "HTML", value: "#14A0DC"},
-          {label: "Dev", value: "#49E82F"}
-        ]}
+      - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["web"]}
+      - {label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+      - {label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss'}
       - {label: "Body", name: "body", widget: "markdown"}

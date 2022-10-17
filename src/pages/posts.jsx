@@ -1,10 +1,11 @@
 import { getAllPosts } from 'lib/posts'
-import Home from 'templates/Home'
 
-export default function Index({ homePosts }) {
+import ArticlesTemplate from 'templates/Articles'
+
+export default function Articles({ posts }) {
   return (
     <>
-      <Home homePosts={homePosts} />
+      <ArticlesTemplate posts={posts} title="Todas as postagens" />
     </>
   )
 }

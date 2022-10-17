@@ -1,27 +1,33 @@
-import { getAllPosts } from 'services/api'
+import { getAllPosts } from 'lib/posts'
 
-const generateSitemap = (data, origin) => {
-  let xml = ''
+const BLOG_URL = 'https://randys.dev'
 
-  data.map((page) => {
-    xml += `<url>
-      <loc>${origin + page.slug}</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
-      <priority>1.0</priority>
-    </url>`
-  })
-
+function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${xml}
-    </urlset>`
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${posts
+      .map(({ slug }) => {
+        return `
+      <url>
+          <loc>${`${BLOG_URL}/${slug}`}</loc>
+          <priority>0.3</priority>
+          <lastmod>${new Date().toISOString()}</lastmod>
+      </url>
+    `
+      })
+      .join('')}
+  </urlset>
+`
 }
 
+const SiteMap = () => {}
+
 export async function getServerSideProps({ res }) {
-  const data = getAllPosts()
+  const posts = getAllPosts(['slug'])
+  const sitemap = generateSiteMap(posts)
 
   res.setHeader('Content-Type', 'text/xml')
-  res.write(generateSitemap(data, 'http://randys.dev/'))
+  res.write(sitemap)
   res.end()
 
   return {
@@ -29,5 +35,4 @@ export async function getServerSideProps({ res }) {
   }
 }
 
-const SitemapIndex = () => null
-export default SitemapIndex
+export default SiteMap

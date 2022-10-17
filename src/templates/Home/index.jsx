@@ -1,35 +1,37 @@
 import { NextSeo } from 'next-seo'
 
-import PostsList from 'components/PostsList'
-import Profile from 'components/Profile'
+import { Container } from 'components/Container'
+import Hero from 'components/Hero'
+import PostList from 'components/PostsList'
+import Base from 'templates/Base'
 
-const HomeTemplate = ({ posts }) => {
-  return (
-    <>
-      <NextSeo
-        title="Olá, sou o Randys Machado"
-        description="Blog sobre desenvolvimento front-end escrito por Randys Machado"
-        canonical="https://randys.dev"
-        openGraph={{
-          url: 'https://randys.dev',
-          title: 'Olá, sou o Randys Machado',
-          description:
-            'Blog sobre desenvolvimento front-end escrito por Randys Machado.',
-          images: [
-            {
-              url: 'https://randys.dev/images/cover.png',
-              width: 1280,
-              height: 720,
-              alt: 'Olá, sou o Randys Machado'
-            }
-          ],
-          site_name: 'Olá, sou o Randys Machado'
-        }}
-      />
-      <Profile />
-      <PostsList posts={posts} />
-    </>
-  )
-}
+const Home = ({ homePosts }) => (
+  <Base>
+    <NextSeo
+      title="Randys Machado"
+      description="Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado."
+      canonical="https://randys.dev"
+      openGraph={{
+        url: 'https://randys.dev',
+        title: 'Randys Machado',
+        description:
+          'Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado.',
+        images: [
+          {
+            url: 'https://randys.dev/images/cover.png',
+            width: 1280,
+            height: 720,
+            alt: 'Randys Machado'
+          }
+        ],
+        site_name: 'Randys Machado'
+      }}
+    />
+    <Container>
+      <Hero />
+      <PostList posts={homePosts} title="Últimas postagens" active={true} />
+    </Container>
+  </Base>
+)
 
-export default HomeTemplate
+export default Home

@@ -1,0 +1,21 @@
+{
+  "name": "Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado.",
+  "short_name": "Blog sobre desenvolvimento web.",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#0A192F",
+  "description": "Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado.",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#0A192F"
+}
