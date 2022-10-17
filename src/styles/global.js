@@ -1,64 +1,176 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  :root {
-    --primary: #f7f7f7;
+  ${({ theme }) => css`
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''), url('../fonts/inter-v12-latin-300.woff2') format('woff2');
+    }
 
-    --profile-bg: #f1f1f1;
-    --profile-border: #e8e9ed;
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('../fonts/inter-v12-latin-regular.woff2') format('woff2');
+    }
 
-    --text: #838A97;
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: local(''), url('../fonts/inter-v12-latin-600.woff2') format('woff2');
+    }
 
-    --highlight: #5773ff;
+    @font-face {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('../fonts/ibm-plex-mono-v12-latin-300.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('../fonts/ibm-plex-mono-v12-latin-regular.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'IBM Plex Mono';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: local(''),
+        url('../fonts/ibm-plex-mono-v12-latin-600.woff2') format('woff2');
+    }
 
-    --white: #111827;
-  }
+    /* Box sizing rules */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-  [data-theme='dark'] {
-    --primary: #16181D;
+    /* Remove default margin */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+      margin: 0;
+    }
 
-    --profile-bg: #1C1E24;
-    --profile-border: #29353F;
+    /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+    ul[role='list'],
+    ol[role='list'] {
+      list-style: none;
+    }
 
-    --white: #f7f7f7;
-  }
+    /* To facilitate apply rem unity */
+    html {
+      font-size: 62.5%; // 10px
+    }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    /* Set core root defaults */
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
 
-  html {
-    font-size: 62.5%;
-  }
+    /* Set core body defaults */
+    body {
+      min-height: 100vh;
+      text-rendering: optimizeSpeed;
+      line-height: 1.5;
+    }
 
-  body {
-    background-color: var(--primary);
-    color: var(--white);
-    font-family: 'Jost', sans-serif;
-  }
+    /* A elements that don't have a class get default styles */
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
 
-  main {
-    height: 100vh;
-  }
+    /* Make images easier to work with */
+    img,
+    picture {
+      max-width: 100%;
+      display: block;
+    }
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+    img {
+      border-radius: ${theme.border.radius};
+    }
 
-  a {
-    text-decoration: none;
-  }
+    /* Inherit fonts for inputs and buttons */
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+    }
 
-  ul {
-    list-style-type: none;
-  }
+    /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto;
+      }
 
-  p {
-    font-size: 1.8rem;
-  }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Base */
+    body {
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.normal};
+      background-color: ${theme.colors.primary};
+      color: ${theme.colors.gray};
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: ${theme.colors.grayLight};
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: ${theme.colors.gray};
+    }
+
+    a:hover,
+    a:focus {
+      color: ${theme.colors.secondary};
+    }
+
+    p {
+      font-size: 1.8rem;
+      color: ${theme.colors.gray};
+    }
+  `}
 `
 export default GlobalStyles

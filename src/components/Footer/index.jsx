@@ -1,44 +1,21 @@
-import * as S from './styled'
+import Social from 'components/Social'
 
-const Footer = () => {
-  return (
-    <S.Footer>
-      <S.Links>
-        <li>
-          <a
-            href="https://twitter.com/randysmachado"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/randysmachado"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Github
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://instagram.com/randysmachado"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Instagram
-          </a>
-        </li>
-      </S.Links>
+import * as S from './styles'
 
-      <S.Copyright>
-        Desenvolvido com <a href="https://nextjs.org/">Next JS</a> e hospedado
-        na <a href="https://vercel.com/">Vercel</a>
-      </S.Copyright>
-    </S.Footer>
-  )
-}
+const Footer = () => (
+  <S.Footer>
+    <S.Copyright>
+      Criado por{' '}
+      <a
+        href="https://instagram.com/randysmachado"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Randys Machado
+      </a>
+    </S.Copyright>
+    <Social size={26} />
+  </S.Footer>
+)
 
 export default Footer

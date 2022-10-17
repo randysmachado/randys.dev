@@ -1,11 +1,13 @@
 import dynamic from 'next/dynamic'
 
+import * as S from './styles'
+
 const CMS_CONFIG = {}
 
 const Loading = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <p className="text-gray-500 font-semibold text-xl">Loading...</p>
-  </div>
+  <S.Wrapper>
+    <S.Text>Loading...</S.Text>
+  </S.Wrapper>
 )
 
 const CMS = dynamic(
