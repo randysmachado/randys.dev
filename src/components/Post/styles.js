@@ -15,6 +15,9 @@ export const Header = styled.header`
       color: ${theme.colors.secondary};
       font-size: ${theme.font.sizes.small};
       font-family: ${theme.font.fontMono};
+      background-color: ${theme.colors.secondaryHover};
+      padding: 0.2rem;
+      border-radius: ${theme.border.radius};
     }
   `}
 `
@@ -44,6 +47,9 @@ export const Footer = styled.footer`
       color: ${theme.colors.secondary};
       font-family: ${theme.font.fontMono};
       font-size: ${theme.font.sizes.small};
+      background-color: ${theme.colors.secondaryHover};
+      padding: 0.2rem;
+      border-radius: ${theme.border.radius};
     }
   `}
 `
