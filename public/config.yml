@@ -22,7 +22,7 @@ collections:
     fields: # The fields for front matter. You will need to modify fields according to your project.
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
-      - {label: "Category", name: "category", widget: "select", options: ["JS", "CSS", "HTML", "Dev"]}
+      - {label: "Category", name: "category", widget: "select", options: ["JavaScript", "CSS", "HTML", "Dev", "PHP", "WordPress", "React", "NodeJS", "NextJS", "JAMstack"]}
       - {label: "Tags", name: "tags", widget: "list", allow_add: true, default: ["web"]}
       - {label: 'Featured Image', name: 'thumbnail', widget: 'image' }
       - {label: 'Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD hh:mm:ss'}
