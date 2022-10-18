@@ -8,7 +8,8 @@ import Base from 'templates/Base'
 const Home = ({ homePosts }) => (
   <Base>
     <NextSeo
-      title="Randys Machado"
+      title="Home"
+      titleTemplate="%s | Randys Machado"
       description="Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado."
       canonical="https://randys.dev"
       openGraph={{

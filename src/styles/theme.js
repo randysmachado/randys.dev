@@ -7,10 +7,12 @@ export default {
   font: {
     family:
       "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    secondary: "'Plus Jakarta Sans'",
     fontMono: "'IBM Plex Mono', monospace",
     light: 300,
     normal: 400,
     bold: 600,
+    xbold: 800,
     sizes: {
       small: '1.4rem',
       normal: '1.6rem',
