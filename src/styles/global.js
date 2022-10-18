@@ -28,6 +28,28 @@ const GlobalStyles = createGlobalStyle`
     }
 
     @font-face {
+      font-family: 'Plus Jakarta Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local(''),
+        url('../fonts/plus-jakarta-sans-v3-latin-regular.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: local(''),
+        url('../fonts/plus-jakarta-sans-v3-latin-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      font-style: normal;
+      font-weight: 800;
+      src: local(''),
+        url('../fonts/plus-jakarta-sans-v3-latin-800.woff2') format('woff2');
+    }
+
+    @font-face {
       font-family: 'IBM Plex Mono';
       font-style: normal;
       font-weight: 300;
@@ -154,6 +176,8 @@ const GlobalStyles = createGlobalStyle`
     h5,
     h6 {
       color: ${theme.colors.grayLight};
+      overflow-wrap: break-word;
+      font-family: ${theme.font.secondary};
     }
 
     a {
@@ -168,7 +192,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
     p {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      line-height: 1.8;
+      overflow-wrap: break-word;
       color: ${theme.colors.gray};
     }
   `}

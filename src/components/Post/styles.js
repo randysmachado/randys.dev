@@ -23,9 +23,12 @@ export const Header = styled.header`
 `
 
 export const Title = styled.h1`
-  font-size: clamp(3.8rem, 7vw, 4.6rem);
-  line-height: 1.4;
-  margin-top: 1rem;
+  ${({ theme }) => css`
+    font-size: clamp(3.8rem, 7vw, 4.8rem);
+    line-height: 1.4;
+    margin-top: 1rem;
+    font-weight: ${theme.font.xbold};
+  `}
 `
 
 export const Description = styled.h2`

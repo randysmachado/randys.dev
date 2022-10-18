@@ -6,7 +6,8 @@ const Post = ({ post }) => {
   return (
     <S.Wrapper>
       <NextSeo
-        title={`${post.frontmatter.title} - Randys Machado`}
+        title={post.frontmatter.title}
+        titleTemplate="%s | Randys Machado"
         description={post.frontmatter.description}
         canonical="https://randys.dev"
         openGraph={{
