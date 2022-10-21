@@ -19,7 +19,7 @@ function App({ Component, pageProps }) {
       </Head>
       <DefaultSeo {...SEO} />
       <GlobalStyles />
-      <NextNProgress color="#64FFDA" />
+      <NextNProgress color="#2dd4bf" />
 
       <Component {...pageProps} />
     </ThemeProvider>

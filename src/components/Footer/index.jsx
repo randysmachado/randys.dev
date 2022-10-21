@@ -14,7 +14,7 @@ const Footer = () => (
         Randys Machado
       </a>
     </S.Copyright>
-    <Social size={26} />
+    <Social size={30} />
   </S.Footer>
 )
 

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { darken } from 'polished'
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
@@ -19,11 +20,9 @@ export const Wrapper = styled.section`
   `}
 `
 
-export const Title = styled.h2`
-  ${({ theme }) => css`
-    font-family: ${theme.font.fontMono};
-    margin-bottom: 4rem;
-  `}
+export const Title = styled.h3`
+  margin-bottom: 4rem;
+  font-size: 2.4rem;
 `
 
 export const Link = styled.a`
@@ -31,19 +30,18 @@ export const Link = styled.a`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: ${theme.colors.primaryLight};
     border-radius: 4px;
-    border-left: 4px solid ${theme.colors.secondary};
+    border: 2px solid ${theme.colors.border};
     transition: transform 0.2s;
     padding: 2rem;
     font-size: 2.2rem;
     transition: color 0.2s;
-    color: ${theme.colors.grayLight};
+    color: ${theme.colors.gray100};
     font-weight: ${theme.font.bold};
     width: 100%;
 
     &:hover {
-      box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+      box-shadow: 0 20px 30px -15px ${theme.colors.border};
       transform: translateY(-7px);
     }
   `}
@@ -53,12 +51,12 @@ export const Description = styled.h2`
   ${({ theme }) => css`
     font-size: 1.6rem;
     font-weight: ${theme.font.normal};
-    color: ${theme.colors.gray};
+    color: ${theme.colors.gray200};
     margin-top: 1rem;
   `}
 `
 
-export const Category = styled.h3`
+export const Category = styled.h4`
   ${({ theme }) => css`
     font-size: 1.4rem;
     font-weight: ${theme.font.light};
@@ -72,18 +70,18 @@ export const Button = styled.a`
   ${({ theme, active }) => css`
     display: ${active ? 'block' : 'none'};
     width: 24rem;
-    border: 2px solid ${theme.colors.secondary};
     border-radius: 4px;
-    color: ${theme.colors.secondary};
-    background-color: transparent;
-    padding: 2rem;
-    font-family: ${theme.font.fontMono};
+    color: ${theme.colors.primaryLight};
+    background-color: ${theme.colors.secondary};
+    padding: 1.2rem;
+    font-weight: ${theme.font.bold};
     margin: 6rem auto;
     transition: background 0.3s;
     text-align: center;
 
     &:hover {
-      background-color: ${theme.colors.secondaryHover};
+      background-color: ${darken(0.1, theme.colors.secondary)};
+      color: ${theme.colors.primaryLight};
     }
   `}
 `

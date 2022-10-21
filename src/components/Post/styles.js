@@ -91,7 +91,7 @@ export const Content = styled.div`
 
     strong {
       font-weight: ${theme.font.bold};
-      color: ${theme.colors.grayLight};
+      color: ${theme.colors.gray100};
     }
 
     blockquote {

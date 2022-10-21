@@ -165,7 +165,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.normal};
       background-color: ${theme.colors.primary};
-      color: ${theme.colors.gray};
+      color: ${theme.colors.gray200};
       overflow-x: hidden;
     }
 
@@ -175,7 +175,7 @@ const GlobalStyles = createGlobalStyle`
     h4,
     h5,
     h6 {
-      color: ${theme.colors.grayLight};
+      color: ${theme.colors.gray100};
       overflow-wrap: break-word;
       font-family: ${theme.font.secondary};
     }
@@ -183,7 +183,7 @@ const GlobalStyles = createGlobalStyle`
     a {
       cursor: pointer;
       text-decoration: none;
-      color: ${theme.colors.gray};
+      color: ${theme.colors.gray200};
     }
 
     a:hover,
@@ -195,7 +195,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 2rem;
       line-height: 1.8;
       overflow-wrap: break-word;
-      color: ${theme.colors.gray};
+      color: ${theme.colors.gray200};
     }
   `}
 `
