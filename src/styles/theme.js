@@ -20,12 +20,13 @@ export default {
     }
   },
   colors: {
-    primary: '#0A192F',
-    primaryLight: '#112240',
-    secondary: '#64FFDA',
+    primary: '#222326',
+    primaryLight: '#292A2E',
+    secondary: '#2dd4bf',
     secondaryHover: 'rgba(100,255,218,0.1)',
-    grayLight: '#CCD6F6',
-    gray: '#8892b0'
+    gray100: '#ededed',
+    gray200: '#a6a7ab',
+    border: 'rgba(63, 63, 70, 0.5)'
   },
   border: {
     radius: '0.4rem'

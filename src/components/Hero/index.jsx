@@ -10,7 +10,7 @@ const Hero = () => (
       <h1>Randys Machado.</h1>
       <h2>Desenvolvedor Web.</h2>
 
-      <Social size={30} />
+      <Social size={36} />
     </S.Text>
 
     <S.Image>

@@ -18,10 +18,10 @@ export const Wrapper = styled.section`
 export const Text = styled.div`
   ${({ theme }) => css`
     span {
-      font-family: ${theme.font.fontMono};
       color: ${theme.colors.secondary};
       margin-bottom: 0.8rem;
       display: block;
+      letter-spacing: 0.1rem;
     }
 
     h1 {
@@ -31,7 +31,7 @@ export const Text = styled.div`
 
     h2 {
       font-size: clamp(2rem, 5vw, 4rem);
-      color: ${theme.colors.gray};
+      color: ${theme.colors.gray200};
     }
   `}
 `
