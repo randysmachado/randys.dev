@@ -1,30 +1,31 @@
 ---
 title: "Backstage: Introdução"
-description: Porque eu criei este blog
+description: Porque eu criei este blog e como ele pode me ajudar na minha vida
+  pessoal e profissional
 category: Dev
 tags:
   - Desenvolvimento
   - Web
   - Blog
-thumbnail: /images/uploads/pexels-antonio-batinić-4164418.jpg
+thumbnail: /images/uploads/backstage-intro.png
 date: 2022-10-17 10:54:52
 ---
-B﻿om, vamos lá. Por onde eu começo? Vamos pelo começo.
+Sejam bem vindos ao meu blog. 
 
-Oi, me chamo Randys Machado e sou um desenvolvedor web. Não vou falar sobre mim aqui, caso esteja curioso(a) para saber mais só clicar [aqui](https://randys.dev/sobre) 😉.
+Neste primeiro post quero explicar porque criei um blog e como isso me ajuda na minha vida pessoal e profissional.
 
-Neste primeiro post quero explicar o motivo de ter criado um blog para escrever sobre desenvolvimento web e outros assuntos que acho interessante.
+O principal motivo é praticar o que estou estudando e trabalhando. Eu utilizo uma metodologia de sempre escrever algo sobre o que estou estudando e tento escrever como se eu estivesse explicando o assunto para uma pessoa que tenha pouco conhecimento e de forma simples, assim eu consigo fixar melhor o conteúdo. Essa é uma metodologia que muitas pessoas utilizam.
 
-Primeiramente o blog servirá de estudos, pois será aqui o local onde colocarei em prática tudo que estou estudando no momento, tanto escrevendo sobre o assunto quanto implementando novas funcionalidades, porque ainda estudo bastante e não tenho a experiência dos devs que vemos por aí 😅.  Aqui será um laboratório por assim dizer 😆.
+Eu criei o blog do zero utilizando diversas tecnologias como? React, NextJS, Styled Components, NetlifyCMS dentre outras. Apesar de já trabalhar com a maioria dessas tecnologias eu aprendi diversas outras coisas que foram necessárias para que o blog funcionasse como deveria e isso é enriquecedor.
 
-Outro ponto é que pretendo praticar a minha escrita, eu leio muito e sempre gostei de escrever e de uns tempos para cá isso foi se perdendo, então com o blog pretendo voltar com o antigo hábito. 
+Como eu tento escrever como se fosse explicar para uma pessoa que tem pouco conhecimento, outra coisa que preciso aperfeiçoar é minha escrita, apesar de ler bastante eu tenho muitos vícios na hora que vou escrever e só conseguimos melhorar praticando.
 
-Referente aos assuntos, quero escrever sobre minha experiências no trabalho, sobre o que estou estudando, algumas dicas sobre determinada tecnologia, snippets de código estilo “Como fazer…”. Quero de alguma forma ajudar outras pessoas que assim como eu tem e já teve dificuldade de aprender algo.
+Quero escrever sobre desenvolvimento web, tecnologias e demais assuntos que considero interessantes, além de criar tutoriais que possam ajudar outros desenvolvedores que estão começando e querem aprender algo novo ou até mesmo que tem dificuldades sobre determinado assunto.
 
-Não quero me estender muito, só queria falar um sobre o motivo que me veio a criar este blog.
+Enfim, não quero me estender muito, mas como vocês viram será um blog pessoal e profissional. Espero aprender muito com ele e quem sabe ajudar outras pessoas.
 
-Espero que cutam.
+Espero que curtam!
 
-Caso encontre algum bug, erro de escrita ou alguma outra coisa pode entrar em contato comigo nas minhas redes sociais e reportar. Eu ainda não coloquei um sistema de comentários estou analisando algumas opções.
+**P.S.:** Caso encontre algum bug, erro de escrita ou alguma outra coisa pode entrar em contato comigo através nas minhas redes sociais e reportar, pois não adicionei um sistema de comentários ainda estou analisando algumas opções.
 
 Grande abraço!
