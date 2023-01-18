@@ -191,11 +191,19 @@ const GlobalStyles = createGlobalStyle`
       color: ${theme.colors.secondary};
     }
 
-    p {
+    p,
+    li {
       font-size: 2rem;
       line-height: 1.8;
       overflow-wrap: break-word;
       color: ${theme.colors.gray200};
+    }
+
+    li {
+      &::marker {
+        color: ${theme.colors.secondary};
+        font-size: 2.4rem;
+      }
     }
   `}
 `
