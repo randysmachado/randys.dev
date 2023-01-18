@@ -1,6 +1,6 @@
 ---
 title: Você realmente sabe HTML e CSS?
-description: Uma pergunta que vai te ajudar para tudo que for fazer na vida.
+description: Uma pergunta que vai te ajudar para tudo que você for fazer na vida.
 category: Dev
 tags:
   - Desenvolvimento
@@ -37,7 +37,7 @@ Imagine esse cenário, uma pessoa chega até você querendo um site em HTML e CS
 
 Vejo muitas pessoas que estão começando e já querem dar passos maiores que as pernas e isso só vai te deixar frustrado, assim como eu fiquei, tanto que eu desisti por um tempo de aprender programação. 
 
-> Não pule etapas, estude, pratique bastante, aperfeiçoe, depois dê o próximo passo.
+> Não pule etapas. Estude, pratique bastante, aperfeiçoe, depois dê o próximo passo.
 
 Espero que esse pequeno post/testemunho tenha te ajudado de alguma forma.
 
