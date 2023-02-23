@@ -10,6 +10,16 @@ export const Footer = styled.footer`
   text-align: center;
 `
 
+export const Spotify = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  svg {
+    margin-right: 1rem;
+  }
+`
+
 export const Copyright = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
