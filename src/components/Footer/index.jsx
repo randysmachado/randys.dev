@@ -19,7 +19,6 @@ const Footer = () => {
           : 'Nada Tocando'}
       </S.Spotify>
 
-      {console.log(playing)}
       <S.Copyright>
         Criado por{' '}
         <a
