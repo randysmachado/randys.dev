@@ -13,7 +13,7 @@ export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 10rem;
+  min-height: 6rem;
 `
 
 export const Logo = styled.div`

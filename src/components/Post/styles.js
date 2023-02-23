@@ -4,7 +4,8 @@ export const Wrapper = styled.article`
   ${({ theme }) => css`
     max-width: 96rem;
     margin: 0 auto;
-    padding: calc(${theme.grid.gutter} / 2) ${theme.grid.gutter};
+    padding-left: calc(${theme.grid.gutter} / 2);
+    padding-right: calc(${theme.grid.gutter} / 2);
   `}
 `
 
@@ -61,11 +62,25 @@ export const Content = styled.div`
   ${({ theme }) => css`
     h2,
     h3 {
-      margin: 2rem 0;
+      margin-top: 4rem;
+      margin-bottom: 0.875rem;
+    }
+
+    h2 {
+      font-size: clamp(3rem, 8vw, 3.8rem);
+    }
+
+    h3 {
+      font-size: clamp(2rem, 8vw, 2.6rem);
     }
 
     p {
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 2.2rem;
     }
 
     a {
