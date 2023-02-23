@@ -9,15 +9,15 @@ tags:
 thumbnail: /images/uploads/procrastinar.png
 date: 2023-02-22 10:20:43
 ---
-Você já deixou de fazer uma tarefa por preguiça ou por estar cansado? Já se culpou por não ter feito algo? Ou já sentou para estudar, mas até uma sujeira na parede parece ser mais interessante? Se você respondeu sim para todas as essas perguntas, não se desespere você não está sozinho nessa, é algo natural do ser humano perder o foco ao fazer certas tarefas por serem desagradáveis e tediantes e isso se chama Procrastinação.
+Você já deixou de fazer uma tarefa por preguiça ou por estar cansado? Já se culpou por não ter feito algo? Ou já sentou para estudar, mas até uma sujeira na parede parece ser mais interessante? Se você respondeu **sim** para todas as essas perguntas, não se desespere você não está sozinho nessa, é algo natural do ser humano perder o foco ao fazer certas tarefas por serem desagradáveis e tediantes e isso se chama Procrastinação.
 
-Eu trabalho Home Office e meu local de trabalho é no meu quarto, local onde eu durmo e descanso então vocês já tem uma noção de como é difícil não perder o foco no trabalho, pois basta olhar para trás que já vejo minha cama e parece que ela está sempre me chamando.
+Eu trabalho Home Office e meu local de trabalho é no meu quarto, local onde eu durmo e descanso então vocês já tem uma noção de como é difícil não perder o foco no trabalho, pois basta olhar para trás que já vejo minha cama e parece que ela está sempre me chamando. 
 
 Esse ano eu resolvi me dedicar a escrever neste no blog, então comecei a adotar umas técnicas que pesquisei e que estão me ajudando bastante a cumprir minha rotina de trabalho, escrever, ler dentre outras coisas.
 
 ## Técnica Pomodoro
 
-A técnica Pomodoro foi criada no final dos anos de 1980 por Francesco Cirillo. É um método de gerenciamento de tempo que utiliza um cronômetro para dividir o trabalho em pequenos períodos e intervalos. Normalmente é utilizado 25 minutos de foco em uma tarefa específica, depois há um leve intervalo e depois repete o ciclo.
+A [técnica Pomodoro](https://francescocirillo.com/products/the-pomodoro-technique) foi criada no final dos anos de 1980 por Francesco Cirillo. É um método de gerenciamento de tempo que utiliza um cronômetro para dividir o trabalho em pequenos períodos e intervalos. Normalmente é utilizado 25 minutos de foco em uma tarefa específica, depois há um leve intervalo e depois repete o ciclo.
 
 ### Como utilizar?
 
@@ -31,10 +31,10 @@ A técnica Pomodoro foi criada no final dos anos de 1980 por Francesco Cirillo. 
 ### Links de referência
 
 * [Site oficial](https://francescocirillo.com/products/the-pomodoro-technique) - Site oficial que explica com detalhes (em Inglês)
-* <https://pomotodo.com/> - aplicativo online
+* ﻿[Pomotodo](https://pomotodo.com/) [](https://pomotodo.com/)- Aplicativo online
 * [PowerPom](https://apps.microsoft.com/store/detail/powerpom-pomodoro-cron%C3%B4metro/9P5ZSCL5QC8W?hl=pt-br&gl=br) - App paro Windows
 * [Pomodoro Timer](https://play.google.com/store/apps/details?id=com.pomodrone.app&hl=pt_BR&gl=US) - App para Android
-* [Tirinha que explica o método](http://mel-meow.com/uma-longa-noite-aprendendo/) - simplesmente genial
+* [Tirinha que explica o método](http://mel-meow.com/uma-longa-noite-aprendendo/) - Simplesmente genial
 
 ## Getting Things Done (GTD)
 
@@ -42,11 +42,11 @@ Foi criado por David Allen no seu livro “A arte de fazer acontecer”, onde el
 
 ### Como funciona?
 
-* Coletar - utilize um caderno, aplicativo ou qualquer local confiável para anotar as ideias, atividades que for fazer
-* Processar - avalie o que deve ser feito, adicione prioridades e elimine o que não for fazer
-* Organizar - organize as tarefas e adicione categorias como: trabalho, financeiro, pessoal, lazer…
-* Revisar - depois que organizar revise todas as tarefas e suas prioridades, fazer esse processo constantemente
-* Fazer - simplesmente faça!
+* **Coletar** - utilize um caderno, aplicativo ou qualquer local confiável para anotar as ideias, atividades que for fazer
+* **Processar** - avalie o que deve ser feito, adicione prioridades e elimine o que não for fazer
+* **Organizar** - organize as tarefas e adicione categorias como: trabalho, financeiro, pessoal, lazer…
+* **Revisar** - depois que organizar revise todas as tarefas e suas prioridades, fazer esse processo constantemente
+* **Fazer** - simplesmente faça!
 
 ### Links de referência
 
@@ -55,9 +55,9 @@ Foi criado por David Allen no seu livro “A arte de fazer acontecer”, onde el
 
 ## Contrato de Hábito Semanal
 
-Este método eu descobri através de uma newsletter que eu assino sobre conteúdos WordPress chamada Painel WP que eu super indico.
+Este método eu descobri através de uma newsletter que eu assino sobre conteúdos WordPress chamada [PainelWP](https://www.painelwp.com.br/) que eu super indico.
 
-Ela foi criada pelo Daniel Kossmann baseado no livro Hábitos Atômicos de James Clear.
+Ela foi criada pelo Daniel Kossmann baseado no livro "Hábitos Atômicos" de James Clear.
 
 ### Como funciona?
 
