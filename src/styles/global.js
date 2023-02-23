@@ -194,7 +194,7 @@ const GlobalStyles = createGlobalStyle`
     p,
     li {
       font-size: 2rem;
-      line-height: 1.8;
+      line-height: 1.6;
       overflow-wrap: break-word;
       color: ${theme.colors.gray200};
     }

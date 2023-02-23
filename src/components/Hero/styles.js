@@ -8,7 +8,8 @@ export const Wrapper = styled.section`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 30px;
-  margin: 8rem 0;
+  margin-top: 4rem;
+  margin-bottom: 8rem;
 
   ${media.greaterThan('medium')`
     justify-content: space-between;
@@ -25,12 +26,12 @@ export const Text = styled.div`
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
+      font-size: clamp(3rem, 10vw, 6rem);
       line-height: 1.2;
     }
 
     h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
       color: ${theme.colors.gray200};
     }
   `}

@@ -4,7 +4,7 @@ export const Wrapper = styled.article`
   ${({ theme }) => css`
     max-width: 96rem;
     margin: 0 auto;
-    padding: calc(${theme.grid.gutter} / 2) ${theme.grid.gutter};
+    padding: calc(${theme.grid.gutter} / 2);
   `}
 `
 

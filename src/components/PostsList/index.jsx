@@ -18,7 +18,7 @@ const PostList = ({ posts, title, active }) => (
                 layout="responsive"
                 alt={post.frontmatter.title}
               />
-              {post.frontmatter.title}
+              <span>{post.frontmatter.title}</span>
               <S.Description>{post.frontmatter.description}</S.Description>
               <S.Category>{post.frontmatter.category}</S.Category>
             </S.Link>

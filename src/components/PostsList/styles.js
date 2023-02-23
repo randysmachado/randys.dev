@@ -1,11 +1,16 @@
 import styled, { css } from 'styled-components'
 import { darken } from 'polished'
+import { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  mobile: '680px'
+})
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
     ul {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: calc(${theme.grid.gutter} / 2);
       list-style: none;
       padding: 0;
@@ -15,6 +20,12 @@ export const Wrapper = styled.section`
         display: flex;
         justify-content: center;
         transition: transform 0.2s;
+
+        ${customMedia.lessThan('mobile')`
+          &:not(:first-child) {
+            margin-top: 2rem;
+          }
+        `}
       }
     }
   `}
@@ -39,6 +50,10 @@ export const Link = styled.a`
     color: ${theme.colors.gray100};
     font-weight: ${theme.font.bold};
     width: 100%;
+
+    span {
+      margin-top: 1rem;
+    }
 
     &:hover {
       box-shadow: 0 20px 30px -15px ${theme.colors.border};
