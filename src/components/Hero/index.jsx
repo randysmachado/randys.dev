@@ -21,6 +21,7 @@ const Hero = () => (
           width={250}
           height={250}
           layout="responsive"
+          priority
         />
       </S.Avatar>
     </S.Image>

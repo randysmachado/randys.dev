@@ -13,6 +13,7 @@ const Social = ({ size }) => (
         href="https://www.github.com/randysmachado/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Veja meu perfil no Github"
       >
         <AiFillGithub size={size} />
       </a>
@@ -21,6 +22,7 @@ const Social = ({ size }) => (
       <a
         href="https://www.instagram.com/randysmachado/"
         target="_blank"
+        aria-label="Veja meu perfil no Instagram"
         rel="noopener noreferrer"
       >
         <AiOutlineInstagram size={size} />
@@ -30,6 +32,7 @@ const Social = ({ size }) => (
       <a
         href="https://www.twitter.com/randysmachado/"
         target="_blank"
+        aria-label="Veja meu perfil no Twitter"
         rel="noopener noreferrer"
       >
         <AiOutlineTwitter size={size} />
