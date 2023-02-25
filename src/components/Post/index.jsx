@@ -16,7 +16,7 @@ const Post = ({ post }) => {
           description: post.frontmatter.description,
           images: [
             {
-              url: post.frontmatter.thumbnail,
+              url: `https://randys.dev${post.frontmatter.thumbnail}`,
               alt: post.frontmatter.title
             }
           ]
@@ -30,6 +30,7 @@ const Post = ({ post }) => {
             layout="responsive"
             width={960}
             height={400}
+            priority
             alt={post.frontmatter.title}
           />
         </S.FeatureImage>

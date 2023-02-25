@@ -31,6 +31,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: 'Plus Jakarta Sans';
       font-style: normal;
       font-weight: 400;
+      font-display: swap;
       src: local(''),
         url('../fonts/plus-jakarta-sans-v3-latin-regular.woff2') format('woff2');
     }
@@ -38,6 +39,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: 'Plus Jakarta Sans';
       font-style: normal;
       font-weight: 600;
+      font-display: swap;
       src: local(''),
         url('../fonts/plus-jakarta-sans-v3-latin-600.woff2') format('woff2');
     }
@@ -45,6 +47,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: 'Plus Jakarta Sans';
       font-style: normal;
       font-weight: 800;
+      font-display: swap;
       src: local(''),
         url('../fonts/plus-jakarta-sans-v3-latin-800.woff2') format('woff2');
     }
