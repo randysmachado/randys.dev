@@ -43,6 +43,11 @@ const Navbar = () => {
               <a>Blog</a>
             </Link>
           </S.MenuItems>
+          <S.MenuItems>
+            <Link href="/uso">
+              <a>Meu setup</a>
+            </Link>
+          </S.MenuItems>
         </S.MenuList>
       </S.Navbar>
     </S.Wrapper>

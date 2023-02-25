@@ -1,13 +1,19 @@
 import styled, { css } from 'styled-components'
 
 export const Footer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  ${({ theme }) => css`
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: ${theme.grid.gutter} calc(${theme.grid.gutter} / 2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-  padding: 2rem;
-  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  `}
 `
 
 export const Spotify = styled.div`
