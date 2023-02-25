@@ -97,8 +97,9 @@ Show, não é?
 
 Viram como é simples e interessante adicionar comentários inteligentes no seu código JavaScript? E você não precisa se limitar somente em `@param` ou `@returns` há diversas outras tags para você usar e abusar, é só olhar na documentação do [JSDoc](https://jsdoc.app/index.html#block-tags).
 
-
 Claro que isso não seria necessário se você estivesse utilizando TypeScript. Mas às vezes você ainda não sabe TypeScript ou o projeto seja em JavaScript.
 
 Espero que tenham gostado dessa dica.
+
+
 Grande abraço.
