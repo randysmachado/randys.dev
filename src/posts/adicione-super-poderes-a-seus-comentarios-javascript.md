@@ -54,7 +54,7 @@ Além do mais o VS Code continuaria informando que os valores são do tipo `any`
 É neste momento que você vai dar super poder a seus comentários utilizando a API de documentação do JavaScript o [JSDoc](https://jsdoc.app/).
 Na nossa função podemos adicionar a tag `@param` no comentário, informando o tipo de parâmetro que será recebido na função.
 
-> Agora os comentários devem ser adicionados antes do código documentado e começar com a seguinte sequência /\*\***.** Comentáro começando com /\* \*, /\*\** serão ignorados.
+> Agora os comentários devem ser adicionados antes do código documentado e começar com a seguinte sequência `/**`**.** Comentáro começando com `/**`, `/***` serão ignorados.
 
 ```javascript
 /**
@@ -91,7 +91,7 @@ Perceba que adicionei outra tag `@param` para o `lastName` e na frente adicionei
 
 ![Código JavaScript de uma função que retorna o nome completo de um usuário](/images/uploads/code-3.png "Código JavaScript de uma função que retorna o nome completo de um usuário")
 
-Show, não é?
+Show!, não é?
 
 ## Conclusão
 
