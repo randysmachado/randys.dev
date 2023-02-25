@@ -31,9 +31,14 @@ export const Wrapper = styled.section`
   `}
 `
 
-export const Title = styled.h3`
-  margin-bottom: 4rem;
-  font-size: 2.4rem;
+export const Title = styled.span`
+  ${({ theme }) => css`
+    display: block;
+    margin-bottom: 4rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: ${theme.colors.gray100};
+  `}
 `
 
 export const Link = styled.a`
@@ -71,7 +76,7 @@ export const Description = styled.h2`
   `}
 `
 
-export const Category = styled.h4`
+export const Category = styled.h3`
   ${({ theme }) => css`
     font-size: 1.4rem;
     font-weight: ${theme.font.light};

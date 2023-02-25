@@ -16,8 +16,11 @@ const PostList = ({ posts, title, active }) => (
                 width={500}
                 height={200}
                 layout="responsive"
+                objectFit="cover"
+                priority
                 alt={post.frontmatter.title}
               />
+
               <span>{post.frontmatter.title}</span>
               <S.Description>{post.frontmatter.description}</S.Description>
               <S.Category>{post.frontmatter.category}</S.Category>
