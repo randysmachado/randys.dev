@@ -101,5 +101,4 @@ Claro que isso não seria necessário se você estivesse utilizando TypeScript. 
 
 Espero que tenham gostado dessa dica.
 
-
 Grande abraço.
