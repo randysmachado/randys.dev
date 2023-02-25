@@ -6,7 +6,6 @@ tags:
   - web
   - javascript
   - comentários
-  - ""
 thumbnail: /images/uploads/super-poderes.png
 date: 2023-02-25 12:45:35
 ---
