@@ -18,7 +18,7 @@ const Navbar = () => {
       <S.Navbar>
         <S.Logo>
           <Link href="/">
-            <a>
+            <a aria-label="Página inicial">
               <Logo />
             </a>
           </Link>
