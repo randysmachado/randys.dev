@@ -36,6 +36,7 @@ export const Description = styled.h2`
   ${({ theme }) => css`
     font-size: clamp(1.8rem, 3vw, 2rem);
     font-weight: ${theme.font.normal};
+    margin-top: 2rem;
     margin-bottom: 4rem;
   `}
 `
@@ -83,6 +84,10 @@ export const Content = styled.div`
       padding-left: 2.2rem;
     }
 
+    img {
+      margin: 3rem 0;
+    }
+
     a {
       color: ${theme.colors.secondary};
       position: relative;
@@ -110,15 +115,19 @@ export const Content = styled.div`
     }
 
     blockquote {
-      border-left: 3px solid ${theme.colors.secondary};
+      border-left: 5px solid ${theme.colors.secondary};
       background-color: ${theme.colors.primaryLight};
       border-radius: ${theme.border.radius};
-      padding: 1rem;
+      padding: 3rem;
       margin-bottom: 2rem;
 
       p {
         margin: 0;
       }
+    }
+
+    .remark-highlight {
+      margin: 3rem 0;
     }
 
     /* Prism Dracula theme */
