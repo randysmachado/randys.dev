@@ -2,7 +2,13 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Wrapper = styled.header`
-  padding: 0 4.8rem;
+  ${({ theme }) => css`
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc(${theme.grid.gutter} / 2);
+    /* padding-right: calc(${theme.grid.gutter} / 2); */
+  `}
 
   ${media.lessThan('small')`
     padding: 0 2rem;
@@ -66,7 +72,6 @@ export const MenuList = styled.ul`
 
 export const MenuItems = styled.li`
   list-style: none;
-  width: 100%;
   padding: 1rem;
 
   a {

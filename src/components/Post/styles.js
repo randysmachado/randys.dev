@@ -6,6 +6,7 @@ export const Wrapper = styled.article`
     margin: 0 auto;
     padding-left: calc(${theme.grid.gutter} / 2);
     padding-right: calc(${theme.grid.gutter} / 2);
+    margin-bottom: 8rem;
   `}
 `
 
