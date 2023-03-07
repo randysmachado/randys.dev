@@ -14,9 +14,17 @@ const Footer = () => {
     <S.Footer>
       <S.Spotify>
         <BsSpotify size={32} color="#2dd4bf" />
-        {playing?.isPlaying
-          ? `${playing.artist} - ${playing.title}`
-          : 'Nada Tocando'}
+        {playing?.isPlaying ? (
+          <a
+            href={playing.songUrl}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            {playing.artist} - {playing.title}
+          </a>
+        ) : (
+          'Nada Tocando'
+        )}
       </S.Spotify>
 
       <S.Copyright>

@@ -17,13 +17,24 @@ export const Footer = styled.footer`
 `
 
 export const Spotify = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 3rem;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
 
-  svg {
-    margin-right: 1rem;
-  }
+    a {
+      position: relative;
+      transition: 0.2s;
+
+      &:hover {
+        color: ${theme.colors.secondary};
+      }
+    }
+
+    svg {
+      margin-right: 1rem;
+    }
+  `}
 `
 
 export const Copyright = styled.p`

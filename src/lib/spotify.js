@@ -5,7 +5,7 @@ const basic = Buffer.from(
 ).toString('base64')
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
-const getAccessToken = async () => {
+export const getAccessToken = async () => {
   const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -26,11 +26,18 @@ const getAccessToken = async () => {
 export const topTracks = async () => {
   const { access_token } = await getAccessToken()
 
-  return fetch('https://api.spotify.com/v1/me/top/tracks?limit=10', {
-    headers: {
-      Authorization: `Bearer ${access_token}`
+  const response = await fetch(
+    'https://api.spotify.com/v1/me/top/tracks?limit=10',
+    {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
     }
-  })
+  )
+  const { items } = await response.json()
+  console.log('items > ', items)
+
+  return items
 }
 
 export const topArtists = async () => {
