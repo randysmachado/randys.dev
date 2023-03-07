@@ -1,5 +1,5 @@
 {
-  "name": "Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado.",
+  "name": "Blog sobre Desenvolvimento Web e Tecnologia | Dicas, Tutoriais sobre HTML, CSS, JavaScript, NextJS, React, WordPress, PHP  | Escrito por Randys Machado",
   "short_name": "Randys Machado Blog.",
   "icons": [
     {
@@ -16,7 +16,7 @@
     }
   ],
   "background_color": "#222326",
-  "description": "Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado.",
+  "description": "Blog sobre Desenvolvimento Web e Tecnologia | Dicas, Tutoriais sobre HTML, CSS, JavaScript, NextJS, React, WordPress, PHP  | Escrito por Randys Machado",
   "display": "fullscreen",
   "start_url": "/",
   "theme_color": "#222326"

@@ -10,13 +10,13 @@ const AboutTemplate = () => (
     <NextSeo
       title="Sobre mim"
       titleTemplate="%s | Randys Machado"
-      description="Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado."
+      description="Blog sobre Desenvolvimento Web e Tecnologia | Dicas, Tutoriais sobre HTML, CSS, JavaScript, NextJS, React, WordPress, PHP  | Escrito por Randys Machado"
       canonical="https://randys.dev"
       openGraph={{
         url: 'https://randys.dev',
         title: 'Randys Machado',
         description:
-          'Blog sobre desenvolvimento web e outras coisas. Escrito por Randys Machado.',
+          'Blog sobre Desenvolvimento Web e Tecnologia | Dicas, Tutoriais sobre HTML, CSS, JavaScript, NextJS, React, WordPress, PHP  | Escrito por Randys Machado',
         images: [
           {
             url: 'https://randys.dev/images/cover.png',
