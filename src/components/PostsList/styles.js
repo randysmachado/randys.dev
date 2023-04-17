@@ -32,7 +32,7 @@ export const Wrapper = styled.section`
   `}
 `
 
-export const Title = styled.h1`
+export const Title = styled.span`
   ${({ theme }) => css`
     display: block;
     margin-bottom: 4rem;
