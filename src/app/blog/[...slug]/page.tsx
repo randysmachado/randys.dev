@@ -6,6 +6,7 @@ import { MDXContent } from '@/components/mdx-components'
 
 import '@/styles/mdx.css'
 import { siteConfig } from '@/config/site'
+import { Tag } from '@/components/tags'
 
 interface PostPageProps {
   params: {
@@ -73,6 +74,11 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="container py-6 max-w-3xl mx-auto prose prose-inline-code:text-blue-500 prose-inline-code:rounded prose-inline-code:border prose-inline-code:before:content-['`'] prose-inline-code:before:text-black prose-inline-code:before:font-normal prose-inline-code:after:content-['`'] prose-inline-code:after:text-black prose-inline-code:after:font-normal dark:prose-inline-code:before:text-white dark:prose-inline-code:after:text-white dark:prose-invert">
       <h1 className="mb-2">{post.title}</h1>
+      <div className="flex gap-2 mb-2">
+        {post.tags?.map((tag) => (
+          <Tag key={tag} tag={tag} />
+        ))}
+      </div>
       {post.description ? (
         <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
       ) : null}
