@@ -1,20 +1,28 @@
-export function Analytics() {
+import Script from 'next/script'
+import * as gtag from '@/lib/gtag'
+
+export function GoogleAnalytics() {
+  //You can show in the console the GA_TRACKING_ID to confirm
+  // console.log(gtag.GA_TRACKING_ID)
+
   return (
     <>
-      <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING}`}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
-      <script
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING}', {
-              page_path: window.location.pathname,
-            });
-          `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${gtag.GA_TRACKING_ID}', {
+                    page_path: window.location.pathname,
+                    });
+                  `
         }}
       />
     </>
