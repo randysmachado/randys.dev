@@ -9,6 +9,7 @@ import { siteConfig } from '@/config/site'
 import { Footer } from '@/components/footer'
 
 import './globals.css'
+import { GoogleAnalytics } from '@/components/analytics'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -41,6 +42,7 @@ export default function RootLayout({
           inter.variable
         )}
       >
+        <GoogleAnalytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -53,6 +55,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        {/* <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GA_TRACKING}`} /> */}
       </body>
     </html>
   )
