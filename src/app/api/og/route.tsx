@@ -1,12 +1,9 @@
 import { NextRequest } from 'next/server'
 import { ImageResponse } from 'next/og'
+
 import { siteConfig } from '@/config/site'
 
 export const runtime = 'edge'
-
-const interBold = fetch(
-  new URL('../../../assets/fonts/Inter-Bold.ttf', import.meta.url)
-).then((res) => res.arrayBuffer())
 
 const interRegular = fetch(
   new URL('../../../assets/fonts/Inter-Regular.ttf', import.meta.url)
@@ -14,7 +11,6 @@ const interRegular = fetch(
 
 export async function GET(req: NextRequest) {
   try {
-    const fontBold = await interBold
     const fontRegular = await interRegular
 
     const { searchParams } = req.nextUrl
@@ -83,12 +79,6 @@ export async function GET(req: NextRequest) {
         width: 1200,
         height: 630,
         fonts: [
-          {
-            name: 'Inter',
-            data: fontBold,
-            style: 'normal',
-            weight: 700
-          },
           {
             name: 'Inter',
             data: fontRegular,
