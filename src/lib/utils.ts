@@ -49,7 +49,6 @@ export function getPostsByTagSlug(posts: Post[], tag: string) {
     if (!post.tags) return false
 
     const slugfiedTags = post.tags.map((tag) => slugify(tag))
-    console.log('🚀 ~ slugfiedTags > ', slugfiedTags)
     return slugfiedTags.includes(tag)
   })
 }
