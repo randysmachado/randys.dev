@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 
 import { posts } from '#site/content'
 import { siteConfig } from '@/config/site'
+import { getAllTags, sortTagsByCount } from '@/lib/utils'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapPost: MetadataRoute.Sitemap = posts.map((post) => {
@@ -10,6 +11,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
       changeFrequency: 'daily',
       lastModified: post.date
+    }
+  })
+  const tags = getAllTags(posts)
+  const sortedTags = sortTagsByCount(tags)
+
+  const sitemapPostTags: MetadataRoute.Sitemap = sortedTags.map((tag) => {
+    return {
+      url: `${siteConfig.url}/tags/${tag}`,
+      priority: 1.0,
+      changeFrequency: 'daily'
     }
   })
 
@@ -26,6 +37,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       lastModified: new Date()
     },
-    ...sitemapPost
+    {
+      url: `${siteConfig.url}/tags`,
+      priority: 1.0,
+      changeFrequency: 'daily',
+      lastModified: new Date()
+    },
+    ...sitemapPost,
+    ...sitemapPostTags
   ]
 }
