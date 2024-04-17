@@ -2,6 +2,8 @@ import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 import { Post } from '#site/content'
+import { slug } from 'github-slugger'
+import slugify from 'slugify'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -40,4 +42,14 @@ export function getAllTags(posts: Post[]) {
 
 export function sortTagsByCount(tags: Record<string, number>) {
   return Object.keys(tags).sort((a, b) => tags[b] - tags[a])
+}
+
+export function getPostsByTagSlug(posts: Post[], tag: string) {
+  return posts.filter((post) => {
+    if (!post.tags) return false
+
+    const slugfiedTags = post.tags.map((tag) => slugify(tag))
+    console.log('🚀 ~ slugfiedTags > ', slugfiedTags)
+    return slugfiedTags.includes(tag)
+  })
 }

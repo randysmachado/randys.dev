@@ -1,43 +1,39 @@
-import { Metadata } from 'next'
-
-import { PostItem } from '@/components/post-item'
-import { QueryPagination } from '@/components/query-pagination'
-
 import { posts } from '#site/content'
-
-import { siteConfig } from '@/config/site'
-import { getAllTags, sortPost, sortTagsByCount } from '@/lib/utils'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { PostItem } from '@/components/post-item'
 import { Tag } from '@/components/tags'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { getAllTags, getPostsByTagSlug, sortTagsByCount } from '@/lib/utils'
+import { Metadata } from 'next'
+import slugify from 'slugify'
 
-export const metadata: Metadata = {
-  title: 'Meu blog',
-  description: siteConfig.description
-}
-
-const POSTS_PER_PAGE = 5
-
-interface BlogPageProps {
-  searchParams: {
-    page?: string
+interface TagPageProps {
+  params: {
+    tag: string
   }
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  /**
-   * verificar se o post esta publicado para depois
-   * realizar a ordenação.
-   */
-  const postPublished = sortPost(posts.filter((post) => post.published))
+export async function generateMetadata({
+  params
+}: TagPageProps): Promise<Metadata> {
+  const { tag } = params
+  return {
+    title: tag,
+    description: `Postagem sobre ${tag}`
+  }
+}
 
-  const currentPage = Number(searchParams?.page) || 1
-  const totalPages = Math.ceil(postPublished.length / POSTS_PER_PAGE)
+export const generateStaticParams = () => {
+  const tags = getAllTags(posts)
+  const paths = Object.keys(tags).map((tag) => ({ tag: slugify(tag) }))
 
-  const displayPosts = postPublished.slice(
-    POSTS_PER_PAGE * (currentPage - 1),
-    POSTS_PER_PAGE * currentPage
-  )
+  return paths
+}
 
+export default function TagPage({ params }: TagPageProps) {
+  const { tag } = params
+  const title = tag.split('-').join(' ')
+
+  const displayPosts = getPostsByTagSlug(posts, tag)
   const tags = getAllTags(posts)
   const sortedTags = sortTagsByCount(tags)
 
@@ -45,10 +41,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     <section className="container max-w-4xl py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
-          <h1 className="inline-block font-black text-4xl lg:text-5xl">Blog</h1>
-          <p className="text-lg text-muted-foreground">
-            Compartilhando experiências e reflexões do desenvolvimento web.
-          </p>
+          <h1 className="inline-block font-black text-4xl lg:text-5xl">
+            {title}
+          </h1>
         </div>
       </div>
 
@@ -76,16 +71,19 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           ) : (
             <p className="py-4">Nada para ver aqui</p>
           )}
-
-          <QueryPagination totalPages={totalPages} className="mt-4" />
         </div>
         <Card className="col-span-12 row-start-3 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1">
           <CardHeader>
             <CardTitle>Tags</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            {sortedTags?.map((tag) => (
-              <Tag key={tag} tag={tag} count={tags[tag]} />
+            {sortedTags?.map((t) => (
+              <Tag
+                key={t}
+                tag={t}
+                count={tags[t]}
+                current={slugify(t) === tag}
+              />
             ))}
           </CardContent>
         </Card>

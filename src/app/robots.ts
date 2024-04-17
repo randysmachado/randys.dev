@@ -1,3 +1,4 @@
+import { siteConfig } from '@/config/site'
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin', '/private/', '/outstatic']
     },
-    sitemap: `${process.env.NEXT_PUBLIC_APP_URL}/sitemap.xml`
+    sitemap: `${siteConfig.url}/sitemap.xml`
   }
 }
