@@ -55,7 +55,6 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
-        {/* <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GA_TRACKING}`} /> */}
       </body>
     </html>
   )

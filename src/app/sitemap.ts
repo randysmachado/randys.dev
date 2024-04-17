@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next'
 
 import { posts } from '#site/content'
+import { siteConfig } from '@/config/site'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapPost: MetadataRoute.Sitemap = posts.map((post) => {
     return {
-      url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slugAsParams}`,
+      url: `${siteConfig.url}/blog/${post.slugAsParams}`,
       priority: 1.0,
       changeFrequency: 'daily',
       lastModified: post.date
@@ -14,13 +15,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: `${process.env.NEXT_PUBLIC_APP_URL}`,
+      url: `${siteConfig.url}`,
       priority: 1.0,
       changeFrequency: 'daily',
       lastModified: new Date()
     },
     {
-      url: `${process.env.NEXT_PUBLIC_APP_URL}/sobre`,
+      url: `${siteConfig.url}/sobre`,
       priority: 1.0,
       changeFrequency: 'daily',
       lastModified: new Date()
