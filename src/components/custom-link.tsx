@@ -8,5 +8,12 @@ export function CustomLink(props: any) {
     return <Link href={href}>{props.children}</Link>
   }
 
-  return <a target="_blank" {...props} />
+  return (
+    <a
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Link para ${props.href}`}
+      {...props}
+    />
+  )
 }
