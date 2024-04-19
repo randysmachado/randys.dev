@@ -21,6 +21,7 @@ export function Header() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
+              aria-label="link do github"
             >
               <div
                 className={cn(
@@ -37,6 +38,7 @@ export function Header() {
               href={siteConfig.links.twitter}
               target="_blank"
               rel="noreferrer"
+              aria-label="link do twitter"
             >
               <div
                 className={cn(
@@ -53,6 +55,7 @@ export function Header() {
               href={siteConfig.links.instagram}
               target="_blank"
               rel="noreferrer"
+              aria-label="link do instragram"
             >
               <div
                 className={cn(

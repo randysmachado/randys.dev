@@ -47,6 +47,7 @@ export function MobileNav() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
+              aria-label="gitbub"
             >
               <div
                 className={cn(
@@ -63,6 +64,7 @@ export function MobileNav() {
               href={siteConfig.links.twitter}
               target="_blank"
               rel="noreferrer"
+              aria-label="twitter"
             >
               <div
                 className={cn(
@@ -79,6 +81,7 @@ export function MobileNav() {
               href={siteConfig.links.instagram}
               target="_blank"
               rel="noreferrer"
+              aria-label="instagram"
             >
               <div
                 className={cn(

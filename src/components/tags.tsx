@@ -12,6 +12,7 @@ interface TagProps {
 export function Tag({ tag, current, count }: TagProps) {
   return (
     <Link
+      aria-label="tag"
       className={badgeVariants({
         variant: current ? 'default' : 'secondary',
         className: 'no-underline'

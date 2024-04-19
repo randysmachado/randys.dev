@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import Giscus from '@giscus/react'
 
 import { posts } from '#site/content'
 import { MDXContent } from '@/components/mdx-components'
@@ -7,6 +8,7 @@ import { MDXContent } from '@/components/mdx-components'
 import '@/styles/mdx.css'
 import { siteConfig } from '@/config/site'
 import { Tag } from '@/components/tags'
+import { Comments } from '@/components/comments'
 
 interface PostPageProps {
   params: {
@@ -71,6 +73,12 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound()
   }
 
+  const user = process.env.NEXT_PUBLIC_COMMENTS_REPO
+  const repo = process.env.NEXT_PUBLIC_COMMENTS_REPO_USER
+  const repoId = process.env.NEXT_PUBLIC_COMMENTS_REPO_ID
+  const category = process.env.NEXT_PUBLIC_COMMENTS_CATEGORY
+  const categoryId = process.env.NEXT_PUBLIC_COMMENTS_CATEGORY_ID
+
   return (
     <article className="container py-6 max-w-3xl mx-auto prose prose-inline-code:text-blue-500 prose-inline-code:rounded prose-inline-code:border prose-inline-code:before:content-['`'] prose-inline-code:before:text-black prose-inline-code:before:font-normal prose-inline-code:after:content-['`'] prose-inline-code:after:text-black prose-inline-code:after:font-normal dark:prose-inline-code:before:text-white dark:prose-inline-code:after:text-white dark:prose-invert">
       <h1 className="mb-2">{post.title}</h1>
@@ -85,6 +93,14 @@ export default async function PostPage({ params }: PostPageProps) {
       <hr className="my-4" />
 
       <MDXContent code={post.body} />
+
+      <Comments
+        repo={`${user}/${repo}`}
+        repoId={repoId || ''}
+        category={category}
+        categoryId={categoryId}
+        mapping="specific"
+      />
     </article>
   )
 }

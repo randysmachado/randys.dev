@@ -25,7 +25,9 @@ export function PostItem({
     <article className="flex flex-col gap-2 border-border border-b py-3">
       <div>
         <h2 className="text-2xl font-bold transition-colors hover:text-foreground/60">
-          <Link href={`/${slug}`}>{title}</Link>
+          <Link href={`/${slug}`} aria-label={title}>
+            {title}
+          </Link>
         </h2>
       </div>
       <div className="flex gap-2">
@@ -44,6 +46,7 @@ export function PostItem({
         </dl>
         <Link
           href={slug}
+          aria-label={slug}
           className={cn(buttonVariants({ variant: 'link' }), 'py-0')}
         >
           Leia mais →

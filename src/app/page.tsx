@@ -1,9 +1,4 @@
-import Link from 'next/link'
-
-import { buttonVariants } from '@/components/ui/button'
-
-import { siteConfig } from '@/config/site'
-import { cn, sortPost } from '@/lib/utils'
+import { sortPost } from '@/lib/utils'
 import { posts } from '#site/content'
 import { PostItem } from '@/components/post-item'
 import Image from 'next/image'
@@ -31,12 +26,13 @@ export default function Home() {
 
           <div>
             <Image
-              src="/images/avatar.png"
+              src="/images/avatar.svg"
               alt="Randys Machado"
               width={300}
               height={300}
               sizes="100vh"
               className="w-60 h-60"
+              priority
             />
           </div>
         </div>
