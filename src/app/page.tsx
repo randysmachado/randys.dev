@@ -1,7 +1,10 @@
+import Image from 'next/image'
+
 import { sortPost } from '@/lib/utils'
 import { posts } from '#site/content'
 import { PostItem } from '@/components/post-item'
-import Image from 'next/image'
+
+import avatar from '../../public/images/avatar.png'
 
 export default function Home() {
   const latestPost = sortPost(posts).slice(0, 5)
@@ -26,7 +29,7 @@ export default function Home() {
 
           <div>
             <Image
-              src="/images/avatar.svg"
+              src={avatar}
               alt="Randys Machado"
               width={300}
               height={300}
