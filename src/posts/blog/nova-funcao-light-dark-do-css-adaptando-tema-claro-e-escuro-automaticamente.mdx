@@ -1,0 +1,77 @@
+---
+title: "Nova função light-dark do CSS: Adaptando tema claro e escuro automaticamente"
+description: Descubra como implementar a nova função light-dark do CSS, permitindo que suas interfaces web se ajustem automaticamente ao tema claro e escuro do sistema operacional ou às preferências do usuário.
+tags: ["CSS", "light-dark", "dark", 'light', 'tema claro', 'tema escuro']
+date: 2024-04-26 10:11:52
+---
+
+Embora existam várias maneiras de adaptar um tema claro e escuro em interfaces web, a nova função light-dark do CSS simplifica consideravelmente o processo.  
+Anteriormente, precisávamos recorrer a soluções complexas e às vezes trabalhosas para alcançar esse efeito desejado. No entanto, com a introdução da função light-dark, essa tarefa se tornou muito mais simples. Agora, implementar um esquema de cores adaptável ao tema claro e escuro é tão fácil quanto usar uma única função CSS.
+
+## O que é a função light-dark?
+
+A função permite definir duas cores para uma propriedade, retornando uma delas com base na detecção do esquema de cores preferido pelo usuário ou do tema claro ou escuro do sistema operacional. Isso significa que podemos adaptar dinamicamente as cores de seus elementos sem a necessidade de consultar diretamente o esquema de cores preferenciais do usuário ou do sistema operacional.
+
+## Como funciona?
+
+Como dito anteriormente a função aceita dois valores de cores `light-dark(<color1>, <color2>)` onde qualquer valor de cor CSS é válido. Ela retorna o primeiro valor se a preferência do usuário ou do sistema estiver definida como light (clara), e o segundo valor se estiver definida como dark (escura).  
+Ficou confuso? Vamos dar uma olhada em um exemplo prático para entender melhor.
+
+## Passo 1: Definindo o `color-scheme`
+
+Antes de usar a função `light-dark()`, é importante definir o `color-scheme` no elemento `:root` do seu documento CSS. Isso informa ao navegador que o documento deve ser renderizado com um esquema de cores preferido que inclui tanto cores claras quanto escuras. Adicione o seguinte código ao seu arquivo CSS:
+
+```css
+:root {
+    color-scheme: light dark;
+}
+```
+
+## Passo 2: Usando a função `light-dark()`
+
+Agora que o `color-scheme` está definido, você pode usar a função `light-dark()` para ajustar automaticamente as cores com base na preferência do usuário. Vamos abordar um exemplo comum na web, onde definiremos tons de preto e branco para cada esquema de cores. Você pode seguir os passos abaixo:
+
+```css
+body {
+  background-color: light-dark(white, #09090B)
+}
+
+h1 {
+    color: light-dark(#111827, white);
+}
+```
+
+## Passo 3: Testando e ajustando
+
+Após implementar a funcionalidade light-dark, você pode testá-la diretamente no seu navegador, sem precisar escrever código JavaScript. Por exemplo, no Google Chrome, abra as Ferramentas do Desenvolvedor clicando com o botão direito e selecionando **"Inspecionar"**. Vá até o menu **"Customize and constrol Dev Tools"** representado por três pontos, que pode ser encontrado no topo direito da aba, depois em **"More tools"** e em seguida clique na opção **"Rendering"**, conforme imagem abaixo:
+
+![Ferramentas do Desenvolvedor do Google Chrome](/images/uploads/dev-tools-1.png "Imagem Ferramentas do Desenvolvedor do Google Chrome")
+
+Nas opções que se abrem encontre a opção **"Emulate CSS media feature prefers-color-scheme"** e altere entre as opções light e dark, e veja a mudança no navegador, conforme abaixo:
+
+![Configurações avançadas da ferramentas de desenvolvedor do Google Chrome](/images/uploads/dev-tools-2.png "Configurações avançadas da ferramentas de desenvolvedor do Google Chrome")
+
+**Obs.:** É importante testar sua aplicação em diferentes dispositivos e sistemas operacionais para garantir que a adaptação de cores funcione conforme esperado. Você também pode ajustar as cores de acordo com as preferências visuais do seu projeto.
+
+## Por que isso é importante?
+
+Adaptabilidade é a chave para uma ótima experiência do usuário. Com a funcionalidade light-dark, nos desenvolvedores podemos garantir que as interfaces se ajustem perfeitamente ao tema preferido do usuário, proporcionando uma experiência mais coesa e agradável.
+
+## Compatibilidade
+
+Embora a funcionalidade light-dark do CSS ofereça uma maneira conveniente de adaptar automaticamente as cores da sua aplicação com base nas preferências do usuário, é importante estar ciente de que nem todos os navegadores oferecem suporte total a essa funcionalidade.  
+Portanto, ao implementá-la em seus projetos, é essencial realizar testes abrangentes em uma variedade de navegadores e dispositivos para garantir que a adaptação de cores funcione conforme o esperado em todas as plataformas.   
+Isso pode envolver a utilização de ferramentas de teste e validação, além de ajustes manuais, se necessário, para garantir uma experiência consistente para todos os usuários, independentemente do navegador que estiverem utilizando.  
+Uma boa dica é ficar de olho nos sites abaixo para acompanhar o desenvolvimento e adaptação da funcionalidade: 
+
+- [W3C Drafts](https://drafts.csswg.org/css-color-5/#light-dark)  
+- [Can I Use](https://caniuse.com/?search=light-dark)  
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark)
+
+## Conclusão
+
+A funcionalidade light-dark do CSS é uma adição poderosa ao arsenal de qualquer desenvolvedor front-end. Com sua capacidade de criar interfaces adaptáveis e visualmente atraentes, ela está definida para se tornar um padrão na criação de experiências digitais modernas.  
+Experimente esta técnica em seus projetos e veja como ela pode melhorar a usabilidade e a atratividade das suas criações!
+
+Saudações,  
+Grande Abraço!
