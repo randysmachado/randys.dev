@@ -1,14 +1,14 @@
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import Giscus from '@giscus/react'
 
 import { posts } from '#site/content'
 import { MDXContent } from '@/components/mdx-components'
 
-import '@/styles/mdx.css'
 import { siteConfig } from '@/config/site'
 import { Tag } from '@/components/tags'
 import { Comments } from '@/components/comments'
+
+import '@/styles/mdx.css'
 
 interface PostPageProps {
   params: {
