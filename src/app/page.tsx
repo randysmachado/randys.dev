@@ -31,8 +31,8 @@ export default function Home() {
             <Image
               src={avatar}
               alt="Randys Machado"
-              width={300}
-              height={300}
+              width={240}
+              height={240}
               sizes="100vh"
               className="w-60 h-60"
               priority
