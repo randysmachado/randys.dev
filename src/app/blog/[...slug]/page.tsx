@@ -95,7 +95,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <MDXContent code={post.body} />
 
       <Comments
-        repo={`${user}/${repo}`}
+        repo={`${repo}/${user}`}
         repoId={repoId || ''}
         category={category}
         categoryId={categoryId}
