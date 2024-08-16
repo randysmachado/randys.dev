@@ -1,0 +1,87 @@
+---
+title: "Como adicionar fontes do Google de forma segura no WordPress utilizando o arquivo theme.json"
+description: Guia passo a passo de como adicionar fontes do Google no seu site WordPress de forma segura e otimizada, utilizando o arquivo theme.json.
+tags: ["wordpress"]
+date: 2024-04-26 10:11:52
+---
+
+## Introdução
+
+No WordPress, a maneira tradicional de adicionar fontes do Google utilizando links disponibilizados pela Google Fonts pode acarretar problemas de privacidade, especialmente em relação a **GDPR**, ao expor dados de usuários, como o endereço IP. Um exemplo disso é um site que foi multado por uma corte alemã por utilizar fontes hospedadas pelo Google de forma inadequada. Você pode ler mais sobre este caso neste [artigo em inglês](https://wptavern.com/german-court-fines-website-owner-for-violating-the-gdpr-by-using-google-hosted-fonts).
+
+Para resolver esse problema, a equipe do WordPress desenvolveu uma solução integrada ao projeto Gutenberg, centralizando a configuração de fontes no arquivo `theme.json`. Este método não apenas melhora a privacidade, mas também pode aumentar a velocidade do seu site e simplificar o desenvolvimento, ao evitar a necessidade de configurar o `@font-face` manualmente.
+
+## O que é o `theme.json`?
+
+Introduzido no WordPress 5.8 como parte do projeto Gutenberg, o arquivo theme.json permite centralizar várias configurações do tema, incluindo paleta de cores, tipografia e outras definições globais. Este arquivo pode ser utilizado tanto em temas clássicos quanto em temas baseados em blocos. Mais detalhes podem ser encontrados na [documentação oficial do WordPress](https://developer.wordpress.org/themes/global-settings-and-styles/).
+
+## Como Adicionar Fontes do Google no WordPress?
+
+### Passo 1: Escolha e Baixe a Fonte
+Acesse o site **Google Fonts**, escolha a fonte desejada e faça o download. Por exemplo, para utilizar a fonte **"Inter"**, baixe o arquivo correspondente e adicione-o ao seu tema WordPress. É recomendável criar uma pasta chamada assets e, dentro dela, uma subpasta fonts onde os arquivos de fontes serão armazenados. Note que os arquivos baixados podem estar no formato **.ttf**, que não é ideal para a web. Os formatos mais recomendados para uso na web são **.woff** e **.woff2**, que oferecem melhor desempenho e compatibilidade. Para converter os arquivos **.ttf** em **.woff** ou **.woff2**, utilize um conversor online como o [Convertio](https://convertio.co/pt/ttf-woff/).
+
+### Passo 2: Criação e Configuração do `theme.json`
+Crie um arquivo chamado `theme.json` na raiz do seu tema e adicione o seguinte código básico:
+```json 
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {}
+}
+```
+### Passo 3: Configurando a Tipografia no `theme.json`
+Para adicionar a fonte, insira a configuração de tipografia dentro do objeto `settings`:
+```json 
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {
+        "typography": {
+            "fontFamilies": [
+                {
+                    "slug": "inter",
+                    "name": "Inter",
+                    "fontFamily": "\"Inter\", sans-serif",
+                    "fontFace": [
+                        {
+                            "fontFamily": "inter",
+                            "src": [
+                                "file:./assets/fonts/inter/inter-VariableFont_opz,wght.ttf"
+                            ],
+                            "fontStyle": "normal",
+                            "fontWeight": "300 400 500 600 700"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+## Usando a Fonte no Backend do WordPress
+Agora que configuramos a fonte, vá ao painel administrativo do WordPress e acesse a área de posts do seu site. No editor de posts, localize o menu **"Tipografia"** no lado direito. Clique nos três pontinhos para expandir as opções e selecione **"Fonte"**. A fonte que configuramos estará disponível para uso.
+
+![Imagem da opção de tipografia na área de posts do wordpress](/images/uploads/tipografia-1.png "Imagem da opção de tipografia na área de posts do wordpress")
+
+Você poderá utilizar a fonte em qualquer parte do WordPress onde a tipografia estiver disponível. Os pesos das fontes, que também configuramos, estarão acessíveis também no menu **"Tipografia"** na opção de **"Aparência"**, permitindo personalizações adicionais.
+
+![Imagem da opção de peso da tipografia na área de posts do wordpress](/images/uploads/tipografia-2.png "Imagem da opção de peso da tipografia na área de posts do wordpress")
+
+Após realizar as alterações, salve o post e visualize-o no frontend do site. Todas as mudanças feitas no backend serão replicadas com sucesso no frontend, garantindo que o estilo aplicado esteja consistente em ambas as interfaces.
+
+## Variável Global
+Como mencionado anteriormente, ao configurar uma fonte no `theme.json`, o WordPress gera automaticamente uma variável CSS global. Para descobrir o nome exato dessa variável, inspecione o código do site utilizando as ferramentas de desenvolvedor do navegador. Você verá que uma classe relacionada à nova fonte foi adicionada, algo como `has-inter-font-family`.
+
+![Imagem da variável aplicada no frontend](/images/uploads/css-var.png "Imagem da variável aplicada no frontend")
+
+O nome da variável pode variar conforme o nome e as configurações da fonte que você escolheu. Essa variável estará disponível globalmente e pode ser utilizada em qualquer arquivo CSS do seu site. Por exemplo, ao inspecionar o código nas opções de style, você encontrará algo como `--wp--preset--font-family--inter`. Essa variável pode ser usada para aplicar a fonte personalizada em qualquer parte do seu site.
+
+![Imagem da variável global aplicada no frontend](/images/uploads/css-global-var.png "Imagem da variável global aplicada no frontend")
+
+Incrível, não é?
+
+## Conclusão
+Seguindo este passo a passo, você pode adicionar fontes do Google ao seu tema WordPress de forma segura e otimizada, evitando problemas com a **GDPR** e melhorando a performance do seu site. Se tiver dúvidas, sinta-se à vontade para deixá-las nos comentários abaixo.
+
+Saudações,  
+Grande Abraço!
