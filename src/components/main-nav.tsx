@@ -41,6 +41,16 @@ export function MainNav() {
       >
         /sobre
       </Link>
+      <Link
+        href="/notas"
+        aria-label="url da página notas"
+        className={cn(
+          'text-sm font-medium transition-colors hover:text-primary hidden sm:inline-block',
+          pathname === '/notas' ? 'text-foreground' : 'text-foreground/60'
+        )}
+      >
+        /notas
+      </Link>
     </nav>
   )
 }

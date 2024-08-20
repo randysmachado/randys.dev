@@ -15,6 +15,9 @@ const components = {
   Callout,
   a: CustomLink
 }
+const componentsNote = {
+  Image
+}
 
 interface MdxProps {
   code: string
@@ -24,4 +27,10 @@ export function MDXContent({ code }: MdxProps) {
   const Component = useMDXComponent(code)
 
   return <Component components={components} />
+}
+
+export function MDXContentNote({ code }: MdxProps) {
+  const ComponentNote = useMDXComponent(code)
+
+  return <ComponentNote componentsNote={componentsNote} />
 }
