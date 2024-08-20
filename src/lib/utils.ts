@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
-import { Post } from '#site/content'
+import { Notes, Post } from '#site/content'
 import { slug } from 'github-slugger'
 import slugify from 'slugify'
 
@@ -21,6 +21,15 @@ export function formatDate(input: string | number): string {
 
 export function sortPost(posts: Array<Post>) {
   return posts.sort((a, b) => {
+    if (a.date > b.date) return -1
+    if (a.date < b.date) return 1
+
+    return 0
+  })
+}
+
+export function sortNotes(notes: Array<Notes>) {
+  return notes.sort((a, b) => {
     if (a.date > b.date) return -1
     if (a.date < b.date) return 1
 
