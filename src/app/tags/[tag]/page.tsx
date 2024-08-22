@@ -18,7 +18,10 @@ export async function generateMetadata({
   const { tag } = params
   return {
     title: tag,
-    description: `Postagem sobre ${tag}`
+    description: `Postagem sobre ${tag}`,
+    alternates: {
+      canonical: `/tag/${tag}`
+    }
   }
 }
 

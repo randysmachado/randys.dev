@@ -4,7 +4,10 @@ import { siteConfig } from '@/config/site'
 
 export const metadata: Metadata = {
   title: 'Sobre mim',
-  description: siteConfig.description
+  description: siteConfig.description,
+  alternates: {
+    canonical: '/sobre'
+  }
 }
 
 export default async function AboutPage() {

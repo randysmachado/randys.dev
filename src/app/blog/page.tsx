@@ -12,7 +12,10 @@ import { Tag } from '@/components/tags'
 
 export const metadata: Metadata = {
   title: 'Meu blog',
-  description: siteConfig.description
+  description: siteConfig.description,
+  alternates: {
+    canonical: '/blog'
+  }
 }
 
 const POSTS_PER_PAGE = 5
