@@ -43,6 +43,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       lastModified: new Date()
     },
+    {
+      url: `${siteConfig.url}/notas`,
+      priority: 1.0,
+      changeFrequency: 'daily',
+      lastModified: new Date()
+    },
     ...sitemapPost,
     ...sitemapPostTags
   ]
