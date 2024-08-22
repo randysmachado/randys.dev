@@ -6,7 +6,10 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Tags',
   description:
-    'Descubra uma ampla variedade de tópicos que explorei em minhas postagens.'
+    'Descubra uma ampla variedade de tópicos que explorei em minhas postagens.',
+  alternates: {
+    canonical: '/tags'
+  }
 }
 
 export default async function TagsPage() {

@@ -10,7 +10,10 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Minhas Notas',
-  description: siteConfig.description
+  description: siteConfig.description,
+  alternates: {
+    canonical: '/notas'
+  }
 }
 
 const NOTES_PER_PAGE = 5

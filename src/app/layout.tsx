@@ -18,7 +18,14 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`
   },
+  alternates: {
+    canonical: siteConfig.url
+  },
+  applicationName: 'Randys Machado Blog',
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   description: siteConfig.description,
+  creator: siteConfig.author,
+  publisher: siteConfig.author,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
 }
 
