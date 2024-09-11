@@ -83,15 +83,13 @@ export default async function PostPage({ params }: PostPageProps) {
   const categoryId = process.env.NEXT_PUBLIC_COMMENTS_CATEGORY_ID
 
   return (
-    <article className="container py-6 max-w-3xl mx-auto prose prose-inline-code:text-blue-500 prose-inline-code:rounded prose-inline-code:border prose-inline-code:before:content-['`'] prose-inline-code:before:text-black prose-inline-code:before:font-normal prose-inline-code:after:content-['`'] prose-inline-code:after:text-black prose-inline-code:after:font-normal dark:prose-inline-code:before:text-white dark:prose-inline-code:after:text-white dark:prose-invert">
+    <article className="container prose mx-auto max-w-3xl py-6 dark:prose-invert prose-inline-code:mx-[2px] prose-inline-code:rounded prose-inline-code:border prose-inline-code:p-1 prose-inline-code:text-blue-500 prose-inline-code:before:font-normal prose-inline-code:before:text-black prose-inline-code:after:font-normal prose-inline-code:after:text-black dark:prose-inline-code:before:text-white dark:prose-inline-code:after:text-white">
       <h1 className="mb-2">{post.title}</h1>
-      <div className="flex gap-2 mb-2">
-        {post.tags?.map((tag) => (
-          <Tag key={tag} tag={tag} />
-        ))}
+      <div className="mb-2 flex gap-2">
+        {post.tags?.map((tag) => <Tag key={tag} tag={tag} />)}
       </div>
       {post.description ? (
-        <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
+        <p className="mt-0 text-xl text-muted-foreground">{post.description}</p>
       ) : null}
       <hr className="my-4" />
 

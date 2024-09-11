@@ -24,6 +24,8 @@ const config = {
         sans: ['var(--font-sans)', ...fontFamily.sans]
       },
       colors: {
+        'custom-pink': '#FF00F5',
+        'custom-blue': '#0FEFFD',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
