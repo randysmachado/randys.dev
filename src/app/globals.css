@@ -74,3 +74,65 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* @layer components {
+  .circle {
+    @apply relative w-[240px] aspect-[1] rounded-full;
+  }
+
+  .circle img {
+    @apply block w-full aspect-[1] object-cover object-top rounded-full z-40;
+  }
+
+  .circle::before {
+    @apply absolute bg-red-500 content-[''] inset-9 rounded-full -z-20;
+  }
+} */
+
+/* 
+#0FEFFD 
+#FF00F5
+*/
+.circle {
+  position: relative;
+  width: 240px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  /* outline: 5px solid rgba(0, 0, 0, 0.35);
+  outline-offset: -5px; */
+}
+
+.circle img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  border-radius: inherit;
+  /* z-index: 20; */
+}
+
+.circle::before,
+.circle::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  inset: -20px;
+  border-radius: inherit;
+  background-image: conic-gradient(#0feffd, #ff00f5, #0feffd);
+  animation: rotate 3s linear infinite;
+}
+
+.circle::after {
+  filter: blur(2rem);
+  opacity: 0.7;
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}

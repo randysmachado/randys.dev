@@ -4,7 +4,7 @@ import { sortPost } from '@/lib/utils'
 import { posts } from '#site/content'
 import { PostItem } from '@/components/post-item'
 
-import avatar from '../../public/images/avatar.png'
+import avatarImg from '../../public/images/avatar-image.png'
 
 export default function Home() {
   const latestPost = sortPost(posts).slice(0, 5)
@@ -27,14 +27,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div>
+          <div className="circle mt-10">
             <Image
-              src={avatar}
+              src={avatarImg}
               alt="Randys Machado"
               width={240}
               height={240}
-              sizes="100vh"
-              className="w-60 h-60"
               priority
             />
           </div>

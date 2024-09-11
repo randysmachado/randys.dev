@@ -56,7 +56,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-dvh flex-col bg-background">
+          <div className="relative flex min-h-dvh flex-col overflow-x-hidden">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
