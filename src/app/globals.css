@@ -75,24 +75,6 @@
   }
 }
 
-/* @layer components {
-  .circle {
-    @apply relative w-[240px] aspect-[1] rounded-full;
-  }
-
-  .circle img {
-    @apply block w-full aspect-[1] object-cover object-top rounded-full z-40;
-  }
-
-  .circle::before {
-    @apply absolute bg-red-500 content-[''] inset-9 rounded-full -z-20;
-  }
-} */
-
-/* 
-#0FEFFD 
-#FF00F5
-*/
 .circle {
   position: relative;
   width: 240px;
