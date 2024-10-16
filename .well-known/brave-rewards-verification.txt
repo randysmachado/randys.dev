@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: randys.dev
+Token: 20f3b3dfa2174e827838001eb60d24df20e0af7107feb08ed3f20283d6db617b
