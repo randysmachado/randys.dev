@@ -26,7 +26,10 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   creator: siteConfig.author,
   publisher: siteConfig.author,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url)
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  other: {
+    'google-adsense-account': 'ca-pub-2668671765911701'
+  }
 }
 
 export const viewport: Viewport = {
