@@ -10,6 +10,7 @@ import { Footer } from '@/components/footer'
 
 import './globals.css'
 import { GoogleAnalytics } from '@/components/analytics'
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -28,7 +29,8 @@ export const metadata: Metadata = {
   publisher: siteConfig.author,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   other: {
-    'google-adsense-account': 'ca-pub-2668671765911701'
+    'google-adsense-account': 'ca-pub-2668671765911701',
+    lomadee: '2324685'
   }
 }
 
