@@ -1,0 +1,25 @@
+---
+import { NAV_LINKS } from "@/consts";
+
+import Link from "./Link.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="sticky backdrop-blur-sm z-50 top-0">
+  <div class="max-w-3xl mx-auto flex items-center justify-between py-6 px-4">
+    <Link href="/">Randys</Link>
+
+    <nav>
+      <ul class="flex items-center gap-5">
+        {
+          NAV_LINKS.map(({ href, label }) => (
+            <li>
+              <a href={href}>{label}</a>
+            </li>
+          ))
+        }
+        <ThemeToggle />
+      </ul>
+    </nav>
+  </div>
+</header>

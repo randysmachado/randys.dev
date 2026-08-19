@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+import { SOCIAL_LINKS } from "@/consts";
+import Link from "./Link.astro";
+---
+
+{
+  SOCIAL_LINKS.map((link) => (
+    <Link
+      href={link.href}
+      external={true}
+      rel="noopener noreferrer"
+      class="mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+    >
+      <Icon name={link.icon} />
+    </Link>
+  ))
+}
