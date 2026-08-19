@@ -5,12 +5,12 @@ import Link from "./Link.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header class="sticky backdrop-blur-sm z-50 top-0">
-  <div class="max-w-3xl mx-auto flex items-center justify-between py-6 px-4">
+<header>
+  <div class="header__inner">
     <Link href="/">Randys</Link>
 
     <nav>
-      <ul class="flex items-center gap-5">
+      <ul>
         {
           NAV_LINKS.map(({ href, label }) => (
             <li>
@@ -23,3 +23,28 @@ import ThemeToggle from "./ThemeToggle.astro";
     </nav>
   </div>
 </header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(4px);
+  }
+
+  .header__inner {
+    max-width: var(--content-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-m);
+    padding-inline: var(--space-s);
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s-m);
+  }
+</style>

@@ -6,13 +6,19 @@ import Link from "./Link.astro";
 
 {
   SOCIAL_LINKS.map((link) => (
-    <Link
-      href={link.href}
-      external={true}
-      rel="noopener noreferrer"
-      class="mx-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-    >
+    <Link href={link.href} external rel="noopener noreferrer" class="social-link">
       <Icon name={link.icon} />
     </Link>
   ))
 }
+
+<style>
+  :global(.social-link) {
+    margin-inline: var(--space-2xs);
+    color: color-mix(in oklab, var(--text-main) 70%, transparent);
+  }
+
+  :global(.social-link:hover) {
+    color: var(--text-main);
+  }
+</style>

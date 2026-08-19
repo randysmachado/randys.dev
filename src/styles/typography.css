@@ -1,0 +1,23 @@
+:root {
+  --step--1: clamp(0.8889rem, 0.869rem + 0.0884vw, 0.9375rem);
+  --step-0: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --step-5: clamp(1.802rem, 1.394rem + 1.8133vw, 2.7994rem);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.5;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+}

@@ -1,0 +1,14 @@
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+:root {
+  --text-main: light-dark(#171717, #f2f1ec);
+  --bg-main: light-dark(#f2f1ec, #171717);
+  --bg-muted: light-dark(#eae9e1, #242424);
+  --border-main: light-dark(#171717, #f2f1ec);
+}

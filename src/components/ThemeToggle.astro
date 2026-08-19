@@ -2,14 +2,42 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<button
-  id="theme-toggle"
-  class="-mr-2 flex h-8 w-8 cursor-pointer items-center justify-center"
-  aria-label="Change color scheme"
->
-  <Icon name="sun-medium" id="sun-icon" class="h-5 w-5 block dark:hidden" />
-  <Icon name="moon" id="moon-icon" class="h-5 w-5 hidden dark:block" />
+<button id="theme-toggle" class="theme-toggle" aria-label="Change color scheme">
+  <Icon name="sun-medium" class="theme-toggle__icon theme-toggle__icon--sun" />
+  <Icon name="moon" class="theme-toggle__icon theme-toggle__icon--moon" />
 </button>
+
+<style>
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--space-l);
+    height: var(--space-l);
+    margin-right: calc(var(--space-2xs) * -1);
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+  }
+
+  .theme-toggle__icon {
+    width: var(--space-s-m);
+    height: var(--space-s-m);
+  }
+
+  .theme-toggle__icon--moon {
+    display: none;
+  }
+
+  :global(html.dark) .theme-toggle__icon--sun {
+    display: none;
+  }
+
+  :global(html.dark) .theme-toggle__icon--moon {
+    display: block;
+  }
+</style>
 
 <script is:inline>
   const handleToggleClick = () => {
