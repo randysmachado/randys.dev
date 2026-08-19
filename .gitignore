@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# documentação interna de orientação e planejamento (não versionada)
+CLAUDE.md
+planejamento/
