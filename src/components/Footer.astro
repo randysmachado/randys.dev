@@ -1,17 +1,81 @@
+---
+import { SITE_TITLE } from "@/consts";
+---
+
 <footer>
-  <p>© {new Date().getFullYear()} Randys Machado. Alguns direitos reservados.</p>
+  <div class="footer__inner">
+    <p class="footer-quote" id="footer-quote"></p>
+
+    <p class="footer-copyright">
+      © {new Date().getFullYear()} Randys Machado. Alguns direitos reservados.
+    </p>
+  </div>
+
+  <div class="footer-name-wrap" aria-hidden="true">
+    <span class="footer-name">{SITE_TITLE}</span>
+  </div>
 </footer>
+
+<script is:inline>
+  const quotes = [
+    "Se o CSS não centraliza, é porque ele também está em dúvida sobre a própria existência.",
+    "Todo bug em produção já foi, em algum momento, uma feature discutida com muita confiança.",
+    "O café frio de terça-feira sabe mais sobre arquitetura de software do que qualquer livro.",
+    "Ninguém nunca leu o changelog inteiro, mas todo mundo já culpou ele por algo.",
+    "O `git commit -m \"ajustes\"` guarda mais segredos do que qualquer diário.",
+    "Se funcionou de primeira, provavelmente vai quebrar quando você mostrar pra alguém.",
+    "O Wi-Fi só cai durante a demonstração porque ele também tem senso de timing.",
+    "Toda vez que alguém diz \"é rapidinho\", um deploy em sexta-feira nasce em algum lugar.",
+    "O código comentado não morreu, só está esperando o momento certo pra assombrar alguém.",
+    "Existe sempre um jeito melhor de fazer isso, e você vai descobrir logo depois do deploy.",
+  ];
+
+  const quoteElement = document.getElementById("footer-quote");
+  if (quoteElement) {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteElement.textContent = quotes[randomIndex];
+  }
+</script>
 
 <style>
   footer {
     max-width: var(--content-width);
     margin-inline: auto;
-    display: flex;
-    padding-block: var(--space-m);
     padding-inline: var(--space-s);
   }
 
-  footer p {
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-block: var(--space-m);
+    border-top: 1px solid var(--border-main);
+  }
+
+  .footer-quote {
     font-size: var(--step--1);
+    font-style: italic;
+    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+    min-height: 1lh;
+  }
+
+  .footer-copyright {
+    font-size: var(--step--1);
+  }
+
+  .footer-name-wrap {
+    overflow: clip;
+    height: clamp(3rem, 10vw, 6rem);
+    display: flex;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .footer-name {
+    font-size: clamp(4rem, 15vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    color: color-mix(in oklab, var(--text-main) 8%, transparent);
+    white-space: nowrap;
   }
 </style>
