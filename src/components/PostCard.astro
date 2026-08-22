@@ -66,6 +66,11 @@ const categoryLabels = categories
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
+    padding: var(--space-xs);
+  }
+
+  .post-card:has(.card-cover) .card-content {
+    max-inline-size: 70%;
   }
 
   .post-card-meta {

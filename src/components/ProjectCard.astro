@@ -60,5 +60,10 @@ const { title, description, image, link } = project.data;
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
+    padding: var(--space-xs);
+  }
+
+  .project-card:has(.card-cover) .card-content {
+    max-inline-size: 70%;
   }
 </style>
