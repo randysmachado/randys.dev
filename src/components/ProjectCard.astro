@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Link from "@/components/Link.astro";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+
+const { project } = Astro.props;
+const { title, description, image, link } = project.data;
+---
+
+<article class="project-card">
+  {
+    image && (
+      <img src={image.src} alt="" width={image.width} height={image.height} />
+    )
+  }
+  <h3><Link href={`/projetos/${project.id}/`}>{title}</Link></h3>
+  <p>{description}</p>
+  <Link href={link} external underline>Ver projeto →</Link>
+</article>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { CATEGORIES } from "@/consts";
+import Link from "@/components/Link.astro";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+};
+
+const { post } = Astro.props;
+const { title, description, publishDate, categories, image } = post.data;
+const categoryLabels = categories
+  .map((slug) => CATEGORIES.find((c) => c.slug === slug)?.label ?? slug)
+  .join(", ");
+---
+
+<article class="post-card">
+  {
+    image && (
+      <img src={image.src} alt="" width={image.width} height={image.height} />
+    )
+  }
+  <p class="post-card-meta">
+    {categoryLabels} · {publishDate.toLocaleDateString("pt-BR")}
+  </p>
+  <h3><Link href={`/blog/${post.id}/`}>{title}</Link></h3>
+  <p>{description}</p>
+</article>
+
+<style>
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .post-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .post-card-meta {
+    font-size: var(--step--1);
+    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+  }
+</style>

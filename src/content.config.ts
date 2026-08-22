@@ -4,6 +4,10 @@ import { glob } from "astro/loaders";
 
 import { z } from "astro/zod";
 
+import { CATEGORIES } from "@/consts";
+
+const categorySlugs = CATEGORIES.map((c) => c.slug) as [string, ...string[]];
+
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: ({ image }) =>
@@ -12,6 +16,7 @@ const blog = defineCollection({
       description: z.string(),
       publishDate: z.date(),
       image: image().optional(),
+      categories: z.array(z.enum(categorySlugs)).min(1),
       tags: z.array(z.string()).optional(),
     }),
 });
@@ -25,6 +30,7 @@ const projects = defineCollection({
       publishDate: z.date(),
       image: image().optional(),
       link: z.url(),
+      featured: z.boolean().default(false),
       tags: z.array(z.string()).optional(),
     }),
 });
