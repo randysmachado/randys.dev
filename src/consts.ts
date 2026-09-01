@@ -21,6 +21,8 @@ export const CATEGORIES = [
 
 export type CategorySlug = (typeof CATEGORIES)[number]["slug"];
 
+export const BLOG_POSTS_PER_PAGE = 10;
+
 export const SITE_TITLE = "Randys Machado";
 export const SITE_DESCRIPTION =
   "Blog pessoal do Randys Machado: tecnologia, programação e outros assuntos.";

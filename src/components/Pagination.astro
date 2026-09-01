@@ -1,0 +1,122 @@
+---
+type Props = {
+  currentPage: number;
+  lastPage: number;
+  previousUrl?: string;
+  nextUrl?: string;
+};
+
+const { currentPage, lastPage, previousUrl, nextUrl } = Astro.props;
+const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
+const pageUrl = (page: number) => (page === 1 ? "/blog" : `/blog/${page}`);
+---
+
+<nav class="pagination" aria-label="Paginação do blog">
+  {
+    previousUrl ? (
+      <a class="pagination-link pagination-direction" href={previousUrl} rel="prev">
+        ← Anterior
+      </a>
+    ) : (
+      <span class="pagination-link pagination-direction" aria-disabled="true">
+        ← Anterior
+      </span>
+    )
+  }
+
+  <div class="pagination-pages">
+    {
+      pages.map((page) => (
+        <a
+          class="pagination-link pagination-number"
+          href={pageUrl(page)}
+          aria-label={`Página ${page}`}
+          aria-current={page === currentPage ? "page" : undefined}
+        >
+          {page}
+        </a>
+      ))
+    }
+  </div>
+
+  {
+    nextUrl ? (
+      <a class="pagination-link pagination-direction" href={nextUrl} rel="next">
+        Próxima →
+      </a>
+    ) : (
+      <span class="pagination-link pagination-direction" aria-disabled="true">
+        Próxima →
+      </span>
+    )
+  }
+</nav>
+
+<style>
+  .pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2xs);
+    margin-block-start: var(--space-s);
+  }
+
+  .pagination-pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3xs);
+  }
+
+  .pagination-link {
+    display: inline-flex;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xs) var(--space-2xs);
+    border: 1px solid color-mix(in oklab, var(--border-main) 30%, transparent);
+    border-radius: 0.5rem;
+    color: color-mix(in oklab, var(--text-main) 70%, transparent);
+    font-size: var(--step--1);
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  a.pagination-link:hover {
+    border-color: color-mix(in oklab, var(--border-main) 60%, transparent);
+    background: var(--bg-muted);
+    color: var(--text-main);
+  }
+
+  .pagination-link[aria-current="page"] {
+    border-color: var(--text-main);
+    background: var(--text-main);
+    color: var(--bg-main);
+  }
+
+  .pagination-link[aria-disabled="true"] {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .pagination-direction {
+    min-width: 6.5rem;
+  }
+
+  @media (width < 32rem) {
+    .pagination {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .pagination-pages {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+  }
+</style>
