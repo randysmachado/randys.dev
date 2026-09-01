@@ -34,43 +34,47 @@ const featuredProjects = allProjects
   <h1 class="hero-title">Bem-vindo ao meu blog!</h1>
 
   {
-    featuredProjects.length > 0 && (
-      <section>
-        <h2>Em destaque</h2>
-        <div class="grid">
-          {featuredProjects.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-        </div>
-        <Link href="/projetos" underline>Ver todos os projetos →</Link>
-      </section>
-    )
-  }
-
-  {
     devPosts.length > 0 && (
-      <section>
+      <section class="home-section">
         <h2>Dev</h2>
-        <div class="grid">
+        <ul class="post-list">
           {devPosts.map((post) => (
-            <PostCard post={post} />
+            <li><PostCard post={post} variant="preview" /></li>
           ))}
+        </ul>
+        <div class="section-action">
+          <Link href="/blog?categoria=dev" underline>Ver todos →</Link>
         </div>
-        <Link href="/blog?categoria=dev" underline>Ver todos →</Link>
       </section>
     )
   }
 
   {
     blogPosts.length > 0 && (
-      <section>
+      <section class="home-section">
         <h2>Blog</h2>
-        <div class="grid">
+        <ul class="post-list">
           {blogPosts.map((post) => (
-            <PostCard post={post} />
+            <li><PostCard post={post} variant="preview" /></li>
+          ))}
+        </ul>
+        <div class="section-action">
+          <Link href="/blog?categoria=blog" underline>Ver todos →</Link>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    featuredProjects.length > 0 && (
+      <section>
+        <h2>Projetos</h2>
+        <div class="project-grid">
+          {featuredProjects.map((project) => (
+            <ProjectCard project={project} />
           ))}
         </div>
-        <Link href="/blog?categoria=blog" underline>Ver todos →</Link>
+        <Link href="/projetos" underline>Ver todos os projetos →</Link>
       </section>
     )
   }
@@ -81,7 +85,24 @@ const featuredProjects = allProjects
     font-size: var(--step-5);
   }
 
-  .grid {
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+
+  .home-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  .section-action {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: var(--space-m);
