@@ -148,7 +148,7 @@ const tocHeadings = headings.filter((h) => h.depth <= 3);
   }
 
   [data-toc-link] {
-    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+    color: var(--text-muted);
     text-decoration: none;
     padding-block: var(--space-3xs);
   }
@@ -174,7 +174,7 @@ const tocHeadings = headings.filter((h) => h.depth <= 3);
     all: unset;
     display: block;
     margin-block-start: var(--space-s);
-    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+    color: var(--text-muted);
     cursor: pointer;
     visibility: hidden;
     opacity: 0;

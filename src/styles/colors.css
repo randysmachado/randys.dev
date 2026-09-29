@@ -1,3 +1,8 @@
+/*
+ * Paleta Flexoki (https://stephango.com/flexoki, Steph Ango, MIT),
+ * nos mesmos papéis usados pelo echoghi/v5. Valores em oklch.
+ */
+
 html {
   color-scheme: light;
 }
@@ -7,8 +12,33 @@ html.dark {
 }
 
 :root {
-  --text-main: light-dark(#171717, #f2f1ec);
-  --bg-main: light-dark(#f2f1ec, #171717);
-  --bg-muted: light-dark(#eae9e1, #242424);
-  --border-main: light-dark(#171717, #f2f1ec);
+  --text-main: light-dark(oklch(16.96% 0.002 17.32), oklch(84.63% 0.014 102.05));
+  /* Texto secundário (descrições, metadados). Contraste AA nos dois temas. */
+  --text-muted: light-dark(oklch(53.75% 0.008 97.45), oklch(61.69% 0.008 88.67));
+  /* Terciário: só para detalhes decorativos — não atinge contraste AA. */
+  --text-faint: light-dark(oklch(77.21% 0.013 96.47), oklch(45.31% 0.005 91.5));
+  --bg-main: light-dark(oklch(99.01% 0.016 95.22), oklch(16.96% 0.002 17.32));
+  --bg-muted: light-dark(oklch(88.1% 0.014 97.46), oklch(32.14% 0.004 84.58));
+  --border-main: light-dark(oklch(88.1% 0.014 97.46), oklch(32.14% 0.004 84.58));
+}
+
+::selection {
+  background: var(--bg-muted);
+  color: var(--text-main);
+}
+
+/* Textura de granulação sobre o fundo (grain.png do echoghi/v5, MIT). */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("../assets/grain.png");
+  background-repeat: repeat;
+  background-size: 100px 100px;
+}
+
+html.dark::before {
+  filter: invert(1);
 }
