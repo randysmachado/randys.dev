@@ -2,7 +2,8 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Link from "@/components/Link.astro";
-import PostCard from "@/components/PostCard.astro";
+import { HOME_POSTS_PER_CATEGORY, type CategorySlug } from "@/consts";
+import HomePostsSection from "@/components/HomePostsSection.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 
 const allPosts = await getCollection("blog");
@@ -13,15 +14,13 @@ const byRecent = (
   b: (typeof allPosts)[number],
 ) => b.data.publishDate.getTime() - a.data.publishDate.getTime();
 
-const devPosts = allPosts
-  .filter((post) => post.data.categories.includes("dev"))
-  .sort(byRecent)
-  .slice(0, 2);
+const postsIn = (category: CategorySlug) =>
+  allPosts
+    .filter((post) => post.data.categories.includes(category))
+    .sort(byRecent);
 
-const blogPosts = allPosts
-  .filter((post) => post.data.categories.includes("blog"))
-  .sort(byRecent)
-  .slice(0, 2);
+const devPosts = postsIn("dev");
+const blogPosts = postsIn("blog");
 
 const featuredProjects = allProjects
   .filter((project) => project.data.featured)
@@ -31,37 +30,41 @@ const featuredProjects = allProjects
 ---
 
 <Layout>
-  <h1 class="hero-title">Bem-vindo ao meu blog!</h1>
+  <section class="intro">
+    <h1 class="intro__title">Oi, eu sou o Randys.</h1>
+    <div class="intro__text">
+      <p>
+        Sou desenvolvedor e gosto de construir coisas úteis para a web. Aqui
+        escrevo sobre o que aprendo no dia a dia com código, arquitetura e
+        ferramentas.
+      </p>
+      <p class="intro__muted">
+        Este é o meu cantinho na internet — um espaço para falar de
+        tecnologia, mas também de viagens, férias e do que mais passar pela
+        cabeça.
+      </p>
+    </div>
+  </section>
 
   {
     devPosts.length > 0 && (
-      <section class="home-section">
-        <h2>Dev</h2>
-        <ul class="post-list">
-          {devPosts.map((post) => (
-            <li><PostCard post={post} variant="preview" /></li>
-          ))}
-        </ul>
-        <div class="section-action">
-          <Link href="/blog?categoria=dev" underline>Ver todos →</Link>
-        </div>
-      </section>
+      <HomePostsSection
+        title="Dev"
+        posts={devPosts.slice(0, HOME_POSTS_PER_CATEGORY)}
+        total={devPosts.length}
+        href="/blog"
+      />
     )
   }
 
   {
     blogPosts.length > 0 && (
-      <section class="home-section">
-        <h2>Blog</h2>
-        <ul class="post-list">
-          {blogPosts.map((post) => (
-            <li><PostCard post={post} variant="preview" /></li>
-          ))}
-        </ul>
-        <div class="section-action">
-          <Link href="/blog?categoria=blog" underline>Ver todos →</Link>
-        </div>
-      </section>
+      <HomePostsSection
+        title="Blog"
+        posts={blogPosts.slice(0, HOME_POSTS_PER_CATEGORY)}
+        total={blogPosts.length}
+        href="/blog"
+      />
     )
   }
 
@@ -81,25 +84,33 @@ const featuredProjects = allProjects
 </Layout>
 
 <style>
-  .hero-title {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-block: var(--space-m) 0.5rem;
+  }
+
+  .intro__title {
+    max-width: 20ch;
+    font-family: var(--font-sans);
     font-size: var(--step-5);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-wrap: balance;
   }
 
-  .post-list {
+  .intro__text {
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: 1rem;
+    font-size: var(--step-1);
+    text-wrap: pretty;
   }
 
-  .home-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-  }
-
-  .section-action {
-    display: flex;
-    justify-content: center;
+  .intro__muted {
+    color: color-mix(in oklab, var(--text-main) 60%, transparent);
   }
 
   .project-grid {

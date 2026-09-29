@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+};
+
+const { post } = Astro.props;
+const { title, description, image } = post.data;
+---
+
+<article>
+  <a
+    href={`/blog/${post.id}/`}
+    class:list={["home-post-card", { "home-post-card--has-image": image }]}
+  >
+    {
+      image && (
+        <div class="home-post-card__cover">
+          <Image src={image} alt="" width={384} loading="lazy" />
+        </div>
+      )
+    }
+    <div class="home-post-card__body">
+      <h3 class="home-post-card__title">{title}</h3>
+      <p class="home-post-card__description">{description}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .home-post-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 200ms ease;
+  }
+
+  @media (width >= 40rem) {
+    .home-post-card--has-image {
+      grid-template-columns: 12rem minmax(0, 1fr);
+      align-items: start;
+      gap: 1.25rem;
+    }
+  }
+
+  .home-post-card:hover {
+    background: color-mix(in oklab, var(--bg-muted) 25%, transparent);
+  }
+
+  .home-post-card:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: -2px;
+  }
+
+  .home-post-card__cover {
+    align-self: start;
+    overflow: hidden;
+    border-radius: min(1.2vw, 0.75rem);
+    background: color-mix(in oklab, var(--bg-muted) 20%, transparent);
+    outline: 1px solid color-mix(in oklab, var(--text-main) 5%, transparent);
+    outline-offset: -1px;
+  }
+
+  .home-post-card__cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .home-post-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+    padding-block: 0.125rem;
+  }
+
+  .home-post-card__title {
+    font-size: var(--step-1);
+    font-weight: 600;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
+  .home-post-card__description {
+    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-post-card {
+      transition: none;
+    }
+  }
+</style>

@@ -23,6 +23,9 @@ export type CategorySlug = (typeof CATEGORIES)[number]["slug"];
 
 export const BLOG_POSTS_PER_PAGE = 10;
 
+/** Quantidade de posts exibidos em cada bloco de categoria (Dev, Blog) na home. */
+export const HOME_POSTS_PER_CATEGORY = 3;
+
 export const SITE_TITLE = "Randys Machado";
 export const SITE_DESCRIPTION =
   "Blog pessoal do Randys Machado: tecnologia, programação e outros assuntos.";

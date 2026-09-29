@@ -1,0 +1,108 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+import HomePostCard from "./HomePostCard.astro";
+
+type Props = {
+  title: string;
+  posts: CollectionEntry<"blog">[];
+  total: number;
+  href: string;
+};
+
+const { title, posts, total, href } = Astro.props;
+const headingId = `home-${title.toLowerCase()}`;
+---
+
+<section class="home-posts" aria-labelledby={headingId}>
+  <header class="home-posts__header">
+    <h2 id={headingId} class="home-posts__title">{title}</h2>
+    <a href={href} class="home-posts__more">
+      <span>{posts.length} de {total} posts</span>
+      <Icon name="chevron-right" class="home-posts__chevron" aria-hidden="true" />
+    </a>
+  </header>
+  <ul class="home-posts__list" role="list">
+    {
+      posts.map((post) => (
+        <li>
+          <HomePostCard post={post} />
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .home-posts {
+    overflow: hidden;
+    border: 1px solid color-mix(in oklab, var(--text-main) 10%, transparent);
+    border-radius: 1rem;
+    background: color-mix(in oklab, var(--bg-main) 30%, transparent);
+  }
+
+  .home-posts__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  @media (width >= 40rem) {
+    .home-posts__header {
+      padding: 1.25rem 1.25rem 0.5rem;
+    }
+  }
+
+  .home-posts__title {
+    font-size: var(--step-2);
+    font-weight: 600;
+  }
+
+  .home-posts__more {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 0.5rem;
+    font-size: var(--step--1);
+    font-weight: 500;
+    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+
+  .home-posts__more:hover {
+    color: var(--text-main);
+  }
+
+  .home-posts__more:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  .home-posts__chevron {
+    inline-size: 1rem;
+    block-size: 1rem;
+    transition: transform 200ms ease;
+  }
+
+  .home-posts__more:hover .home-posts__chevron {
+    transform: translateX(0.125rem);
+  }
+
+  .home-posts__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.25rem 0.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-posts__more,
+    .home-posts__chevron {
+      transition: none;
+    }
+  }
+</style>
