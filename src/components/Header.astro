@@ -1,58 +1,158 @@
 ---
-import { NAV_LINKS } from "@/consts";
+import { Icon } from "astro-icon/components";
 
-import Link from "./Link.astro";
+import { NAV_LINKS } from "@/consts";
+import { isActive } from "@/lib/nav";
+
+import MobileMenu from "./MobileMenu.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+
+const { pathname } = Astro.url;
 ---
 
-<header>
-  <div class="header__inner">
-    <Link href="/">Randys</Link>
+<header id="main-header" data-scrolled="false">
+  <div class="header-surface liquid-glass">
+    <a href="/" class="header-logo" aria-label="Página inicial">
+      <Icon name="logo" class="header-logo__icon" />
+    </a>
 
-    <nav>
-      <ul>
+    <div class="header-actions">
+      <nav class="header-nav" aria-label="Principal">
         {
           NAV_LINKS.map(({ href, label }) => (
-            <li>
-              <a href={href}>{label}</a>
-            </li>
+            <a
+              href={href}
+              class="header-nav__link"
+              aria-current={isActive(href, pathname) ? "page" : undefined}
+            >
+              {label}
+            </a>
           ))
         }
-        <ThemeToggle />
-      </ul>
-    </nav>
+      </nav>
+      <ThemeToggle />
+      <MobileMenu pathname={pathname} />
+    </div>
   </div>
 </header>
+
+<script>
+  const header = document.getElementById("main-header");
+
+  if (header) {
+    const updateHeader = () => {
+      header.dataset.scrolled = String(window.scrollY > 16);
+    };
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+  }
+</script>
 
 <style>
   header {
     position: sticky;
-    top: var(--space-s);
-    z-index: 50;
+    top: 0.75rem;
+    z-index: 30;
     max-width: var(--content-width);
     margin-inline: auto;
     padding-inline: var(--space-s);
   }
 
-  .header__inner {
+  .header-surface {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--space-xs);
-    padding-inline: var(--space-s-m);
-    border-radius: 999px;
-    border: 1px solid color-mix(in oklab, var(--border-main) 15%, transparent);
-    background: color-mix(in oklab, var(--bg-main) 75%, transparent);
-    backdrop-filter: blur(16px);
-    box-shadow:
-      inset 0 0 0 1px color-mix(in oklab, white 8%, transparent),
-      0 1px 2px color-mix(in oklab, black 4%, transparent),
-      0 8px 24px color-mix(in oklab, black 8%, transparent);
+    gap: 0.75rem;
+    padding: 0.5rem 0.625rem;
+    border-radius: 1rem;
+    transition: box-shadow 360ms ease;
   }
 
-  nav ul {
+  @media (width >= 40rem) {
+    .header-surface {
+      padding-inline: 0.75rem;
+    }
+  }
+
+  /* Sombra mais funda depois de rolar a página (valores do echoghi/v5). */
+  #main-header[data-scrolled="true"] .header-surface {
+    box-shadow:
+      inset 1px 1px 1px -0.5px rgb(255 255 255 / 82%),
+      inset -1px -1px 1px -0.5px color-mix(in oklab, var(--text-main) 12%, transparent),
+      inset 0 0 0 1px color-mix(in oklab, var(--text-main) 7%, transparent),
+      0 18px 42px -24px color-mix(in oklab, var(--text-main) 42%, transparent);
+  }
+
+  :global(html.dark) #main-header[data-scrolled="true"] .header-surface {
+    box-shadow:
+      inset 1px 1px 1px -0.5px rgb(255 255 255 / 42%),
+      inset -1px -1px 1px -0.5px rgb(255 255 255 / 14%),
+      inset 0 0 0 1px rgb(255 255 255 / 9%),
+      0 18px 42px -24px rgb(0 0 0 / 66%);
+  }
+
+  .header-logo {
+    display: flex;
+    flex-shrink: 0;
+    padding: 0.25rem;
+    border-radius: 0.75rem;
+    color: var(--text-main);
+  }
+
+  .header-logo__icon {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+  }
+
+  .header-actions {
     display: flex;
     align-items: center;
-    gap: var(--space-s-m);
+    gap: 0.5rem;
+  }
+
+  .header-nav {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  @media (width >= 48rem) {
+    .header-nav {
+      display: flex;
+    }
+  }
+
+  .header-nav__link {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: var(--step--1);
+    color: color-mix(in oklab, var(--text-main) 60%, transparent);
+    text-decoration: none;
+    transition:
+      color 200ms ease,
+      background-color 200ms ease;
+  }
+
+  .header-nav__link:hover,
+  .header-nav__link[aria-current="page"] {
+    color: var(--text-main);
+  }
+
+  .header-nav__link[aria-current="page"] {
+    background: color-mix(in oklab, var(--bg-muted) 60%, transparent);
+  }
+
+  .header-logo:focus-visible,
+  .header-nav__link:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .header-surface,
+    .header-nav__link {
+      transition: none;
+    }
   }
 </style>

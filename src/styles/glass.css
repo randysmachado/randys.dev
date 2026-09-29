@@ -1,0 +1,59 @@
+/*
+ * Superfícies de vidro compartilhadas (header, menu mobile).
+ * Portadas do echoghi/v5 (`.liquid-glass-adaptive` / `.paper-glass`),
+ * traduzidas para os tokens de cor deste projeto.
+ */
+
+.liquid-glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 58%),
+      rgb(255 255 255 / 16%) 34%,
+      transparent 55%,
+      color-mix(in oklab, var(--text-main) 3.5%, transparent)
+    ),
+    color-mix(in oklab, var(--bg-main) 58%, transparent);
+  box-shadow:
+    inset 1px 1px 1px -0.5px rgb(255 255 255 / 78%),
+    inset -1px -1px 1px -0.5px color-mix(in oklab, var(--text-main) 10%, transparent),
+    inset 0 0 0 1px color-mix(in oklab, var(--text-main) 6%, transparent),
+    0 4px 14px -6px color-mix(in oklab, var(--text-main) 18%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  backdrop-filter: blur(14px) saturate(1.5);
+}
+
+html.dark .liquid-glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 14%),
+      rgb(255 255 255 / 4%) 34%,
+      transparent 55%,
+      rgb(255 255 255 / 7%)
+    ),
+    rgb(0 0 0 / 28%);
+  box-shadow:
+    inset 1px 1px 1px -0.5px rgb(255 255 255 / 40%),
+    inset -1px -1px 1px -0.5px rgb(255 255 255 / 12%),
+    inset 0 0 0 1px rgb(255 255 255 / 8%),
+    0 4px 14px -6px rgb(0 0 0 / 50%);
+}
+
+.paper-glass {
+  border: 1px solid color-mix(in oklab, var(--text-main) 8%, transparent);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--bg-main) 92%, transparent),
+      color-mix(in oklab, var(--bg-main) 68%, transparent) 48%,
+      color-mix(in oklab, var(--bg-muted) 34%, transparent)
+    ),
+    color-mix(in oklab, var(--bg-main) 70%, transparent);
+  box-shadow:
+    inset 1px 1px 0 color-mix(in oklab, var(--bg-main) 90%, transparent),
+    inset -1px -1px 0 color-mix(in oklab, var(--text-main) 3.5%, transparent),
+    0 12px 32px -24px color-mix(in oklab, var(--text-main) 42%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+}

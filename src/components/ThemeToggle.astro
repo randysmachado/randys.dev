@@ -12,13 +12,18 @@ import { Icon } from "astro-icon/components";
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--space-l);
-    height: var(--space-l);
-    margin-right: calc(var(--space-2xs) * -1);
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
     cursor: pointer;
     background: none;
     border: none;
     color: inherit;
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
   }
 
   .theme-toggle__icon {
