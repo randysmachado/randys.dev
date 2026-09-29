@@ -1,4 +1,6 @@
 ---
+import { Font } from "astro:assets";
+
 import "../styles/global.css";
 
 import Header from "@/components/Header.astro";
@@ -61,6 +63,7 @@ const jsonLd = {
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <Font cssVariable="--font-sans" preload={[{ style: "normal" }]} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
