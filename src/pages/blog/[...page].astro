@@ -2,7 +2,7 @@
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import PostCard from "@/components/PostCard.astro";
+import PostsPanel from "@/components/PostsPanel.astro";
 import Pagination from "@/components/Pagination.astro";
 import { BLOG_POSTS_PER_PAGE } from "@/consts";
 
@@ -23,24 +23,26 @@ const title = page.currentPage === 1 ? "Blog" : `Blog — Página ${page.current
 ---
 
 <Layout title={title}>
-  <h1>Blog</h1>
-  <ul class="post-list">
-    {page.data.map((post) => (
-      <li><PostCard post={post} variant="preview" /></li>
-    ))}
-  </ul>
-  <Pagination
-    currentPage={page.currentPage}
-    lastPage={page.lastPage}
-    previousUrl={page.url.prev}
-    nextUrl={page.url.next}
-  />
+  <div class="blog-page">
+    <PostsPanel title="Blog" headingLevel="h1" posts={page.data} />
+    {
+      page.lastPage > 1 && (
+        <Pagination
+          currentPage={page.currentPage}
+          lastPage={page.lastPage}
+          previousUrl={page.url.prev}
+          nextUrl={page.url.next}
+        />
+      )
+    }
+  </div>
 </Layout>
 
 <style>
-  .post-list {
+  .blog-page {
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: var(--space-l);
+    padding-block-start: var(--space-s);
   }
 </style>

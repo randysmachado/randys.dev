@@ -1,13 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Link from "@/components/Link.astro";
 import { HOME_POSTS_PER_CATEGORY, type CategorySlug } from "@/consts";
-import HomePostsSection from "@/components/HomePostsSection.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
+import PostsPanel from "@/components/PostsPanel.astro";
 
 const allPosts = await getCollection("blog");
-const allProjects = await getCollection("projects");
 
 const byRecent = (
   a: (typeof allPosts)[number],
@@ -21,12 +18,6 @@ const postsIn = (category: CategorySlug) =>
 
 const devPosts = postsIn("dev");
 const blogPosts = postsIn("blog");
-
-const featuredProjects = allProjects
-  .filter((project) => project.data.featured)
-  .sort(
-    (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
-  );
 ---
 
 <Layout>
@@ -48,37 +39,27 @@ const featuredProjects = allProjects
 
   {
     devPosts.length > 0 && (
-      <HomePostsSection
+      <PostsPanel
         title="Dev"
         posts={devPosts.slice(0, HOME_POSTS_PER_CATEGORY)}
-        total={devPosts.length}
-        href="/blog"
+        more={{
+          href: "/blog",
+          label: `${Math.min(devPosts.length, HOME_POSTS_PER_CATEGORY)} de ${devPosts.length} posts`,
+        }}
       />
     )
   }
 
   {
     blogPosts.length > 0 && (
-      <HomePostsSection
+      <PostsPanel
         title="Blog"
         posts={blogPosts.slice(0, HOME_POSTS_PER_CATEGORY)}
-        total={blogPosts.length}
-        href="/blog"
+        more={{
+          href: "/blog",
+          label: `${Math.min(blogPosts.length, HOME_POSTS_PER_CATEGORY)} de ${blogPosts.length} posts`,
+        }}
       />
-    )
-  }
-
-  {
-    featuredProjects.length > 0 && (
-      <section>
-        <h2>Projetos</h2>
-        <div class="project-grid">
-          {featuredProjects.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-        </div>
-        <Link href="/projetos" underline>Ver todos os projetos →</Link>
-      </section>
     )
   }
 </Layout>
@@ -111,11 +92,5 @@ const featuredProjects = allProjects
 
   .intro__muted {
     color: color-mix(in oklab, var(--text-main) 60%, transparent);
-  }
-
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    gap: var(--space-m);
   }
 </style>

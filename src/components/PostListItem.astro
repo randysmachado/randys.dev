@@ -13,24 +13,24 @@ const { title, description, image } = post.data;
 <article>
   <a
     href={`/blog/${post.id}/`}
-    class:list={["home-post-card", { "home-post-card--has-image": image }]}
+    class:list={["post-list-item", { "post-list-item--has-image": image }]}
   >
     {
       image && (
-        <div class="home-post-card__cover">
+        <div class="post-list-item__cover">
           <Image src={image} alt="" width={384} loading="lazy" />
         </div>
       )
     }
-    <div class="home-post-card__body">
-      <h3 class="home-post-card__title">{title}</h3>
-      <p class="home-post-card__description">{description}</p>
+    <div class="post-list-item__body">
+      <h3 class="post-list-item__title">{title}</h3>
+      <p class="post-list-item__description">{description}</p>
     </div>
   </a>
 </article>
 
 <style>
-  .home-post-card {
+  .post-list-item {
     display: grid;
     gap: 1rem;
     padding: 1rem;
@@ -41,23 +41,23 @@ const { title, description, image } = post.data;
   }
 
   @media (width >= 40rem) {
-    .home-post-card--has-image {
+    .post-list-item--has-image {
       grid-template-columns: 12rem minmax(0, 1fr);
       align-items: start;
       gap: 1.25rem;
     }
   }
 
-  .home-post-card:hover {
+  .post-list-item:hover {
     background: color-mix(in oklab, var(--bg-muted) 25%, transparent);
   }
 
-  .home-post-card:focus-visible {
+  .post-list-item:focus-visible {
     outline: 2px solid var(--text-main);
     outline-offset: -2px;
   }
 
-  .home-post-card__cover {
+  .post-list-item__cover {
     align-self: start;
     overflow: hidden;
     border-radius: min(1.2vw, 0.75rem);
@@ -66,13 +66,13 @@ const { title, description, image } = post.data;
     outline-offset: -1px;
   }
 
-  .home-post-card__cover img {
+  .post-list-item__cover img {
     display: block;
     width: 100%;
     height: auto;
   }
 
-  .home-post-card__body {
+  .post-list-item__body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -80,20 +80,20 @@ const { title, description, image } = post.data;
     padding-block: 0.125rem;
   }
 
-  .home-post-card__title {
+  .post-list-item__title {
     font-size: var(--step-1);
     font-weight: 600;
     line-height: 1.3;
     text-wrap: balance;
   }
 
-  .home-post-card__description {
+  .post-list-item__description {
     color: color-mix(in oklab, var(--text-main) 60%, transparent);
     text-wrap: pretty;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-post-card {
+    .post-list-item {
       transition: none;
     }
   }
