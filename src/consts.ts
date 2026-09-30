@@ -1,5 +1,10 @@
 import type { NavLink, SocialLink } from "@/types";
 
+export const SITE_TITLE = "Randys Machado";
+export const SITE_DESCRIPTION =
+  "Blog pessoal do Randys Machado: tecnologia, programação e outros assuntos.";
+export const SITE_URL = "https://randys.dev";
+
 export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
@@ -12,21 +17,41 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { href: "", label: "x", icon: "x" },
 ];
 
+/**
+ * Categorias pré-definidas dos posts. `color` é um tom de destaque do Flexoki
+ * (ver `src/styles/categories.css`); `description` aparece na home e na página
+ * da categoria.
+ */
 export const CATEGORIES = [
-  { slug: "dev", label: "Dev" },
-  { slug: "blog", label: "Blog" },
-  { slug: "viagens", label: "Viagens" },
-  { slug: "ferias", label: "Férias" },
+  {
+    slug: "dev",
+    label: "Dev",
+    description: "desenvolvimento e tecnologia",
+    color: "blue",
+  },
+  {
+    slug: "miscelanea",
+    label: "Miscelânea",
+    description: "um pouco de tudo",
+    color: "orange",
+  },
+  {
+    slug: "viagens",
+    label: "Viagens",
+    description: "lugares por onde passei",
+    color: "cyan",
+  },
+  {
+    slug: "ferias",
+    label: "Férias",
+    description: "dias de descanso",
+    color: "yellow",
+  },
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]["slug"];
 
 export const BLOG_POSTS_PER_PAGE = 10;
 
-/** Quantidade de posts exibidos em cada bloco de categoria (Dev, Blog) na home. */
-export const HOME_POSTS_PER_CATEGORY = 3;
-
-export const SITE_TITLE = "Randys Machado";
-export const SITE_DESCRIPTION =
-  "Blog pessoal do Randys Machado: tecnologia, programação e outros assuntos.";
-export const SITE_URL = "https://randys.dev";
+/** Quantidade de posts exibidos em cada bloco de categoria (Dev, Miscelânea) na home. */
+export const HOME_POSTS_PER_CATEGORY = 2;

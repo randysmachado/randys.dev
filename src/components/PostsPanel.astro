@@ -6,26 +6,47 @@ import PostListItem from "./PostListItem.astro";
 
 type Props = {
   title: string;
+  /** Descrição curta exibida ao lado do título. */
+  description?: string;
   /** `h1` quando o painel é o conteúdo principal da página (ex.: /blog). */
   headingLevel?: "h1" | "h2";
   posts: CollectionEntry<"blog">[];
+  showCategories?: boolean;
   /** Link opcional no cabeçalho (ex.: "3 de 5 posts ›"). */
   more?: { href: string; label: string };
 };
 
-const { title, headingLevel = "h2", posts, more } = Astro.props;
+const {
+  title,
+  description,
+  headingLevel = "h2",
+  posts,
+  showCategories = false,
+  more,
+} = Astro.props;
 const Heading = headingLevel;
-const headingId = `posts-panel-${title.toLowerCase()}`;
+const headingId = `posts-panel-${title
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/\s+/g, "-")}`;
 ---
 
 <section class="posts-panel" aria-labelledby={headingId}>
   <header class="posts-panel__header">
-    <Heading id={headingId} class="posts-panel__title">{title}</Heading>
+    <div class="posts-panel__heading">
+      <Heading id={headingId} class="posts-panel__title">{title}</Heading>
+      {description && <p class="posts-panel__description">{description}</p>}
+    </div>
     {
       more && (
         <a href={more.href} class="posts-panel__more">
           <span>{more.label}</span>
-          <Icon name="chevron-right" class="posts-panel__chevron" aria-hidden="true" />
+          <Icon
+            name="chevron-right"
+            class="posts-panel__chevron"
+            aria-hidden="true"
+          />
         </a>
       )
     }
@@ -34,7 +55,7 @@ const headingId = `posts-panel-${title.toLowerCase()}`;
     {
       posts.map((post) => (
         <li>
-          <PostListItem post={post} />
+          <PostListItem post={post} showCategories={showCategories} />
         </li>
       ))
     }
@@ -61,6 +82,19 @@ const headingId = `posts-panel-${title.toLowerCase()}`;
     .posts-panel__header {
       padding: 1.25rem 1.25rem 0.5rem;
     }
+  }
+
+  .posts-panel__heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.625rem;
+    min-width: 0;
+  }
+
+  .posts-panel__description {
+    color: var(--text-muted);
+    font-size: var(--step--1);
   }
 
   .posts-panel__title {

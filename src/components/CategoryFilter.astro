@@ -1,0 +1,83 @@
+---
+import type { CategorySlug } from "@/consts";
+import { categoryUrl, getCategory } from "@/lib/categories";
+
+type Props = {
+  /** Categorias com pelo menos um post, na ordem de `CATEGORIES`. */
+  categories: CategorySlug[];
+  /** Categoria da página atual; ausente em /blog (chip "Todos" ativo). */
+  current?: CategorySlug;
+};
+
+const { categories, current } = Astro.props;
+---
+
+<nav class="category-filter" aria-label="Filtrar por categoria">
+  <ul class="category-filter__list" role="list">
+    <li>
+      <a
+        href="/blog"
+        class="category-filter__chip category-filter__chip--all"
+        aria-current={current ? undefined : "page"}
+      >
+        Todos
+      </a>
+    </li>
+    {
+      categories.map((slug) => (
+        <li>
+          <a
+            href={categoryUrl(slug)}
+            class="category-filter__chip"
+            data-category-color={getCategory(slug).color}
+            aria-current={slug === current ? "page" : undefined}
+          >
+            {getCategory(slug).label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .category-filter__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .category-filter__chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    border-radius: 999px;
+    background: var(--cat-bg);
+    color: var(--cat-fg);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+    transition: box-shadow 200ms ease;
+  }
+
+  .category-filter__chip--all {
+    --cat-bg: var(--bg-muted);
+    --cat-fg: var(--text-main);
+  }
+
+  .category-filter__chip:hover,
+  .category-filter__chip[aria-current="page"] {
+    box-shadow: inset 0 0 0 1px currentColor;
+  }
+
+  .category-filter__chip:focus-visible {
+    outline: 2px solid var(--cat-fg);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .category-filter__chip {
+      transition: none;
+    }
+  }
+</style>

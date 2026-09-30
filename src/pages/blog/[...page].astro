@@ -4,6 +4,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import PostsPanel from "@/components/PostsPanel.astro";
 import Pagination from "@/components/Pagination.astro";
+import CategoryFilter from "@/components/CategoryFilter.astro";
+import { categoriesWithPosts } from "@/lib/categories";
 import { BLOG_POSTS_PER_PAGE } from "@/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -19,12 +21,14 @@ type Props = {
 };
 
 const { page } = Astro.props;
+const categories = categoriesWithPosts(await getCollection("blog"));
 const title = page.currentPage === 1 ? "Blog" : `Blog — Página ${page.currentPage}`;
 ---
 
 <Layout title={title}>
   <div class="blog-page">
-    <PostsPanel title="Blog" headingLevel="h1" posts={page.data} />
+    <CategoryFilter categories={categories} />
+    <PostsPanel title="Blog" headingLevel="h1" posts={page.data} showCategories />
     {
       page.lastPage > 1 && (
         <Pagination
@@ -42,7 +46,7 @@ const title = page.currentPage === 1 ? "Blog" : `Blog — Página ${page.current
   .blog-page {
     display: flex;
     flex-direction: column;
-    gap: var(--space-l);
+    gap: var(--space-m);
     padding-block-start: var(--space-s);
   }
 </style>

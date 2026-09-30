@@ -1,0 +1,43 @@
+---
+import type { CategorySlug } from "@/consts";
+import { categoryUrl, getCategory } from "@/lib/categories";
+
+type Props = {
+  slug: CategorySlug;
+  /** `false` dentro de elementos que já são links (evita `<a>` aninhado). */
+  linked?: boolean;
+};
+
+const { slug, linked = true } = Astro.props;
+const { label, color } = getCategory(slug);
+const Tag = linked ? "a" : "span";
+---
+
+<Tag
+  class="category-badge"
+  data-category-color={color}
+  href={linked ? categoryUrl(slug) : undefined}
+>
+  {label}
+</Tag>
+
+<style>
+  .category-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    background: var(--cat-bg);
+    color: var(--cat-fg);
+    font-size: var(--step--1);
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  a.category-badge:focus-visible {
+    outline: 2px solid var(--cat-fg);
+    outline-offset: 2px;
+  }
+</style>

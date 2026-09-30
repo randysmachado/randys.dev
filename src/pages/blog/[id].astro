@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-import { CATEGORIES } from "@/consts";
+import CategoryBadge from "@/components/CategoryBadge.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -16,9 +16,6 @@ const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const { title, description, publishDate, categories, tags, image } =
   post.data;
-const categoryLabels = categories.map(
-  (slug) => CATEGORIES.find((c) => c.slug === slug)?.label ?? slug,
-);
 ---
 
 <Layout
@@ -31,9 +28,14 @@ const categoryLabels = categories.map(
   <article class="post">
     <header class="post-header">
       <h1>{title}</h1>
-      <p class="post-meta">
-        {categoryLabels.join(", ")} · {publishDate.toLocaleDateString("pt-BR")}
-      </p>
+      <div class="post-meta">
+        <span class="post-categories">
+          {categories.map((slug) => <CategoryBadge slug={slug} />)}
+        </span>
+        <time datetime={publishDate.toISOString()}>
+          {publishDate.toLocaleDateString("pt-BR")}
+        </time>
+      </div>
     </header>
     <div class="post-content">
       <Content />
@@ -67,8 +69,18 @@ const categoryLabels = categories.map(
   }
 
   .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
     font-size: var(--step--1);
     color: var(--text-muted);
+  }
+
+  .post-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
   }
 
   .post-content {

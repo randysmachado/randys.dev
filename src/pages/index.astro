@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import { HOME_POSTS_PER_CATEGORY, type CategorySlug } from "@/consts";
 import PostsPanel from "@/components/PostsPanel.astro";
+import { categoryUrl, getCategory } from "@/lib/categories";
 
 const allPosts = await getCollection("blog");
 
@@ -16,8 +17,13 @@ const postsIn = (category: CategorySlug) =>
     .filter((post) => post.data.categories.includes(category))
     .sort(byRecent);
 
-const devPosts = postsIn("dev");
-const blogPosts = postsIn("blog");
+/** Só estas categorias aparecem na home; as demais ficam em /blog. */
+const HOME_CATEGORIES: CategorySlug[] = ["dev", "miscelanea"];
+
+const homeSections = HOME_CATEGORIES.map((slug) => ({
+  category: getCategory(slug),
+  posts: postsIn(slug),
+})).filter(({ posts }) => posts.length > 0);
 ---
 
 <Layout>
@@ -38,29 +44,17 @@ const blogPosts = postsIn("blog");
   </section>
 
   {
-    devPosts.length > 0 && (
+    homeSections.map(({ category, posts }) => (
       <PostsPanel
-        title="Dev"
-        posts={devPosts.slice(0, HOME_POSTS_PER_CATEGORY)}
+        title={category.label}
+        description={category.description}
+        posts={posts.slice(0, HOME_POSTS_PER_CATEGORY)}
         more={{
-          href: "/blog",
-          label: `${Math.min(devPosts.length, HOME_POSTS_PER_CATEGORY)} de ${devPosts.length} posts`,
+          href: categoryUrl(category.slug),
+          label: `${Math.min(posts.length, HOME_POSTS_PER_CATEGORY)} de ${posts.length} posts`,
         }}
       />
-    )
-  }
-
-  {
-    blogPosts.length > 0 && (
-      <PostsPanel
-        title="Blog"
-        posts={blogPosts.slice(0, HOME_POSTS_PER_CATEGORY)}
-        more={{
-          href: "/blog",
-          label: `${Math.min(blogPosts.length, HOME_POSTS_PER_CATEGORY)} de ${blogPosts.length} posts`,
-        }}
-      />
-    )
+    ))
   }
 </Layout>
 
