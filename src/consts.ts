@@ -35,18 +35,6 @@ export const CATEGORIES = [
     description: "um pouco de tudo",
     color: "orange",
   },
-  {
-    slug: "viagens",
-    label: "Viagens",
-    description: "lugares por onde passei",
-    color: "cyan",
-  },
-  {
-    slug: "ferias",
-    label: "Férias",
-    description: "dias de descanso",
-    color: "yellow",
-  },
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]["slug"];

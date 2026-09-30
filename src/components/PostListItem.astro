@@ -31,7 +31,7 @@ const { title, summary, description, image, categories } = post.data;
         showCategories && (
           <div class="post-list-item__categories">
             {categories.map((slug) => (
-              <CategoryBadge slug={slug} linked={false} />
+              <CategoryBadge slug={slug} linked={false} size="sm" />
             ))}
           </div>
         )

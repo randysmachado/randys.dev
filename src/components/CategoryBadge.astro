@@ -6,15 +6,17 @@ type Props = {
   slug: CategorySlug;
   /** `false` dentro de elementos que já são links (evita `<a>` aninhado). */
   linked?: boolean;
+  /** `sm` para os cards da listagem. */
+  size?: "md" | "sm";
 };
 
-const { slug, linked = true } = Astro.props;
+const { slug, linked = true, size = "md" } = Astro.props;
 const { label, color } = getCategory(slug);
 const Tag = linked ? "a" : "span";
 ---
 
 <Tag
-  class="category-badge"
+  class:list={["category-badge", { "category-badge--sm": size === "sm" }]}
   data-category-color={color}
   href={linked ? categoryUrl(slug) : undefined}
 >
@@ -34,6 +36,11 @@ const Tag = linked ? "a" : "span";
     line-height: 1.4;
     text-decoration: none;
     white-space: nowrap;
+  }
+
+  .category-badge--sm {
+    padding: 0.0625rem 0.4375rem;
+    font-size: 0.75rem;
   }
 
   a.category-badge:focus-visible {

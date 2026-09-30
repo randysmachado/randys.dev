@@ -1,26 +1,23 @@
 /*
- * Cores das categorias: tons de destaque do Flexoki (fundo 50 + texto 700 no
- * claro; fundo 950 + texto 300 no escuro). Todas as combinações têm contraste
- * WCAG AA — ver planejamento/0016.
+ * Cores das categorias: fundo com o tom 50 (claro) / 950 (escuro) do Flexoki;
+ * o texto mistura o tom 700 / 300 com a cor de texto do site (60/40), para
+ * manter a matiz sem saturar. Contraste WCAG AA — ver planejamento/0016 e 0017.
  */
 
 [data-category-color="blue"] {
   --cat-bg: light-dark(#e1eceb, #101a24);
-  --cat-fg: light-dark(#1a4f8c, #66a0c8);
+  --cat-fg: color-mix(
+    in oklab,
+    light-dark(#1a4f8c, #66a0c8) 60%,
+    var(--text-main)
+  );
 }
 
 [data-category-color="orange"] {
   --cat-bg: light-dark(#ffe7ce, #27180e);
-  --cat-fg: light-dark(#9d4310, #ec8b49);
-}
-
-[data-category-color="cyan"] {
-  --cat-bg: light-dark(#ddf1e4, #101f1d);
-  --cat-fg: light-dark(#1c6c66, #5abdac);
-}
-
-/* Amarelo usa o tom 800 no claro: o 700 não atinge 4.5:1. */
-[data-category-color="yellow"] {
-  --cat-bg: light-dark(#faeec6, #241e08);
-  --cat-fg: light-dark(#664d01, #dfb431);
+  --cat-fg: color-mix(
+    in oklab,
+    light-dark(#9d4310, #ec8b49) 60%,
+    var(--text-main)
+  );
 }
