@@ -5,12 +5,12 @@ import SocialLinks from "./SocialLinks.astro";
 
 <footer>
   <div class="footer__inner">
-    <p class="footer-quote" id="footer-quote"></p>
-
     <div class="footer-bottom">
       <p class="footer-copyright">© {new Date().getFullYear()} Randys Machado</p>
       <SocialLinks />
     </div>
+
+    <p class="footer-quote" id="footer-quote"></p>
   </div>
 
   <div class="footer-name-wrap" aria-hidden="true">
@@ -24,7 +24,7 @@ import SocialLinks from "./SocialLinks.astro";
     "Todo bug em produção já foi, em algum momento, uma feature discutida com muita confiança.",
     "O café frio de terça-feira sabe mais sobre arquitetura de software do que qualquer livro.",
     "Ninguém nunca leu o changelog inteiro, mas todo mundo já culpou ele por algo.",
-    "O `git commit -m \"ajustes\"` guarda mais segredos do que qualquer diário.",
+    "O git commit -m \"ajustes\" guarda mais segredos do que qualquer diário.",
     "Se funcionou de primeira, provavelmente vai quebrar quando você mostrar pra alguém.",
     "O Wi-Fi só cai durante a demonstração porque ele também tem senso de timing.",
     "Toda vez que alguém diz \"é rapidinho\", um deploy em sexta-feira nasce em algum lugar.",
@@ -87,11 +87,24 @@ import SocialLinks from "./SocialLinks.astro";
     gap: var(--space-2xs) var(--space-s);
   }
 
+  /* Estilo sutil de citação (visual apenas; as frases são do próprio autor). */
   .footer-quote {
+    min-height: 1lh;
+    padding-inline-start: 0.75rem;
+    border-inline-start: 2px solid var(--border-main);
     font-size: var(--step--1);
     font-style: italic;
     color: var(--text-muted);
-    min-height: 1lh;
+  }
+
+  .footer-quote:not(:empty)::before {
+    content: "\201C";
+    color: var(--text-faint);
+  }
+
+  .footer-quote:not(:empty)::after {
+    content: "\201D";
+    color: var(--text-faint);
   }
 
   .footer-copyright {
