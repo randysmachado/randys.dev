@@ -6,7 +6,7 @@ export const getCategory = (slug: CategorySlug): Category =>
   CATEGORIES.find((category) => category.slug === slug)!;
 
 export const categoryUrl = (slug: CategorySlug): string =>
-  `/categoria/${slug}`;
+  `/categoria/${slug}/`;
 
 /** Slugs de `CATEGORIES` que têm ao menos um post, na ordem definida em consts. */
 export const categoriesWithPosts = (

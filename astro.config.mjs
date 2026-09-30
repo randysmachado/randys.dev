@@ -17,6 +17,9 @@ import {
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
+  // Páginas geradas como /rota/index.html → URLs sempre com barra final
+  // (recomendado para build.format "directory").
+  trailingSlash: "always",
   integrations: [icon(), sitemap()],
   fonts: [
     {
@@ -77,12 +80,12 @@ export default defineConfig({
   // conjunto fechado; redirect dinâmico não serve porque /tag/[tag] é
   // paginada (/tag/[tag]/[...page]).
   redirects: {
-    "/tags": "/blog",
-    "/tags/blog": "/tag/blog",
-    "/tags/css": "/tag/css",
-    "/tags/javascript": "/tag/javascript",
-    "/tags/wordpress": "/tag/wordpress",
-    "/notas": "/blog",
+    "/tags": "/blog/",
+    "/tags/blog": "/tag/blog/",
+    "/tags/css": "/tag/css/",
+    "/tags/javascript": "/tag/javascript/",
+    "/tags/wordpress": "/tag/wordpress/",
+    "/notas": "/blog/",
   },
   devToolbar: {
     enabled: false,

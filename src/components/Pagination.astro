@@ -6,7 +6,7 @@ type Props = {
   lastPage: number;
   previousUrl?: string;
   nextUrl?: string;
-  /** URL da 1ª página; as demais ficam em `${baseUrl}/N`. */
+  /** URL da 1ª página (com barra final); as demais ficam em `${baseUrl}N/`. */
   baseUrl?: string;
 };
 
@@ -15,10 +15,10 @@ const {
   lastPage,
   previousUrl,
   nextUrl,
-  baseUrl = "/blog",
+  baseUrl = "/blog/",
 } = Astro.props;
 const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
-const pageUrl = (page: number) => (page === 1 ? baseUrl : `${baseUrl}/${page}`);
+const pageUrl = (page: number) => (page === 1 ? baseUrl : `${baseUrl}${page}/`);
 ---
 
 <nav class="pagination" aria-label="Paginação do blog">

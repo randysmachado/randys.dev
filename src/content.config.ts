@@ -23,6 +23,8 @@ const blog = defineCollection({
         .max(100, "summary deve ter no máximo 100 caracteres")
         .optional(),
       publishDate: z.date(),
+      /** Data da última atualização relevante ("atualizado em …" no post). */
+      updatedDate: z.date().optional(),
       image: image().optional(),
       /** Texto alternativo da capa; sem ele, a capa é tratada como decorativa. */
       imageAlt: z.string().optional(),

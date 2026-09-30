@@ -7,6 +7,7 @@ import CategoryBadge from "@/components/CategoryBadge.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import { formatDate } from "@/lib/date";
 import { tagUrl } from "@/lib/tags";
+import { getCategory } from "@/lib/categories";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -22,6 +23,7 @@ const {
   title,
   description,
   publishDate,
+  updatedDate,
   categories,
   tags,
   image,
@@ -32,9 +34,13 @@ const {
 <Layout
   title={title}
   description={description}
-  image={image?.src}
+  image={image}
+  imageAlt={imageAlt}
   type="article"
   publishDate={publishDate}
+  updatedDate={updatedDate}
+  section={getCategory(categories[0]).label}
+  tags={tags}
 >
   <article class="post">
     <PageHeader title={title} description={description}>
@@ -46,6 +52,16 @@ const {
           <time datetime={publishDate.toISOString().slice(0, 10)}>
             {formatDate(publishDate)}
           </time>
+          {
+            updatedDate && (
+              <span class="post-updated">
+                &nbsp;· atualizado em{" "}
+                <time datetime={updatedDate.toISOString().slice(0, 10)}>
+                  {formatDate(updatedDate)}
+                </time>
+              </span>
+            )
+          }
           {
             tags && tags.length > 0 && (
               <>

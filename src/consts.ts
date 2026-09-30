@@ -7,9 +7,9 @@ export const SITE_URL = "https://randys.dev";
 
 export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/projetos", label: "Projetos" },
-  { href: "/sobre", label: "Sobre" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/projetos/", label: "Projetos" },
+  { href: "/sobre/", label: "Sobre" },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [

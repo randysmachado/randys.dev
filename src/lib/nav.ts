@@ -1,5 +1,10 @@
-/** Indica se `href` corresponde à página atual (Home só em "/", demais por prefixo de segmento). */
-export const isActive = (href: string, pathname: string): boolean =>
-  href === "/"
+/**
+ * Indica se `href` corresponde à página atual (Home só em "/", demais por
+ * prefixo de segmento). Aceita `href`/`pathname` com ou sem barra final.
+ */
+export const isActive = (href: string, pathname: string): boolean => {
+  const base = href.replace(/\/$/, "");
+  return base === ""
     ? pathname === "/"
-    : pathname === href || pathname.startsWith(`${href}/`);
+    : pathname === base || pathname.startsWith(`${base}/`);
+};
