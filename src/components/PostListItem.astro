@@ -59,7 +59,7 @@ const { title, summary, description, image, categories } = post.data;
   @media (width >= 40rem) {
     .post-list-item--has-image {
       grid-template-columns: 12rem minmax(0, 1fr);
-      align-items: start;
+      align-items: stretch;
       gap: 1.25rem;
     }
   }
@@ -86,6 +86,21 @@ const { title, summary, description, image, categories } = post.data;
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  /*
+   * Imagem ao lado do texto: acompanha a altura do card, sem sobrar vazio
+   * (mesma solução do ProjectCard). Depois da regra base de propósito.
+   */
+  @media (width >= 40rem) {
+    .post-list-item__cover {
+      align-self: stretch;
+    }
+
+    .post-list-item__cover img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .post-list-item__body {
