@@ -1,46 +1,56 @@
-# Astro Starter Kit: Basics
+# randys.dev
+
+Blog pessoal do **Randys Machado** — tecnologia, programação e o que mais der vontade de escrever. Publicado em [randys.dev](https://randys.dev).
+
+Versão **3.0**, feita com [Astro](https://astro.build). A versão anterior (2.0, em Next.js) está preservada na tag `v2.0`.
+
+## Stack
+
+- **Astro 7**, site estático.
+- **Markdown** processado pelo Sätteri, com plugins próprios em `src/lib/`: links de âncora nos títulos, links externos, callouts (`:::note`, `:::tip`…) e código com [Expressive Code](https://expressive-code.com/).
+- **CSS nativo**, sem framework: tokens em `src/styles/` (paleta [Flexoki](https://stephango.com/flexoki), tipografia fluida) e `<style>` escopado em cada componente.
+- **Fontes** Figtree e JetBrains Mono, servidas pela Fonts API do Astro.
+- **SEO**: sitemap, RSS com conteúdo completo (`/rss.xml`), Open Graph 1200×630 gerado no build e JSON-LD.
+- Hospedagem na **Vercel** (`vercel.json`).
+
+## Comandos
+
+Requer Node.js 22.12 ou superior.
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev       # servidor de desenvolvimento em http://localhost:4321
+npm run build     # build de produção em ./dist
+npm run preview   # serve o build de produção localmente
+npx astro check   # checagem de tipos
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Conteúdo
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/content/
+├── blog/<slug>/index.md       # posts (a pasta vira a URL /blog/<slug>/)
+└── projects/<slug>/index.md   # projetos (/projetos/<slug>/)
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Frontmatter de um post:
 
-## 🧞 Commands
+```yaml
+title: "Título"
+description: "Descrição usada em SEO e redes sociais"
+summary: "Resumo curto para os cards (opcional, até 100 caracteres)"
+publishDate: 2026-09-30
+updatedDate: 2026-10-15   # opcional: mostra "atualizado em …"
+image: ./cover.png        # opcional: capa (imagem social 1200×630 gerada no build)
+imageAlt: "…"             # opcional
+categories: ["dev"]       # "dev" ou "miscelanea"
+tags: ["css", "astro"]
+```
 
-All commands are run from the root of the project, from a terminal:
+Projetos exigem `image` e `link`, e aceitam `technologies: ["Astro", …]`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+**Posts de teste:** pastas começando com `exemplo-` (ex.: `src/content/blog/exemplo-teste/`) aparecem no blog local, mas são ignoradas pelo git e nunca são publicadas.
 
-## 👀 Want to learn more?
+## Publicação
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Um push na `main` publica em produção na Vercel; pushes em outras branches geram só um preview.

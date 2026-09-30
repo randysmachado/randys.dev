@@ -3,7 +3,6 @@ title: "Busca CEP"
 description: "Ferramenta de consulta de CEP de Porangatu-GO, com busca por nome de rua e dados atualizados dos Correios."
 publishDate: 2025-01-10
 link: "https://buscacep.randys.dev/"
-featured: true
 image: "./cover.jpg"
 technologies: ["Next.js", "React", "Tailwind CSS"]
 tags: ["nextjs", "utilidade-publica"]

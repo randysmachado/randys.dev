@@ -45,7 +45,6 @@ const projects = defineCollection({
       link: z.url(),
       /** Tecnologias usadas no projeto (badges neutros na página do projeto). */
       technologies: z.array(z.string()).default([]),
-      featured: z.boolean().default(false),
       tags: z.array(z.string()).optional(),
     }),
 });

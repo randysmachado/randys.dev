@@ -3,7 +3,6 @@ title: "Por Onde Andei"
 description: "Diário de viagens em Astro: lugares visitados pelo Brasil, com fotos, histórias e um mapa interativo."
 publishDate: 2025-06-20
 link: "https://porondeandei.randys.dev/"
-featured: true
 image: "./cover.jpg"
 technologies: ["Astro", "Leaflet", "OpenStreetMap"]
 tags: ["astro", "viagens"]
