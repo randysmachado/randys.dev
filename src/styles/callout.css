@@ -4,7 +4,7 @@
  * cor de texto do site (mesmo tratamento das categorias, etapa 0017).
  */
 
-.post-content [data-callout] {
+.prose [data-callout] {
   --accent: var(--text-muted);
   --callout-text: color-mix(in oklab, var(--accent) 60%, var(--text-main));
 
@@ -71,28 +71,28 @@
   }
 }
 
-.post-content [data-callout="note"] {
+.prose [data-callout="note"] {
   --accent: light-dark(#205ea6, #4385be);
 }
 
-.post-content [data-callout="tip"] {
+.prose [data-callout="tip"] {
   --accent: light-dark(#66800b, #879a39);
 }
 
-.post-content [data-callout="warning"] {
+.prose [data-callout="warning"] {
   --accent: light-dark(#ad8301, #d0a215);
 }
 
-.post-content [data-callout="caution"] {
+.prose [data-callout="caution"] {
   --accent: light-dark(#af3029, #d14d41);
 }
 
-.post-content [data-callout="important"] {
+.prose [data-callout="important"] {
   --accent: light-dark(#5e409d, #8b7ec8);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .post-content [data-callout] > summary svg:last-child {
+  .prose [data-callout] > summary svg:last-child {
     transition: none;
   }
 }

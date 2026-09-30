@@ -1,28 +1,42 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/PageHeader.astro";
 ---
 
 <Layout
   title="Sobre"
   description="Um pouco sobre o Randys Machado: quem sou, o que faço e sobre o que escrevo neste blog."
 >
-  <article>
-    <h1>Sobre</h1>
-    <p>
-      Olá! Sou o Randys Machado. Este é o meu espaço pessoal na web — um
-      lugar para escrever sobre tecnologia e programação (minha área de
-      atuação), mas também sobre qualquer outro assunto que me interesse no
-      momento: viagens, experiências pessoais e o que mais fizer sentido
-      compartilhar.
-    </p>
-    <p>
-      Na parte de tecnologia, gosto de escrever sobre o que aprendo no dia a
-      dia como desenvolvedor — desde detalhes de implementação até decisões
-      de arquitetura e ferramentas que uso.
-    </p>
-    <p>
-      Fora do código, uso este espaço para registrar o que quiser: viagens,
-      férias, reflexões e outros projetos pessoais.
-    </p>
+  <article class="about">
+    <PageHeader
+      title="Sobre"
+      description="Quem escreve por aqui e sobre o que é este blog."
+    />
+    <div class="prose">
+      <p>
+        Olá! Sou o Randys Machado. Este é o meu espaço pessoal na web — um
+        lugar para escrever sobre tecnologia e programação (minha área de
+        atuação), mas também sobre qualquer outro assunto que me interesse no
+        momento: viagens, experiências pessoais e o que mais fizer sentido
+        compartilhar.
+      </p>
+      <p>
+        Na parte de tecnologia, gosto de escrever sobre o que aprendo no dia a
+        dia como desenvolvedor — desde detalhes de implementação até decisões
+        de arquitetura e ferramentas que uso.
+      </p>
+      <p>
+        Fora do código, uso este espaço para registrar o que quiser: viagens,
+        férias, reflexões e outros projetos pessoais.
+      </p>
+    </div>
   </article>
 </Layout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+</style>

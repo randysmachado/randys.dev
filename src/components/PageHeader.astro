@@ -1,0 +1,40 @@
+---
+/**
+ * Cabeçalho de página de conteúdo (post, Sobre): título grande, descrição
+ * em tom neutro e linha divisória. Metadados (categoria, data, tags) vão no
+ * slot padrão.
+ */
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<header class="page-header">
+  <h1>{title}</h1>
+  {description && <p class="page-header__description">{description}</p>}
+  <slot />
+</header>
+
+<style>
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding-block-end: var(--space-m);
+    border-bottom: 1px solid var(--border-main);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 1.6296rem + 1.8079vw, 3rem);
+  }
+
+  .page-header__description {
+    font-size: var(--step-1);
+    line-height: 1.45;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+</style>
