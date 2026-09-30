@@ -41,6 +41,12 @@ import { SITE_TITLE } from "@/consts";
   footer {
     /* Contêiner das unidades cqi usadas no nome gigante abaixo. */
     container-type: inline-size;
+    /*
+     * Obrigatório: item flex de body (coluna) com margin-inline: auto encolhe
+     * até o conteúdo, e container-type: inline-size ignora o conteúdo no
+     * tamanho intrínseco — sem width o footer colapsa para largura ~0.
+     */
+    width: 100%;
     max-width: var(--content-width);
     margin-inline: auto;
     padding-inline: var(--space-s);
