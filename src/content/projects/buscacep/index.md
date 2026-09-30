@@ -4,7 +4,9 @@ description: "Ferramenta de consulta de CEP de Porangatu-GO, com busca por nome 
 publishDate: 2025-01-10
 link: "https://buscacep.randys.dev/"
 featured: true
-tags: ["astro", "utilidade-publica"]
+image: "./cover.jpg"
+technologies: ["Next.js", "React", "Tailwind CSS"]
+tags: ["nextjs", "utilidade-publica"]
 ---
 
 O **buscaCEP** é uma ferramenta simples para encontrar o CEP atualizado de ruas de Porangatu (GO), com dados sourced diretamente dos Correios.

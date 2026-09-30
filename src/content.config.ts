@@ -38,8 +38,11 @@ const projects = defineCollection({
       title: z.string(),
       description: z.string(),
       publishDate: z.date(),
-      image: image().optional(),
+      /** Obrigatória: aparece no card e na página do projeto. */
+      image: image(),
       link: z.url(),
+      /** Tecnologias usadas no projeto (badges neutros na página do projeto). */
+      technologies: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
       tags: z.array(z.string()).optional(),
     }),
