@@ -2,6 +2,7 @@
 title: "Adicione super poderes a seus comentários JavaScript"
 description: "Saiba como fazer comentários úteis e inteligentes no seu código JavaScript."
 publishDate: 2023-02-25
+image: './cover.png'
 categories: ["dev"]
 tags: ["javascript"]
 ---

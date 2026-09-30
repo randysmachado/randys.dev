@@ -2,6 +2,7 @@
 title: "Nova função light-dark do CSS: Adaptando tema claro e escuro automaticamente"
 description: "Descubra como implementar a nova função light-dark do CSS, permitindo que suas interfaces web se ajustem automaticamente ao tema claro e escuro do sistema operacional ou às preferências do usuário."
 publishDate: 2024-04-26
+image: './cover.png'
 categories: ["dev"]
 tags: ["css"]
 ---

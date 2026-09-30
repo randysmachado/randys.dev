@@ -3,6 +3,7 @@ title: "Diferença entre var, let e const"
 description: "Guia definitivo para entender as diferenças entre var, let e const, além de escopo e hoisting"
 publishDate: 2023-05-25
 categories: ["dev"]
+image: './cover.png'
 tags: ["javascript"]
 ---
 Atualmente há três formas de se declarar variáveis em JavaScript, utilizando as palavras `var`, `let` e `const`. Todas as formas são aceitas, mas a partir da versão **ES6/ES2015** do JavaScript uma das medidas que foi adotada foi a utilização da sintaxe com `const` e `let`.

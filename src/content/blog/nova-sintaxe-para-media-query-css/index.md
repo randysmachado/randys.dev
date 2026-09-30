@@ -2,6 +2,7 @@
 title: "Nova sintaxe para media query CSS"
 description: "Aprenda em primeira mão como utilizar a nova sintaxe."
 publishDate: 2023-04-12
+image: './cover.png'
 categories: ["dev"]
 tags: ["css"]
 ---

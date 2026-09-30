@@ -2,6 +2,7 @@
 title: "O que é o @wordpress/scripts, como usá-lo e por que ele é essencial para seu desenvolvimento"
 description: "Conheça o @wordpress/scripts, uma ferramenta essencial que simplifica o desenvolvimento no WordPress. Descubra como utilizá-lo e por que ele é indispensável para otimizar e acelerar seus projetos de temas e plugins."
 publishDate: 2024-08-19
+image: './cover.png'
 categories: ["dev"]
 tags: ["wordpress"]
 ---

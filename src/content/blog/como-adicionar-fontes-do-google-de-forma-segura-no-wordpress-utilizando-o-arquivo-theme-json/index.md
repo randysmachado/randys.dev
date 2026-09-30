@@ -2,6 +2,7 @@
 title: "Como adicionar fontes do Google de forma segura no WordPress utilizando o arquivo theme.json"
 description: "Guia passo a passo de como adicionar fontes do Google no seu site WordPress de forma segura e otimizada, utilizando o arquivo theme.json."
 publishDate: 2024-08-16
+image: './cover.png'
 categories: ["dev"]
 tags: ["wordpress"]
 ---

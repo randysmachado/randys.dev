@@ -2,6 +2,7 @@
 title: "Como utilizar o Browsersync no WordPress"
 description: "Use o Browsersync pra sincronizar as mudanças no código com o navegador e pare de dar reload na página manualmente."
 publishDate: 2024-08-19
+image: './cover.png'
 categories: ["dev"]
 tags: ["wordpress"]
 ---
