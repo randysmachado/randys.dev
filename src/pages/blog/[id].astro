@@ -3,6 +3,8 @@ import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import CategoryBadge from "@/components/CategoryBadge.astro";
+import { formatDate } from "@/lib/date";
+import { tagUrl } from "@/lib/tags";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -28,22 +30,36 @@ const { title, description, publishDate, categories, tags, image } =
   <article class="post">
     <header class="post-header">
       <h1>{title}</h1>
+      <p class="post-description">{description}</p>
       <div class="post-meta">
         <span class="post-categories">
           {categories.map((slug) => <CategoryBadge slug={slug} />)}
         </span>
-        <time datetime={publishDate.toISOString()}>
-          {publishDate.toLocaleDateString("pt-BR")}
-        </time>
+        <span class="post-date-tags">
+          <time datetime={publishDate.toISOString().slice(0, 10)}>
+            {formatDate(publishDate)}
+          </time>
+          {
+            tags && tags.length > 0 && (
+              <>
+                <span aria-hidden="true">&nbsp;· </span>
+                <ul class="post-tags" role="list" aria-label="Tags">
+                  {tags.map((tag) => (
+                    <li>
+                      <a href={tagUrl(tag)} class="post-tag">
+                        #{tag}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )
+          }
+        </span>
       </div>
     </header>
     <div class="post-content">
       <Content />
-      {
-        tags && tags.length > 0 && (
-          <p class="tags">{tags.map((tag) => `#${tag}`).join(" ")}</p>
-        )
-      }
     </div>
   </article>
   <TableOfContents headings={headings} />
@@ -77,6 +93,43 @@ const { title, description, publishDate, categories, tags, image } =
     color: var(--text-muted);
   }
 
+  .post-description {
+    font-size: var(--step-1);
+    line-height: 1.45;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  /*
+   * Data · tags como texto corrido: se quebrar linha, quebra entre as tags e
+   * o "·" fica sempre colado à data (&nbsp;), nunca no começo da linha.
+   */
+  .post-tags,
+  .post-tags li {
+    display: inline;
+  }
+
+  .post-tags li + li {
+    margin-inline-start: 0.5rem;
+  }
+
+  .post-tag {
+    color: var(--text-muted);
+    text-decoration: none;
+    text-underline-offset: 3px;
+  }
+
+  .post-tag:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+  }
+
+  .post-tag:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
   .post-categories {
     display: flex;
     flex-wrap: wrap;
@@ -89,10 +142,6 @@ const { title, description, publishDate, categories, tags, image } =
     gap: var(--space-s);
   }
 
-  .tags {
-    font-size: var(--step--1);
-    color: var(--text-muted);
-  }
 
   .post-content :global(h2),
   .post-content :global(h3),
