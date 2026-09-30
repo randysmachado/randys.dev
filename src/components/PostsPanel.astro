@@ -140,6 +140,15 @@ const headingId = `posts-panel-${title
     padding: 0 0.25rem 0.25rem;
   }
 
+  /* Divisor sutil entre os cards, alinhado ao padding interno deles. */
+  .posts-panel__list > li + li::before {
+    content: "";
+    display: block;
+    block-size: 1px;
+    margin-inline: 1rem;
+    background: var(--border-main);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .posts-panel__more,
     .posts-panel__chevron {
