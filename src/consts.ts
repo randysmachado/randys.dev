@@ -5,6 +5,11 @@ export const SITE_DESCRIPTION =
   "Blog pessoal do Randys Machado: tecnologia, programação e outros assuntos.";
 export const SITE_URL = "https://randys.dev";
 
+/** Google Analytics 4 (mesma propriedade do site v2.0). Só carrega em produção. */
+export const GA_MEASUREMENT_ID = "G-HF875P0P6L";
+/** Conta do Google AdSense (meta de verificação + public/ads.txt). */
+export const ADSENSE_CLIENT = "ca-pub-2668671765911701";
+
 export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/blog/", label: "Blog" },

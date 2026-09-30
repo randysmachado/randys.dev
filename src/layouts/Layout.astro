@@ -12,6 +12,8 @@ import {
   SITE_DESCRIPTION,
   SITE_URL,
   SOCIAL_LINKS,
+  GA_MEASUREMENT_ID,
+  ADSENSE_CLIENT,
 } from "@/consts";
 
 type Props = {
@@ -201,6 +203,29 @@ const jsonLd = {
       title={SITE_TITLE}
       href={new URL("rss.xml", SITE_URL).toString()}
     />
+
+    <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+
+    {
+      /* Google Analytics: só no build de produção (visitas locais não contam). */
+      import.meta.env.PROD && (
+        <>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <script is:inline define:vars={{ id: GA_MEASUREMENT_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function gtag() {
+              window.dataLayer.push(arguments);
+            };
+            window.gtag("js", new Date());
+            window.gtag("config", id);
+          </script>
+        </>
+      )
+    }
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>
