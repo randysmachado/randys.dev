@@ -1,14 +1,16 @@
 ---
 import { SITE_TITLE } from "@/consts";
+import SocialLinks from "./SocialLinks.astro";
 ---
 
 <footer>
   <div class="footer__inner">
     <p class="footer-quote" id="footer-quote"></p>
 
-    <p class="footer-copyright">
-      © {new Date().getFullYear()} Randys Machado. Alguns direitos reservados.
-    </p>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© {new Date().getFullYear()} Randys Machado</p>
+      <SocialLinks />
+    </div>
   </div>
 
   <div class="footer-name-wrap" aria-hidden="true">
@@ -48,16 +50,41 @@ import { SITE_TITLE } from "@/consts";
      */
     width: 100%;
     max-width: var(--content-width);
+    margin-block-start: var(--space-xl);
     margin-inline: auto;
     padding-inline: var(--space-s);
   }
 
   .footer__inner {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
     padding-block: var(--space-m);
-    border-top: 1px solid var(--border-main);
+  }
+
+  /* Linha de separação em largura total, esmaecendo só nas pontas. */
+  .footer__inner::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--border-main) 15%,
+      var(--border-main) 85%,
+      transparent
+    );
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xs) var(--space-s);
   }
 
   .footer-quote {
@@ -69,6 +96,7 @@ import { SITE_TITLE } from "@/consts";
 
   .footer-copyright {
     font-size: var(--step--1);
+    color: var(--text-muted);
   }
 
   /*

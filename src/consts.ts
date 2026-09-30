@@ -13,8 +13,8 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { href: "", label: "GitHub", icon: "github" },
-  { href: "", label: "x", icon: "x" },
+  { href: "https://github.com/randysmachado", label: "GitHub", icon: "github" },
+  { href: "https://x.com/randysmachado", label: "X", icon: "x" },
 ];
 
 /**

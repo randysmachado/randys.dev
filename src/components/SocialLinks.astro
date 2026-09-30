@@ -1,24 +1,60 @@
 ---
 import { Icon } from "astro-icon/components";
 import { SOCIAL_LINKS } from "@/consts";
-import Link from "./Link.astro";
 ---
 
-{
-  SOCIAL_LINKS.map((link) => (
-    <Link href={link.href} external rel="noopener noreferrer" class="social-link">
-      <Icon name={link.icon} />
-    </Link>
-  ))
-}
+<ul class="social-links" role="list">
+  {
+    SOCIAL_LINKS.map(({ href, label, icon }) => (
+      <li>
+        <a
+          href={href}
+          class="social-links__link"
+          aria-label={label}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name={icon} class="social-links__icon" aria-hidden="true" />
+        </a>
+      </li>
+    ))
+  }
+</ul>
 
 <style>
-  :global(.social-link) {
-    margin-inline: var(--space-2xs);
-    color: color-mix(in oklab, var(--text-main) 70%, transparent);
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 
-  :global(.social-link:hover) {
+  .social-links__link {
+    display: grid;
+    place-items: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    border-radius: 0.75rem;
+    color: var(--text-muted);
+    transition: color 200ms ease;
+  }
+
+  .social-links__link:hover {
     color: var(--text-main);
+  }
+
+  .social-links__link:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  .social-links__icon {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .social-links__link {
+      transition: none;
+    }
   }
 </style>
