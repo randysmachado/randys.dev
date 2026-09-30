@@ -4,7 +4,13 @@ import { glob } from "astro/loaders";
 
 import { z } from "astro/zod";
 
-import { CATEGORIES, type CategorySlug } from "@/consts";
+import {
+  CATEGORIES,
+  COTIDIANO_TYPES,
+  type CategorySlug,
+  type CotidianoType,
+} from "@/consts";
+import { cotidianoLoader } from "@/lib/cotidiano-loader";
 
 const categorySlugs = CATEGORIES.map((c) => c.slug) as [
   CategorySlug,
@@ -49,4 +55,26 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { blog, projects };
+const cotidianoTypes = COTIDIANO_TYPES.map((t) => t.slug) as [
+  CotidianoType,
+  ...CotidianoType[],
+];
+
+/** O que o Randys está lendo/assistindo: um JSON por ano em src/content/cotidiano/. */
+const cotidiano = defineCollection({
+  loader: cotidianoLoader("./src/content/cotidiano/"),
+  schema: z.object({
+    title: z.string(),
+    type: z.enum(cotidianoTypes),
+    /** Quando terminou (ou quando começou, se ainda está em andamento). */
+    date: z.coerce.date(),
+    status: z.enum(["atual", "concluido"]).default("concluido"),
+    /** Ex.: "Temporada 1", "Capítulo 5". */
+    detail: z.string().optional(),
+    /** Autor, diretor ou estúdio. */
+    author: z.string().optional(),
+    url: z.url().optional(),
+  }),
+});
+
+export const collections = { blog, projects, cotidiano };

@@ -14,6 +14,7 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/blog/", label: "Blog" },
   { href: "/projetos/", label: "Projetos" },
+  { href: "/cotidiano/", label: "Cotidiano" },
   { href: "/sobre/", label: "Sobre" },
 ];
 
@@ -48,3 +49,19 @@ export const BLOG_POSTS_PER_PAGE = 10;
 
 /** Quantidade de posts exibidos em cada bloco de categoria (Dev, Miscelânea) na home. */
 export const HOME_POSTS_PER_CATEGORY = 2;
+
+/**
+ * Tipos de item da página Cotidiano (src/content/cotidiano/*.json).
+ * `verb` aparece na flag do destaque "Agora"; `color` é um tom Flexoki
+ * (src/styles/categories.css). Para um tipo novo, basta acrescentar aqui.
+ */
+export const COTIDIANO_TYPES = [
+  { slug: "livro", label: "Livro", plural: "Livros", verb: "lendo", color: "blue" },
+  { slug: "artigo", label: "Artigo", plural: "Artigos", verb: "lendo", color: "cyan" },
+  { slug: "serie", label: "Série", plural: "Séries", verb: "assistindo", color: "purple" },
+  { slug: "filme", label: "Filme", plural: "Filmes", verb: "assistindo", color: "orange" },
+  { slug: "anime", label: "Anime", plural: "Animes", verb: "assistindo", color: "magenta" },
+  { slug: "documentario", label: "Documentário", plural: "Documentários", verb: "assistindo", color: "green" },
+] as const;
+
+export type CotidianoType = (typeof COTIDIANO_TYPES)[number]["slug"];

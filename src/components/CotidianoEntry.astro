@@ -1,0 +1,60 @@
+---
+import type { CotidianoItem } from "@/lib/cotidiano";
+
+type Props = { item: CotidianoItem };
+
+const { title, url, detail, author } = Astro.props.item.data;
+const meta = [detail, author].filter(Boolean).join(" · ");
+---
+
+{/* Título (link externo, se houver) + detalhe/autor em tom neutro. */}
+<span class="cotidiano-entry">
+  {
+    url ? (
+      <a href={url} target="_blank" rel="external noopener noreferrer">
+        {title}
+        <span class="cotidiano-entry__external" aria-hidden="true">↗</span>
+        <span class="visually-hidden">(abre em nova aba)</span>
+      </a>
+    ) : (
+      <span class="cotidiano-entry__title">{title}</span>
+    )
+  }
+  {meta && <span class="cotidiano-entry__meta">{meta}</span>}
+</span>
+
+<style>
+  .cotidiano-entry {
+    display: inline;
+    min-width: 0;
+  }
+
+  a {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: var(--text-muted);
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--text-main);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  .cotidiano-entry__external {
+    margin-inline-start: 0.15em;
+    font-size: 0.8em;
+    color: var(--text-muted);
+  }
+
+  .cotidiano-entry__meta {
+    margin-inline-start: 0.5rem;
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+</style>

@@ -21,3 +21,40 @@
     var(--text-main)
   );
 }
+
+/* Tons usados pelos tipos do Cotidiano (COTIDIANO_TYPES). */
+[data-category-color="cyan"] {
+  --cat-bg: light-dark(#ddf1e4, #101f1d);
+  --cat-fg: color-mix(
+    in oklab,
+    light-dark(#1c6c66, #5abdac) 60%,
+    var(--text-main)
+  );
+}
+
+[data-category-color="purple"] {
+  --cat-bg: light-dark(#f0eaec, #1a1623);
+  --cat-fg: color-mix(
+    in oklab,
+    light-dark(#4f3685, #a699d0) 60%,
+    var(--text-main)
+  );
+}
+
+[data-category-color="magenta"] {
+  --cat-bg: light-dark(#fee4e5, #24131d);
+  --cat-fg: color-mix(
+    in oklab,
+    light-dark(#87285e, #e47da8) 60%,
+    var(--text-main)
+  );
+}
+
+[data-category-color="green"] {
+  --cat-bg: light-dark(#edeecf, #1a1e0c);
+  --cat-fg: color-mix(
+    in oklab,
+    light-dark(#536907, #a0af54) 60%,
+    var(--text-main)
+  );
+}

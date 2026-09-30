@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import CotidianoHistory from "@/components/CotidianoHistory.astro";
+import CotidianoYears from "@/components/CotidianoYears.astro";
+import { getCotidiano, monthsOf } from "@/lib/cotidiano";
+
+// Anos anteriores: o mais recente já está em /cotidiano/.
+export const getStaticPaths = (async () => {
+  const { years } = await getCotidiano();
+  return years.slice(1).map((year) => ({ params: { ano: String(year) } }));
+}) satisfies GetStaticPaths;
+
+const year = Number(Astro.params.ano);
+const { done, years } = await getCotidiano();
+---
+
+<Layout
+  title={`Cotidiano — ${year}`}
+  description={`O que o Randys Machado leu e assistiu em ${year}.`}
+>
+  <div class="cotidiano">
+    <PageHeader
+      title="Cotidiano"
+      description={`O que li e assisti em ${year}.`}
+    />
+    <CotidianoHistory year={year} months={monthsOf(done, year)} />
+    <CotidianoYears years={years} current={year} />
+  </div>
+</Layout>
+
+<style>
+  .cotidiano {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+</style>

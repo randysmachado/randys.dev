@@ -1,0 +1,64 @@
+---
+type Props = {
+  years: number[];
+  current: number;
+};
+
+const { years, current } = Astro.props;
+// O ano mais recente fica em /cotidiano/; os demais em /cotidiano/<ano>/.
+const yearUrl = (year: number) =>
+  year === years[0] ? "/cotidiano/" : `/cotidiano/${year}/`;
+---
+
+{
+  years.length > 1 && (
+    <nav class="cotidiano-years" aria-label="Anos do Cotidiano">
+      <ul role="list">
+        {years.map((year) => (
+          <li>
+            <a
+              href={yearUrl(year)}
+              aria-current={year === current ? "page" : undefined}
+            >
+              {year}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .cotidiano-years ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-block-start: var(--space-s);
+    border-block-start: 1px solid var(--border-main);
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a[aria-current="page"] {
+    color: var(--text-main);
+  }
+
+  a[aria-current="page"] {
+    background: var(--bg-muted);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+</style>

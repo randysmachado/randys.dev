@@ -1,0 +1,35 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import CotidianoNow from "@/components/CotidianoNow.astro";
+import CotidianoHistory from "@/components/CotidianoHistory.astro";
+import CotidianoYears from "@/components/CotidianoYears.astro";
+import { getCotidiano, monthsOf } from "@/lib/cotidiano";
+
+const { now, done, years } = await getCotidiano();
+// Página principal: o ano mais recente com itens concluídos (ou o atual).
+const year = years[0] ?? new Date().getUTCFullYear();
+---
+
+<Layout
+  title="Cotidiano"
+  description="O que o Randys Machado está lendo e assistindo, e o histórico por mês."
+>
+  <div class="cotidiano">
+    <PageHeader
+      title="Cotidiano"
+      description="O que estou lendo e assistindo, e o que já passou por aqui."
+    />
+    <CotidianoNow items={now} />
+    <CotidianoHistory year={year} months={monthsOf(done, year)} />
+    <CotidianoYears years={years} current={year} />
+  </div>
+</Layout>
+
+<style>
+  .cotidiano {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+</style>
