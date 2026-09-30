@@ -1,0 +1,98 @@
+/*
+ * Callouts (`:::note` etc., ver src/lib/callout.ts). Porte do callout.css do
+ * astro-erudite; cores = tons de destaque do Flexoki, com o texto misturado à
+ * cor de texto do site (mesmo tratamento das categorias, etapa 0017).
+ */
+
+.post-content [data-callout] {
+  --accent: var(--text-muted);
+  --callout-text: color-mix(in oklab, var(--accent) 60%, var(--text-main));
+
+  position: relative;
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+  border-inline-start: 4px solid var(--accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: color-mix(in oklab, var(--accent) 6%, transparent);
+
+  > summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    font-weight: 500;
+    color: var(--callout-text);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
+    }
+
+    svg:first-child {
+      margin-inline-end: 0.5rem;
+    }
+
+    svg:last-child {
+      margin-inline-start: auto;
+      transition: rotate 200ms ease;
+    }
+
+    > span {
+      margin-inline-end: 0.5rem;
+
+      > span {
+        font-weight: 400;
+        opacity: 0.75;
+      }
+    }
+  }
+
+  > summary:focus-visible {
+    outline: 2px solid var(--callout-text);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  &[open] > summary {
+    margin-block-end: 0.75rem;
+
+    svg:last-child {
+      rotate: 180deg;
+    }
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+}
+
+.post-content [data-callout="note"] {
+  --accent: light-dark(#205ea6, #4385be);
+}
+
+.post-content [data-callout="tip"] {
+  --accent: light-dark(#66800b, #879a39);
+}
+
+.post-content [data-callout="warning"] {
+  --accent: light-dark(#ad8301, #d0a215);
+}
+
+.post-content [data-callout="caution"] {
+  --accent: light-dark(#af3029, #d14d41);
+}
+
+.post-content [data-callout="important"] {
+  --accent: light-dark(#5e409d, #8b7ec8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-content [data-callout] > summary svg:last-child {
+    transition: none;
+  }
+}

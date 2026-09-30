@@ -1,0 +1,187 @@
+/*
+ * Estilos do conteúdo dos posts (Markdown renderizado dentro de
+ * `.post-content`, em src/pages/blog/[id].astro). Porte dos
+ * `typography-{inline,block,lists,tables}.css` do astro-erudite.
+ */
+
+.post-content {
+  a {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: var(--text-muted);
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--text-main);
+  }
+
+  :is(strong, b) {
+    font-weight: 600;
+  }
+
+  /* Código inline */
+  :where(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    padding: 0.1em 0.35em;
+    border-radius: 0.375rem;
+    background-color: color-mix(in oklab, var(--bg-muted) 60%, transparent);
+  }
+
+  /* Tokens do código inline com destaque (`x{:ts}`): claro/escuro via light-dark(). */
+  :where(code)[data-ec] :where(span[style^="--"]:not([class])) {
+    color: light-dark(var(--0, inherit), var(--1, inherit));
+    background-color: light-dark(
+      var(--0bg, transparent),
+      var(--1bg, transparent)
+    );
+    font-style: light-dark(var(--0fs, inherit), var(--1fs, inherit));
+    font-weight: light-dark(var(--0fw, inherit), var(--1fw, inherit));
+    text-decoration: light-dark(var(--0td, inherit), var(--1td, inherit));
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 0.2em 0.45em;
+    border: 1px solid var(--border-main);
+    border-radius: 0.375rem;
+    box-shadow: inset 0 -1px 0 var(--border-main);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  /* Listas (o reset remove os marcadores) */
+  :is(ul, ol) {
+    padding-inline-start: 1.5rem;
+  }
+
+  :is(ul, ol) :is(ul, ol) {
+    margin-block: 0.5em 0;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ul.contains-task-list {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  li {
+    padding-inline-start: 0.25rem;
+  }
+
+  li + li {
+    margin-block-start: 0.5em;
+  }
+
+  li::marker {
+    color: var(--text-muted);
+  }
+
+  li > p {
+    margin-block: 0;
+  }
+
+  li.task-list-item input[type="checkbox"] {
+    margin-inline-end: 0.5em;
+    vertical-align: middle;
+    accent-color: var(--text-main);
+  }
+
+  blockquote {
+    padding-inline-start: 1.25em;
+    border-inline-start: 2px solid var(--border-main);
+    color: var(--text-muted);
+  }
+
+  hr {
+    margin-block: var(--space-m);
+    border: 0;
+    border-block-start: 1px solid var(--border-main);
+  }
+
+  :is(img, video) {
+    margin-inline: auto;
+    border-radius: 0.75rem;
+  }
+
+  details:not([data-callout]) > summary {
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  details:not([data-callout])[open] > summary {
+    margin-block-end: 0.5em;
+  }
+
+  /* Tabelas */
+  table {
+    display: block;
+    max-inline-size: fit-content;
+    margin-inline: auto;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+  }
+
+  thead {
+    border-block-end: 1.5px solid var(--border-main);
+  }
+
+  tr + tr {
+    border-block-start: 1px solid var(--border-main);
+  }
+
+  :is(th, td) {
+    min-inline-size: 8rem;
+    max-inline-size: 22rem;
+    padding: 0.5em 1em;
+    text-align: start;
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  td {
+    color: var(--text-muted);
+  }
+
+  /* Notas de rodapé (GFM) */
+  .footnotes {
+    margin-block-start: var(--space-m);
+    padding-block-start: var(--space-s);
+    border-block-start: 1px solid var(--border-main);
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+
+  /* Blocos de código (Expressive Code) */
+  .expressive-code {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 20rem;
+  }
+
+  .expressive-code pre {
+    max-block-size: min(68vh, 1000px);
+    overflow-y: auto;
+  }
+
+  .expressive-code .frame.has-title:not(.is-terminal) .header {
+    border-block-end: 1px solid var(--border-main);
+  }
+
+  .expressive-code .ec-section summary {
+    list-style: none;
+  }
+}
