@@ -11,35 +11,12 @@ import SocialLinks from "./SocialLinks.astro";
       </p>
       <SocialLinks />
     </div>
-
-    <p class="footer-quote" id="footer-quote"></p>
   </div>
 
   <div class="footer-name-wrap" aria-hidden="true">
     <span class="footer-name">{SITE_TITLE}</span>
   </div>
 </footer>
-
-<script is:inline>
-  const quotes = [
-    "Se o CSS não centraliza, é porque ele também está em dúvida sobre a própria existência.",
-    "Todo bug em produção já foi, em algum momento, uma feature discutida com muita confiança.",
-    "O café frio de terça-feira sabe mais sobre arquitetura de software do que qualquer livro.",
-    "Ninguém nunca leu o changelog inteiro, mas todo mundo já culpou ele por algo.",
-    'O git commit -m "ajustes" guarda mais segredos do que qualquer diário.',
-    "Se funcionou de primeira, provavelmente vai quebrar quando você mostrar pra alguém.",
-    "O Wi-Fi só cai durante a demonstração porque ele também tem senso de timing.",
-    'Toda vez que alguém diz "é rapidinho", um deploy em sexta-feira nasce em algum lugar.',
-    "O código comentado não morreu, só está esperando o momento certo pra assombrar alguém.",
-    "Existe sempre um jeito melhor de fazer isso, e você vai descobrir logo depois do deploy.",
-  ];
-
-  const quoteElement = document.getElementById("footer-quote");
-  if (quoteElement) {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteElement.textContent = quotes[randomIndex];
-  }
-</script>
 
 <style>
   footer {
@@ -87,45 +64,6 @@ import SocialLinks from "./SocialLinks.astro";
     align-items: center;
     justify-content: space-between;
     gap: var(--space-2xs) var(--space-s);
-  }
-
-  /*
-   * Frase aleatória com uma aspa grande e sutil atrás do começo do texto.
-   * `isolation: isolate` cria um stacking context: o `z-index: -1` do
-   * ::before fica atrás do texto, mas não atrás do fundo da página.
-   */
-  .footer-quote {
-    position: relative;
-    isolation: isolate;
-    inline-size: fit-content;
-    max-inline-size: 46ch;
-    margin-inline: auto;
-    margin-block-start: var(--space-s);
-    padding: 0.75rem 1rem 0;
-    font-size: var(--step--1);
-    font-style: italic;
-    line-height: 1.6;
-    text-align: center;
-    text-wrap: balance;
-    color: var(--text-muted);
-  }
-
-  /*
-   * A aspa usa uma serif do sistema: na Figtree o “ é um par de traços
-   * inclinados; na serif ele tem o formato "66" arredondado.
-   */
-  .footer-quote:not(:empty)::before {
-    content: "\201C";
-    position: absolute;
-    inset-block-start: -0.12em;
-    inset-inline-start: -0.05em;
-    z-index: -1;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 3.5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--border-main);
   }
 
   .footer-copyright {

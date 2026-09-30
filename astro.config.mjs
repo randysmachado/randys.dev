@@ -73,6 +73,17 @@ export default defineConfig({
       ],
     }),
   },
+  // URLs do site antigo (Next.js) que mudaram. As tags antigas são um
+  // conjunto fechado; redirect dinâmico não serve porque /tag/[tag] é
+  // paginada (/tag/[tag]/[...page]).
+  redirects: {
+    "/tags": "/blog",
+    "/tags/blog": "/tag/blog",
+    "/tags/css": "/tag/css",
+    "/tags/javascript": "/tag/javascript",
+    "/tags/wordpress": "/tag/wordpress",
+    "/notas": "/blog",
+  },
   devToolbar: {
     enabled: false,
   },

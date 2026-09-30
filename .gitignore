@@ -26,3 +26,6 @@ pnpm-debug.log*
 # documentação interna de orientação e planejamento (não versionada)
 CLAUDE.md
 planejamento/
+
+# posts de exemplo/teste: ficam só na máquina local (prefixo "exemplo-")
+src/content/blog/exemplo-*/
