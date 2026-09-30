@@ -30,9 +30,10 @@ const url = `/projetos/${project.id}/`;
     <p class="project-card__description">{description}</p>
     <div class="project-card__actions">
       <a href={url} class="project-card__more">
-        Ler mais <span aria-hidden="true">→</span>
+        Ler mais<span class="visually-hidden"> sobre {title}</span>
+        <span aria-hidden="true">→</span>
       </a>
-      <ProjectButton href={link} />
+      <ProjectButton href={link} name={title} />
     </div>
   </div>
 </article>

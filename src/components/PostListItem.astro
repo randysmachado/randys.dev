@@ -8,9 +8,12 @@ type Props = {
   post: CollectionEntry<"blog">;
   /** Mostra as categorias do post acima do título (listagens de /blog). */
   showCategories?: boolean;
+  /** Nível do título do card: um abaixo do título do painel. */
+  headingLevel?: "h2" | "h3";
 };
 
-const { post, showCategories = false } = Astro.props;
+const { post, showCategories = false, headingLevel = "h3" } = Astro.props;
+const Heading = headingLevel;
 const { title, summary, description, image, categories } = post.data;
 ---
 
@@ -36,7 +39,7 @@ const { title, summary, description, image, categories } = post.data;
           </div>
         )
       }
-      <h3 class="post-list-item__title">{title}</h3>
+      <Heading class="post-list-item__title">{title}</Heading>
       <p class="post-list-item__description">{summary ?? description}</p>
     </div>
   </a>

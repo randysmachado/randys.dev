@@ -3,9 +3,11 @@
 type Props = {
   href: string;
   label?: string;
+  /** Nome do projeto, lido só por leitores de tela (nome único por link). */
+  name?: string;
 };
 
-const { href, label = "Ver projeto" } = Astro.props;
+const { href, label = "Ver projeto", name } = Astro.props;
 ---
 
 <a
@@ -16,7 +18,7 @@ const { href, label = "Ver projeto" } = Astro.props;
 >
   <span>{label}</span>
   <span class="project-button__icon" aria-hidden="true">↗</span>
-  <span class="visually-hidden">(abre em nova aba)</span>
+  <span class="visually-hidden">{name ? `${name} ` : ""}(abre em nova aba)</span>
 </a>
 
 <style>
@@ -50,15 +52,6 @@ const { href, label = "Ver projeto" } = Astro.props;
 
   .project-button:hover .project-button__icon {
     translate: 0.125rem -0.125rem;
-  }
-
-  .visually-hidden {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
   }
 
   @media (prefers-reduced-motion: reduce) {

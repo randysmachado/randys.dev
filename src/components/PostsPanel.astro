@@ -55,7 +55,11 @@ const headingId = `posts-panel-${title
     {
       posts.map((post) => (
         <li>
-          <PostListItem post={post} showCategories={showCategories} />
+          <PostListItem
+            post={post}
+            showCategories={showCategories}
+            headingLevel={headingLevel === "h1" ? "h2" : "h3"}
+          />
         </li>
       ))
     }

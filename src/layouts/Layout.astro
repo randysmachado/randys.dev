@@ -26,6 +26,8 @@ type Props = {
   /** Seção (categoria) e tags do artigo: article:section/tag e JSON-LD. */
   section?: string;
   tags?: string[];
+  /** Páginas que não devem ser indexadas (ex.: 404). */
+  noindex?: boolean;
   class?: string;
 };
 
@@ -39,6 +41,7 @@ const {
   updatedDate,
   section,
   tags = [],
+  noindex = false,
   class: classname,
 } = Astro.props;
 
@@ -149,7 +152,8 @@ const jsonLd = {
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -202,8 +206,9 @@ const jsonLd = {
   </head>
 
   <body>
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
     <Header />
-    <main class:list={["main", classname]}>
+    <main id="conteudo" tabindex="-1" class:list={["main", classname]}>
       <slot />
     </main>
     <Footer />
@@ -215,6 +220,32 @@ const jsonLd = {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+
+  /* Visível só com foco de teclado; primeiro elemento focável da página. */
+  .skip-link {
+    position: absolute;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 0.75rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: var(--text-main);
+    color: var(--bg-main);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+    translate: 0 -200%;
+  }
+
+  .skip-link:focus-visible {
+    translate: 0 0;
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  .main:focus {
+    outline: none;
   }
 
   .main {
