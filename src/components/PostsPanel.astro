@@ -140,13 +140,29 @@ const headingId = `posts-panel-${title
     padding: 0 0.25rem 0.25rem;
   }
 
-  /* Divisor sutil entre os cards, alinhado ao padding interno deles. */
+  .posts-panel__list > li {
+    position: relative;
+    padding-block: 0.5rem;
+  }
+
+  /*
+   * Divisor curto entre os cards, centralizado na fronteira entre dois itens
+   * (mesmo espaço acima e abaixo) e esmaecendo nas pontas.
+   */
   .posts-panel__list > li + li::before {
     content: "";
-    display: block;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    inline-size: min(12.5rem, 60%);
     block-size: 1px;
-    margin-inline: 1rem;
-    background: var(--border-main);
+    margin-inline: auto;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--border-main),
+      transparent
+    );
   }
 
   @media (prefers-reduced-motion: reduce) {
