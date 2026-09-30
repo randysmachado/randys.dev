@@ -17,7 +17,7 @@ Decidi viajar mais e conhecer lugares, e não queria simplesmente postar fotos e
 ## Como funciona
 
 - Cada lugar visitado vira um post, com fotos e um texto sobre a experiência
-- Um mapa interativo mostra todos os pontos — é só clicar num pin pra abrir o local
+- Um mapa interativo mostra todos os pontos, é só clicar num pin pra abrir o local
 - Cobre viagens desde 2017 até hoje, por estados como Tocantins, Goiás, Pará, Distrito Federal e contando.
 
 ## Tecnologia
