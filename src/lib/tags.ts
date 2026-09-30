@@ -7,7 +7,7 @@ export const tagSlug = (tag: string): string =>
     .trim()
     .replace(/\s+/g, "-");
 
-export const tagUrl = (tag: string): string => `/blog/tag/${tagSlug(tag)}`;
+export const tagUrl = (tag: string): string => `/tag/${tagSlug(tag)}`;
 
 /** Tags distintas dos posts (por slug), em ordem alfabética. */
 export const allTags = (posts: { data: { tags?: string[] } }[]): string[] => {

@@ -46,7 +46,7 @@ const { title, description, publishDate, categories, tags, image } =
                 <ul class="post-tags" role="list" aria-label="Tags">
                   {tags.map((tag) => (
                     <li>
-                      <a href={tagUrl(tag)} class="post-tag">
+                      <a href={tagUrl(tag)} class="post-tag" rel="tag">
                         #{tag}
                       </a>
                     </li>

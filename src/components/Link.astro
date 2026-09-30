@@ -10,9 +10,11 @@ type Props = {
 const { href, external, underline, class: classes, ...rest } = Astro.props;
 ---
 
+{/* Externos (sites do próprio autor, ex.: projetos): nova aba, sem nofollow. */}
 <a
   href={href}
-  target={external ? "_blank" : "_self"}
+  target={external ? "_blank" : undefined}
+  rel={external ? "external noopener" : undefined}
   class:list={["link", { "link--underline": underline }, classes]}
   {...rest}
 >

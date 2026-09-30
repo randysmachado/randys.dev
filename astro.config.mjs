@@ -8,6 +8,7 @@ import { satteri, satteriHeadingIdsPlugin } from "@astrojs/markdown-satteri";
 import { SITE_URL } from "./src/consts.ts";
 import { headingAnchors } from "./src/lib/heading-anchors.ts";
 import { calloutDirective } from "./src/lib/callout.ts";
+import { externalLinks } from "./src/lib/external-links.ts";
 import {
   blockExpressiveCode,
   inlineExpressiveCode,
@@ -65,6 +66,7 @@ export default defineConfig({
       features: { directive: true },
       mdastPlugins: [calloutDirective, inlineExpressiveCode],
       hastPlugins: [
+        externalLinks,
         satteriHeadingIdsPlugin(),
         blockExpressiveCode,
         headingAnchors(),

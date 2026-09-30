@@ -16,6 +16,17 @@
     text-decoration-color: var(--text-main);
   }
 
+  /* Links externos (src/lib/external-links.ts) abrem em nova aba. */
+  a[target="_blank"]::after {
+    content: "\2197";
+    content: "\2197" / "(abre em nova aba)";
+    display: inline-block;
+    margin-inline-start: 0.15em;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
   :is(strong, b) {
     font-weight: 600;
   }
