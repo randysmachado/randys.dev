@@ -10,7 +10,7 @@ import SocialLinks from "./SocialLinks.astro";
       <SocialLinks />
     </div>
 
-    <p class="footer-quote" id="footer-quote"></p>
+    <p class="footer-quote paper-glass" id="footer-quote"></p>
   </div>
 
   <div class="footer-name-wrap" aria-hidden="true">
@@ -87,14 +87,25 @@ import SocialLinks from "./SocialLinks.astro";
     gap: var(--space-2xs) var(--space-s);
   }
 
-  /* Estilo sutil de citação (visual apenas; as frases são do próprio autor). */
+  /* Frase em cartão de vidro centralizado (as frases são do próprio autor). */
   .footer-quote {
-    min-height: 1lh;
-    padding-inline-start: 0.75rem;
-    border-inline-start: 2px solid var(--border-main);
+    inline-size: fit-content;
+    max-inline-size: 46ch;
+    margin-inline: auto;
+    margin-block-start: var(--space-xs);
+    padding: 0.875rem 1.25rem;
+    border-radius: 1rem;
     font-size: var(--step--1);
     font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+    text-wrap: balance;
     color: var(--text-muted);
+  }
+
+  /* Antes do script sortear a frase, não mostra um cartão vazio. */
+  .footer-quote:empty {
+    visibility: hidden;
   }
 
   .footer-quote:not(:empty)::before {
