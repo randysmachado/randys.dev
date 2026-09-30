@@ -50,12 +50,13 @@ const url = `/projetos/${project.id}/`;
   @media (width >= 40rem) {
     .project-card {
       grid-template-columns: 12rem minmax(0, 1fr);
-      align-items: start;
+      align-items: stretch;
       gap: 1.25rem;
     }
   }
 
   .project-card__cover {
+    display: block;
     overflow: hidden;
     border-radius: min(1.2vw, 0.75rem);
     outline: 1px solid color-mix(in oklab, var(--text-main) 5%, transparent);
@@ -66,6 +67,14 @@ const url = `/projetos/${project.id}/`;
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  /* Imagem ao lado do texto: acompanha a altura do card, sem sobrar vazio. */
+  @media (width >= 40rem) {
+    .project-card__cover img {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .project-card__body {
