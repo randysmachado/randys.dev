@@ -24,6 +24,8 @@ const blog = defineCollection({
         .optional(),
       publishDate: z.date(),
       image: image().optional(),
+      /** Texto alternativo da capa; sem ele, a capa é tratada como decorativa. */
+      imageAlt: z.string().optional(),
       categories: z.array(z.enum(categorySlugs)).min(1),
       tags: z.array(z.string()).optional(),
     }),

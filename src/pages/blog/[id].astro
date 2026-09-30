@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
@@ -16,8 +17,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
-const { title, description, publishDate, categories, tags, image } =
-  post.data;
+const {
+  title,
+  description,
+  publishDate,
+  categories,
+  tags,
+  image,
+  imageAlt,
+} = post.data;
 ---
 
 <Layout
@@ -58,6 +66,18 @@ const { title, description, publishDate, categories, tags, image } =
         </span>
       </div>
     </header>
+    {
+      image && (
+        <Image
+          src={image}
+          alt={imageAlt ?? ""}
+          layout="constrained"
+          width={768}
+          priority
+          class="post-cover"
+        />
+      )
+    }
     <div class="post-content">
       <Content />
     </div>
@@ -91,6 +111,16 @@ const { title, description, publishDate, categories, tags, image } =
     gap: 0.5rem 0.75rem;
     font-size: var(--step--1);
     color: var(--text-muted);
+  }
+
+  /* Capa: proporção original, cantos e contorno como os dos cards. */
+  .post-cover {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border-radius: 0.75rem;
+    outline: 1px solid color-mix(in oklab, var(--text-main) 5%, transparent);
+    outline-offset: -1px;
   }
 
   .post-description {
