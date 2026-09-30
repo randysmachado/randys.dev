@@ -12,7 +12,7 @@ O **buscaCEP** é uma ferramenta simples para encontrar o CEP atualizado de ruas
 
 ## O problema
 
-Muita gente da cidade não sabia o CEP correto da própria rua, principalmente em bairros mais novos ou onde a numeração mudou. A busca oficial dos Correios existe, mas não é sempre prática pra quem só quer digitar o nome da rua e receber a resposta rápido.
+O CEP daqui anteriormente era um CEP geral, daí como a cidade cresceu muito foi realizado a atualização dos CEPs que agora são por rua. Logo muita gente da cidade não sabia o CEP correto da própria rua, principalmente em bairros mais novos ou onde a numeração mudou. A busca oficial dos Correios existe, mas não é sempre prática pra quem só quer digitar o nome da rua e receber a resposta rápido.
 
 ## A solução
 
@@ -20,4 +20,4 @@ Um buscador direto: você digita o nome da rua, e o site retorna o CEP correspon
 
 ## Resultado
 
-Mais de 1.200 moradores já usaram a ferramenta para encontrar o próprio CEP.
+O site ajudou e ajuda várias pessoas e tem acessos diários. Inclusive tenho uma amiga que sempre utiliza.
