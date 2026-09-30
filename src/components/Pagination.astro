@@ -1,0 +1,165 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Props = {
+  currentPage: number;
+  lastPage: number;
+  previousUrl?: string;
+  nextUrl?: string;
+  /** URL da 1ª página (com barra final); as demais ficam em `${baseUrl}N/`. */
+  baseUrl?: string;
+};
+
+const {
+  currentPage,
+  lastPage,
+  previousUrl,
+  nextUrl,
+  baseUrl = "/blog/",
+} = Astro.props;
+const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
+const pageUrl = (page: number) => (page === 1 ? baseUrl : `${baseUrl}${page}/`);
+---
+
+<nav class="pagination" aria-label="Paginação do blog">
+  <ul class="pagination__list paper-glass" role="list">
+    <li>
+      {
+        previousUrl ? (
+          <a class="pagination__link pagination__direction" href={previousUrl} rel="prev">
+            <Icon name="chevron-right" class="pagination__chevron pagination__chevron--prev" aria-hidden="true" />
+            <span>Anterior</span>
+          </a>
+        ) : (
+          <span class="pagination__link pagination__direction" aria-disabled="true">
+            <Icon name="chevron-right" class="pagination__chevron pagination__chevron--prev" aria-hidden="true" />
+            <span>Anterior</span>
+          </span>
+        )
+      }
+    </li>
+
+    {
+      pages.map((page) => (
+        <li class="pagination__number">
+          <a
+            class="pagination__link"
+            href={pageUrl(page)}
+            aria-label={`Página ${page}`}
+            aria-current={page === currentPage ? "page" : undefined}
+          >
+            {page}
+          </a>
+        </li>
+      ))
+    }
+
+    <li>
+      {
+        nextUrl ? (
+          <a class="pagination__link pagination__direction" href={nextUrl} rel="next">
+            <span>Próxima</span>
+            <Icon name="chevron-right" class="pagination__chevron" aria-hidden="true" />
+          </a>
+        ) : (
+          <span class="pagination__link pagination__direction" aria-disabled="true">
+            <span>Próxima</span>
+            <Icon name="chevron-right" class="pagination__chevron" aria-hidden="true" />
+          </span>
+        )
+      }
+    </li>
+  </ul>
+</nav>
+
+<style>
+  /* Estilo do echoghi/v5 (ui/pagination.tsx): pílula de vidro com botões "ghost". */
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pagination__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem;
+    border-radius: 1rem;
+  }
+
+  .pagination__number {
+    display: none;
+  }
+
+  @media (width >= 40rem) {
+    .pagination__number {
+      display: block;
+    }
+  }
+
+  .pagination__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    min-inline-size: 2.25rem;
+    block-size: 2.25rem;
+    padding-inline: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    color: color-mix(in oklab, var(--text-main) 70%, transparent);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  .pagination__direction {
+    padding-inline: 0.625rem 0.75rem;
+  }
+
+  .pagination__direction:has(span + .pagination__chevron) {
+    padding-inline: 0.75rem 0.625rem;
+  }
+
+  a.pagination__link:hover {
+    background: color-mix(in oklab, var(--bg-muted) 70%, transparent);
+    color: var(--text-main);
+  }
+
+  a.pagination__link:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  /* Página atual: variante "outline" do echoghi (superfície de vidro). */
+  .pagination__link[aria-current="page"] {
+    border-color: color-mix(in oklab, var(--text-main) 10%, transparent);
+    background: color-mix(in oklab, var(--bg-main) 85%, transparent);
+    box-shadow: inset 1px 1px 0 color-mix(in oklab, var(--bg-main) 90%, transparent);
+    color: var(--text-main);
+  }
+
+  .pagination__link[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pagination__chevron {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .pagination__chevron--prev {
+    scale: -1 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pagination__link {
+      transition: none;
+    }
+  }
+</style>

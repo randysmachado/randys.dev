@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { HOME_POSTS_PER_CATEGORY, type CategorySlug } from "@/consts";
+import PostsPanel from "@/components/PostsPanel.astro";
+import { categoryUrl, getCategory } from "@/lib/categories";
+
+const allPosts = await getCollection("blog");
+
+const byRecent = (
+  a: (typeof allPosts)[number],
+  b: (typeof allPosts)[number],
+) => b.data.publishDate.getTime() - a.data.publishDate.getTime();
+
+const postsIn = (category: CategorySlug) =>
+  allPosts
+    .filter((post) => post.data.categories.includes(category))
+    .sort(byRecent);
+
+/** Só estas categorias aparecem na home; as demais ficam em /blog. */
+const HOME_CATEGORIES: CategorySlug[] = ["dev", "miscelanea"];
+
+const homeSections = HOME_CATEGORIES.map((slug) => ({
+  category: getCategory(slug),
+  posts: postsIn(slug),
+})).filter(({ posts }) => posts.length > 0);
+---
+
+<Layout>
+  <section class="intro">
+    <h1 class="intro__title">Oi, eu sou o Randys.</h1>
+    <div class="intro__text">
+      <p>
+        Sou desenvolvedor e gosto de construir coisas úteis para a web. Aqui
+        escrevo sobre o que aprendo no dia a dia com código, arquitetura e
+        ferramentas.
+      </p>
+      <p class="intro__muted">
+        Este é o meu cantinho na internet — um espaço para falar de
+        tecnologia, mas também de viagens, férias e do que mais passar pela
+        cabeça.
+      </p>
+    </div>
+  </section>
+
+  {
+    homeSections.map(({ category, posts }) => (
+      <PostsPanel
+        title={category.label}
+        description={category.description}
+        posts={posts.slice(0, HOME_POSTS_PER_CATEGORY)}
+        more={{
+          href: categoryUrl(category.slug),
+          label: `${Math.min(posts.length, HOME_POSTS_PER_CATEGORY)} de ${posts.length} posts`,
+        }}
+      />
+    ))
+  }
+</Layout>
+
+<style>
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-block: var(--space-m) 0.5rem;
+  }
+
+  .intro__title {
+    max-width: 20ch;
+    font-family: var(--font-sans);
+    font-size: var(--step-5);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .intro__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: var(--step-1);
+    text-wrap: pretty;
+  }
+
+  .intro__muted {
+    color: var(--text-muted);
+  }
+</style>

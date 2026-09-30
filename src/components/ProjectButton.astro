@@ -1,0 +1,63 @@
+---
+/** Botão "Ver projeto ↗": abre o site do projeto em nova aba. */
+type Props = {
+  href: string;
+  label?: string;
+  /** Nome do projeto, lido só por leitores de tela (nome único por link). */
+  name?: string;
+};
+
+const { href, label = "Ver projeto", name } = Astro.props;
+---
+
+<a
+  href={href}
+  class="project-button"
+  target="_blank"
+  rel="external noopener"
+>
+  <span>{label}</span>
+  <span class="project-button__icon" aria-hidden="true">↗</span>
+  <span class="visually-hidden">{name ? `${name} ` : ""}(abre em nova aba)</span>
+</a>
+
+<style>
+  .project-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    inline-size: fit-content;
+    padding: 0.3125rem 0.75rem;
+    border-radius: 999px;
+    background: var(--text-main);
+    color: var(--bg-main);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 200ms ease;
+  }
+
+  .project-button:hover {
+    background: color-mix(in oklab, var(--text-main) 85%, var(--bg-main));
+  }
+
+  .project-button:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  .project-button__icon {
+    transition: translate 200ms ease;
+  }
+
+  .project-button:hover .project-button__icon {
+    translate: 0.125rem -0.125rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-button,
+    .project-button__icon {
+      transition: none;
+    }
+  }
+</style>

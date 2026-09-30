@@ -1,48 +1,33 @@
 {
-  "name": "blog-mdx",
-  "version": "0.1.0",
+  "name": "randys-dev",
+  "type": "module",
+  "version": "3.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@giscus/react": "^3.0.0",
-    "@next/third-parties": "^16.2.3",
-    "@radix-ui/react-avatar": "^1.0.4",
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-dropdown-menu": "^2.0.6",
-    "@radix-ui/react-slot": "^1.0.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "github-slugger": "^2.0.0",
-    "lucide-react": "^0.366.0",
-    "next": "16.2.3",
-    "next-themes": "^0.3.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "slugify": "^1.6.6",
-    "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "@astrojs/markdown-satteri": "^0.3.7",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@expressive-code/plugin-collapsible-sections": "^0.42.0",
+    "@expressive-code/plugin-line-numbers": "^0.42.0",
+    "astro": "^7.2.3",
+    "astro-icon": "^1.2.0",
+    "hast-util-select": "^6.0.4",
+    "hast-util-to-html": "^9.0.5",
+    "hastscript": "^9.0.1",
+    "satteri-expressive-code": "^0.1.24"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.12",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "^16.1.5",
-    "postcss": "^8",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.6",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-pretty-code": "^0.13.1",
-    "rehype-slug": "^6.0.0",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5",
-    "velite": "0.1.0-beta.13"
+    "@astrojs/check": "^0.9.10",
+    "prettier": "^3.8.1",
+    "typescript": "^6.0.3"
   }
 }

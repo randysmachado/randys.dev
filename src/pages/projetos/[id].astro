@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import ProjectButton from "@/components/ProjectButton.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, link, image, technologies } = project.data;
+---
+
+<Layout title={title} description={description} image={image}>
+  <article class="project">
+    <PageHeader title={title} description={description}>
+      <div class="project-meta">
+        {
+          technologies.length > 0 && (
+            <ul class="project-techs" role="list" aria-label="Tecnologias">
+              {technologies.map((tech) => (
+                <li class="project-tech">{tech}</li>
+              ))}
+            </ul>
+          )
+        }
+        <ProjectButton href={link} name={title} />
+      </div>
+    </PageHeader>
+    <Image
+      src={image}
+      alt=""
+      layout="constrained"
+      width={768}
+      priority
+      class="project-cover"
+    />
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    margin-block-start: 0.25rem;
+  }
+
+  .project-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  /* Badges neutros: sem cor por tecnologia. */
+  .project-tech {
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--bg-muted) 70%, transparent);
+    color: var(--text-main);
+    font-size: var(--step--1);
+    font-weight: 500;
+  }
+
+  .project-cover {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border-radius: 0.75rem;
+    outline: 1px solid color-mix(in oklab, var(--text-main) 5%, transparent);
+    outline-offset: -1px;
+  }
+</style>

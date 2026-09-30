@@ -1,0 +1,97 @@
+---
+import { SITE_TITLE } from "@/consts";
+import SocialLinks from "./SocialLinks.astro";
+---
+
+<footer>
+  <div class="footer__inner">
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © {new Date().getFullYear()} Randys Machado
+      </p>
+      <SocialLinks />
+    </div>
+  </div>
+
+  <div class="footer-name-wrap" aria-hidden="true">
+    <span class="footer-name">{SITE_TITLE}</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    /* Contêiner das unidades cqi usadas no nome gigante abaixo. */
+    container-type: inline-size;
+    /*
+     * Obrigatório: item flex de body (coluna) com margin-inline: auto encolhe
+     * até o conteúdo, e container-type: inline-size ignora o conteúdo no
+     * tamanho intrínseco — sem width o footer colapsa para largura ~0.
+     */
+    width: 100%;
+    max-width: var(--content-width);
+    margin-block-start: var(--space-xl);
+    margin-inline: auto;
+    padding-inline: var(--space-s);
+  }
+
+  .footer__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-block: var(--space-m);
+  }
+
+  /* Linha de separação em largura total, esmaecendo só nas pontas. */
+  .footer__inner::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--border-main) 15%,
+      var(--border-main) 85%,
+      transparent
+    );
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xs) var(--space-s);
+  }
+
+  .footer-copyright {
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+
+  /*
+   * Nome gigante cortado na base. "Randys Machado" em Figtree 700 mede
+   * 7,84em; com 12.5cqi ele ocupa ~98% da largura do footer em qualquer tela.
+   * A faixa tem 9cqi (0,72em): mostra ~80% das maiúsculas e corta a base.
+   * Se o SITE_TITLE mudar, recalcular: font-size ≈ 98 / largura-em-em (cqi).
+   */
+  .footer-name-wrap {
+    overflow: clip;
+    height: 9cqi;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-block-start: var(--space-s);
+    user-select: none;
+  }
+
+  .footer-name {
+    font-size: 12.5cqi;
+    font-weight: 700;
+    line-height: 1;
+    color: color-mix(in oklab, var(--text-main) 8%, transparent);
+    white-space: nowrap;
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import PostsPanel from "@/components/PostsPanel.astro";
+import Pagination from "@/components/Pagination.astro";
+import CategoryFilter from "@/components/CategoryFilter.astro";
+import { categoriesWithPosts } from "@/lib/categories";
+import { BLOG_POSTS_PER_PAGE } from "@/consts";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+  );
+
+  return paginate(posts, { pageSize: BLOG_POSTS_PER_PAGE });
+}) satisfies GetStaticPaths;
+
+type Props = {
+  page: Page<CollectionEntry<"blog">>;
+};
+
+const { page } = Astro.props;
+const categories = categoriesWithPosts(await getCollection("blog"));
+const title = page.currentPage === 1 ? "Blog" : `Blog — Página ${page.currentPage}`;
+---
+
+<Layout title={title}>
+  <div class="blog-page">
+    <CategoryFilter categories={categories} />
+    <PostsPanel title="Blog" headingLevel="h1" posts={page.data} showCategories />
+    {
+      page.lastPage > 1 && (
+        <Pagination
+          currentPage={page.currentPage}
+          lastPage={page.lastPage}
+          previousUrl={page.url.prev}
+          nextUrl={page.url.next}
+        />
+      )
+    }
+  </div>
+</Layout>
+
+<style>
+  .blog-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    padding-block-start: var(--space-s);
+  }
+</style>

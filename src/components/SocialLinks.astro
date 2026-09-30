@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+import { SOCIAL_LINKS } from "@/consts";
+---
+
+<ul class="social-links" role="list">
+  {
+    SOCIAL_LINKS.map(({ href, label, icon }) => (
+      <li>
+        <a
+          href={href}
+          class="social-links__link"
+          aria-label={label}
+          target="_blank"
+          rel="me noopener noreferrer"
+        >
+          <Icon name={icon} class="social-links__icon" aria-hidden="true" />
+        </a>
+      </li>
+    ))
+  }
+  <li>
+    <a
+      href="/rss.xml"
+      class="social-links__link"
+      aria-label="Feed RSS"
+      rel="alternate"
+      type="application/rss+xml"
+    >
+      <Icon name="rss" class="social-links__icon" aria-hidden="true" />
+    </a>
+  </li>
+</ul>
+
+<style>
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .social-links__link {
+    display: grid;
+    place-items: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-radius: 0.75rem;
+    color: var(--text-muted);
+    transition: color 200ms ease;
+  }
+
+  .social-links__link:hover {
+    color: var(--text-main);
+  }
+
+  .social-links__link:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  .social-links__icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .social-links__link {
+      transition: none;
+    }
+  }
+</style>

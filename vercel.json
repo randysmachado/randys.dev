@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/tags", "destination": "/blog/", "permanent": true },
+    { "source": "/tags/blog", "destination": "/tag/blog/", "permanent": true },
+    { "source": "/tags/css", "destination": "/tag/css/", "permanent": true },
+    { "source": "/tags/javascript", "destination": "/tag/javascript/", "permanent": true },
+    { "source": "/tags/wordpress", "destination": "/tag/wordpress/", "permanent": true },
+    { "source": "/notas", "destination": "/blog/", "permanent": true }
+  ]
+}

@@ -1,0 +1,194 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth <= 3);
+---
+
+{
+  tocHeadings.length > 0 && (
+    <aside class="toc-sidebar">
+      <nav id="toc-nav" aria-label="Nesta página">
+        <p class="toc-title">Nesta página</p>
+        {tocHeadings.map((h) => (
+          <a href={`#${h.slug}`} data-toc-link data-depth={h.depth}>
+            {h.text}
+          </a>
+        ))}
+        <button id="back-to-top" type="button">
+          ↑ Voltar ao topo
+        </button>
+      </nav>
+    </aside>
+  )
+}
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("back-to-top");
+    const tocLinks = document.querySelectorAll("[data-toc-link]");
+    const article = document.querySelector("article.post");
+    const allHeadings = article
+      ? Array.from(article.querySelectorAll("h1, h2, h3"))
+      : [];
+    let isScrolling = false;
+
+    function highlightHeading(index) {
+      tocLinks.forEach((link, i) => {
+        link.classList.toggle("active", i === index);
+      });
+    }
+
+    function onScroll() {
+      if (window.scrollY > 100) {
+        btn?.classList.add("show");
+      } else {
+        btn?.classList.remove("show");
+      }
+
+      if (isScrolling || allHeadings.length === 0 || tocLinks.length === 0) {
+        return;
+      }
+
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.offsetHeight : 80;
+
+      if (window.scrollY <= 50) {
+        highlightHeading(0);
+        return;
+      }
+      if (window.scrollY >= docHeight - winHeight - 50) {
+        highlightHeading(tocLinks.length - 1);
+        return;
+      }
+
+      const targetPosition = headerHeight + 150;
+      let currentIndex = 0;
+      for (let i = 0; i < allHeadings.length; i++) {
+        if (allHeadings[i].getBoundingClientRect().top > targetPosition) {
+          currentIndex = i > 0 ? i - 1 : 0;
+          break;
+        }
+        currentIndex = i;
+      }
+      highlightHeading(currentIndex);
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    btn?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    tocLinks.forEach((link, index) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          const header = document.querySelector("header");
+          const headerHeight = header ? header.offsetHeight : 80;
+          const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight -
+            20;
+          isScrolling = true;
+          highlightHeading(index);
+          window.scrollTo({ top: targetPosition, behavior: "smooth" });
+          setTimeout(() => {
+            isScrolling = false;
+          }, 800);
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (width >= 1280px) {
+    .toc-sidebar {
+      display: block;
+      position: fixed;
+      left: calc(50% + 27rem);
+      top: 7rem;
+      width: 16rem;
+      max-height: calc(100svh - 10rem);
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .toc-sidebar::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  #toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    font-size: var(--step--1);
+  }
+
+  .toc-title {
+    font-weight: var(--font-weight-medium, 700);
+    color: var(--text-main);
+    margin-block-end: var(--space-2xs);
+  }
+
+  [data-toc-link] {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding-block: var(--space-3xs);
+  }
+
+  [data-toc-link][data-depth="2"] {
+    padding-inline-start: var(--space-xs);
+  }
+
+  [data-toc-link][data-depth="3"] {
+    padding-inline-start: var(--space-s);
+  }
+
+  [data-toc-link]:hover {
+    color: var(--text-main);
+  }
+
+  [data-toc-link].active {
+    color: var(--text-main);
+    font-weight: 700;
+  }
+
+  #back-to-top {
+    all: unset;
+    display: block;
+    margin-block-start: var(--space-s);
+    color: var(--text-muted);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+  }
+
+  #back-to-top.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #back-to-top:hover {
+    color: var(--text-main);
+  }
+</style>
