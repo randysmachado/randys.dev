@@ -12,7 +12,9 @@ const { items } = Astro.props;
 {
   items.length > 0 && (
     <section class="cotidiano-now" aria-labelledby="cotidiano-agora">
-      <h2 id="cotidiano-agora" class="cotidiano-now__title">Agora</h2>
+      <h2 id="cotidiano-agora" class="cotidiano-now__title">
+        Atualmente
+      </h2>
       <ul class="cotidiano-now__list" role="list">
         {items.map((item) => (
           <li class="cotidiano-now__item">
@@ -76,7 +78,8 @@ const { items } = Astro.props;
     block-size: 0.5rem;
     border-radius: 50%;
     background: light-dark(#66800b, #879a39);
-    box-shadow: 0 0 0 0 color-mix(in oklab, light-dark(#66800b, #879a39) 50%, transparent);
+    box-shadow: 0 0 0 0
+      color-mix(in oklab, light-dark(#66800b, #879a39) 50%, transparent);
     animation: cotidiano-pulse 2s ease-out infinite;
   }
 
