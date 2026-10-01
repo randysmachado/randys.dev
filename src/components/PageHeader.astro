@@ -7,14 +7,16 @@
 type Props = {
   title: string;
   description?: string;
+  text?: string;
 };
 
-const { title, description } = Astro.props;
+const { title, description, text } = Astro.props;
 ---
 
 <header class="page-header">
   <h1>{title}</h1>
   {description && <p class="page-header__description">{description}</p>}
+  {text && <p class="page-header__text">{text}</p>}
   <slot />
 </header>
 
@@ -32,7 +34,14 @@ const { title, description } = Astro.props;
   }
 
   .page-header__description {
-    font-size: var(--step-1);
+    font-size: var(--step-0);
+    line-height: 1.45;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  .page-header__text {
+    font-size: var(--step--1);
     line-height: 1.45;
     color: var(--text-muted);
     text-wrap: pretty;

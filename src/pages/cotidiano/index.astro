@@ -19,6 +19,7 @@ const year = years[0] ?? new Date().getUTCFullYear();
     <PageHeader
       title="Cotidiano"
       description="O que estou lendo e assistindo, e o que já passou por aqui."
+      text="Este histórico está começando no momento que estou relendo alguns livros e assistindo novamente algumas séries e filmes."
     />
     <CotidianoNow items={now} />
     <CotidianoHistory year={year} months={monthsOf(done, year)} />
