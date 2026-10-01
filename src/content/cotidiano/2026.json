@@ -4,7 +4,15 @@
     "type": "serie",
     "date": "2026-09-30",
     "status": "atual",
-    "detail": "Temporada 1",
+    "detail": "2 Temporada",
+    "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
+  },
+  {
+    "title": "The Leftovers",
+    "type": "serie",
+    "date": "2026-09-30",
+    "status": "concluido",
+    "detail": "1 Temporada",
     "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
   },
   {
