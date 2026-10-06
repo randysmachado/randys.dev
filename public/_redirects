@@ -1,0 +1,14 @@
+# URLs do site antigo (Next.js). Têm precedência sobre os <meta refresh>
+# que o Astro gera nesses caminhos (astro.config.mjs → redirects).
+/tags                 /blog/              301
+/tags/                /blog/              301
+/tags/blog            /tag/blog/          301
+/tags/blog/           /tag/blog/          301
+/tags/css             /tag/css/           301
+/tags/css/            /tag/css/           301
+/tags/javascript      /tag/javascript/    301
+/tags/javascript/     /tag/javascript/    301
+/tags/wordpress       /tag/wordpress/     301
+/tags/wordpress/      /tag/wordpress/     301
+/notas                /blog/              301
+/notas/               /blog/              301
