@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Blog estático: o Worker só serve o build do Astro (sem código de servidor).
+  "name": "randys-dev",
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "./dist",
+    // 404.html do Astro com status 404 para URLs inexistentes.
+    "not_found_handling": "404-page"
+    // html_handling: padrão "auto-trailing-slash" (/blog → /blog/), igual ao
+    // trailingSlash: "always" do astro.config.mjs.
+  }
+}
