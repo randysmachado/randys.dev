@@ -11,7 +11,7 @@ Versão **3.0**, feita com [Astro](https://astro.build). A versão anterior (2.0
 - **CSS nativo**, sem framework: tokens em `src/styles/` (paleta [Flexoki](https://stephango.com/flexoki), tipografia fluida) e `<style>` escopado em cada componente.
 - **Fontes** Figtree e JetBrains Mono, servidas pela Fonts API do Astro.
 - **SEO**: sitemap, RSS com conteúdo completo (`/rss.xml`), Open Graph 1200×630 gerado no build e JSON-LD.
-- Hospedagem na **Vercel** (`vercel.json`).
+- Hospedagem na **Cloudflare Workers** (assets estáticos; `wrangler.jsonc`, `public/_redirects`, `public/_headers`).
 
 ## Comandos
 
@@ -53,4 +53,10 @@ Projetos exigem `image` e `link`, e aceitam `technologies: ["Astro", …]`.
 
 ## Publicação
 
-Um push na `main` publica em produção na Vercel; pushes em outras branches geram só um preview.
+Um push na `main` publica em produção pela Cloudflare (Workers Builds); pushes em outras branches geram uma versão de preview.
+
+Para testar localmente o comportamento da Cloudflare (404, redirects e headers):
+
+```sh
+npm run build && npx wrangler dev
+```
