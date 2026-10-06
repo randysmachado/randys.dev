@@ -1,11 +1,17 @@
-/** Slug de URL da tag: sem acentos, minúsculo, espaços viram hífen. */
+/**
+ * Slug de URL da tag: sem acentos, minúsculo, espaços viram hífen e qualquer
+ * outro caractere fora de a-z/0-9/- some ("CI/CD" → "cicd", "C#" → "c").
+ */
 export const tagSlug = (tag: string): string =>
   tag
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim()
-    .replace(/\s+/g, "-");
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-{2,}/g, "-")
+    .replace(/^-|-$/g, "");
 
 export const tagUrl = (tag: string): string => `/tag/${tagSlug(tag)}/`;
 
