@@ -68,7 +68,7 @@ import { Icon } from "astro-icon/components";
 
       const isDark = element.classList.contains("dark");
       try {
-        localStorage.setItem("theme", isDark ? "dark" : "light");
+        localStorage.setItem("theme-choice", isDark ? "dark" : "light");
       } catch {
         // Armazenamento bloqueado: o tema muda só nesta página.
       }

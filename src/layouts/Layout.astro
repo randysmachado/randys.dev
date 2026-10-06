@@ -131,16 +131,21 @@ const jsonLd = {
 
     <script is:inline>
       {
-        // Escolha explícita (botão) prevalece; sem ela, segue o sistema,
-        // inclusive ao vivo. localStorage pode lançar SecurityError com
-        // armazenamento bloqueado (MDN), por isso o try/catch.
+        // Escolha explícita (botão, chave "theme-choice") prevalece; sem ela,
+        // segue o sistema, inclusive ao vivo. A chave antiga "theme" era
+        // gravada em toda visita (não era escolha) e é descartada.
+        // localStorage pode lançar SecurityError com armazenamento bloqueado
+        // (MDN), por isso o try/catch.
         const savedTheme = () => {
           try {
-            return localStorage.getItem("theme");
+            return localStorage.getItem("theme-choice");
           } catch {
             return null;
           }
         };
+        try {
+          localStorage.removeItem("theme");
+        } catch {}
         const media = window.matchMedia("(prefers-color-scheme: dark)");
         const apply = (dark) => {
           document.documentElement.classList.toggle("dark", dark);
