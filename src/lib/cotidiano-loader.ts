@@ -17,9 +17,11 @@ export function cotidianoLoader(dir: string): Loader {
     load: async ({ config, store, parseData, generateDigest, logger, watcher }) => {
       const base = fileURLToPath(new URL(dir, config.root));
 
-      const sync = async () => {
-        store.clear();
+      /** Lê e valida todos os arquivos; lança na primeira falha, sem tocar no store. */
+      const read = async () => {
         const files = (await readdir(base)).filter((f) => f.endsWith(".json")).sort();
+        const entries: { id: string; data: Record<string, unknown> }[] = [];
+        const ids = new Set<string>();
 
         for (const file of files) {
           const path = join(base, file);
@@ -36,20 +38,33 @@ export function cotidianoLoader(dir: string): Loader {
           for (const item of items as Record<string, unknown>[]) {
             const baseId = `${String(item.date ?? "")}-${slug(String(item.title ?? ""))}`;
             let id = baseId;
-            for (let n = 2; store.has(id); n++) id = `${baseId}-${n}`;
-
-            const data = await parseData({ id, data: item, filePath: path });
-            store.set({ id, data, digest: generateDigest(data) });
+            for (let n = 2; ids.has(id); n++) id = `${baseId}-${n}`;
+            ids.add(id);
+            entries.push({ id, data: await parseData({ id, data: item, filePath: path }) });
           }
         }
-        logger.info(`${store.keys().length} itens carregados de ${files.length} arquivo(s)`);
+        return { entries, fileCount: files.length };
       };
 
+      const sync = async () => {
+        const { entries, fileCount } = await read();
+        store.clear();
+        for (const { id, data } of entries) store.set({ id, data, digest: generateDigest(data) });
+        logger.info(`${entries.length} itens carregados de ${fileCount} arquivo(s)`);
+      };
+
+      // No build, um erro aqui interrompe com a mensagem acima (comportamento desejado).
       await sync();
 
       watcher?.add(base);
+      // No dev, um arquivo inválido vira log e mantém os itens anteriores até ser corrigido.
       const onChange = async (changed: string) => {
-        if (changed.startsWith(base) && changed.endsWith(".json")) await sync();
+        if (!changed.startsWith(base) || !changed.endsWith(".json")) return;
+        try {
+          await sync();
+        } catch (error) {
+          logger.error((error as Error).message);
+        }
       };
       watcher?.on("change", onChange);
       watcher?.on("add", onChange);
