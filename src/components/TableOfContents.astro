@@ -30,29 +30,29 @@ const tocHeadings = headings.filter((h) => h.depth <= 3);
 <script is:inline>
   document.addEventListener("DOMContentLoaded", function () {
     const btn = document.getElementById("back-to-top");
-    const tocLinks = document.querySelectorAll("[data-toc-link]");
-    const article = document.querySelector("article.post");
-    const allHeadings = article
-      ? Array.from(article.querySelectorAll("h1, h2, h3"))
-      : [];
+    // Pares link ↔ título a partir dos próprios href do índice: não depende de
+    // quais h1/h2/h3 existem no artigo (o h1 do PageHeader ficava na conta).
+    const entries = Array.from(
+      document.querySelectorAll("[data-toc-link]"),
+      (link) => ({
+        link,
+        heading: document.getElementById(
+          decodeURIComponent(link.hash.slice(1)),
+        ),
+      }),
+    ).filter((entry) => entry.heading);
     let isScrolling = false;
 
     function highlightHeading(index) {
-      tocLinks.forEach((link, i) => {
+      entries.forEach(({ link }, i) => {
         link.classList.toggle("active", i === index);
       });
     }
 
     function onScroll() {
-      if (window.scrollY > 100) {
-        btn?.classList.add("show");
-      } else {
-        btn?.classList.remove("show");
-      }
+      btn?.classList.toggle("show", window.scrollY > 100);
 
-      if (isScrolling || allHeadings.length === 0 || tocLinks.length === 0) {
-        return;
-      }
+      if (isScrolling || entries.length === 0) return;
 
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
@@ -64,14 +64,14 @@ const tocHeadings = headings.filter((h) => h.depth <= 3);
         return;
       }
       if (window.scrollY >= docHeight - winHeight - 50) {
-        highlightHeading(tocLinks.length - 1);
+        highlightHeading(entries.length - 1);
         return;
       }
 
       const targetPosition = headerHeight + 150;
       let currentIndex = 0;
-      for (let i = 0; i < allHeadings.length; i++) {
-        if (allHeadings[i].getBoundingClientRect().top > targetPosition) {
+      for (let i = 0; i < entries.length; i++) {
+        if (entries[i].heading.getBoundingClientRect().top > targetPosition) {
           currentIndex = i > 0 ? i - 1 : 0;
           break;
         }
@@ -87,26 +87,15 @@ const tocHeadings = headings.filter((h) => h.depth <= 3);
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    tocLinks.forEach((link, index) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href").substring(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          const header = document.querySelector("header");
-          const headerHeight = header ? header.offsetHeight : 80;
-          const targetPosition =
-            target.getBoundingClientRect().top +
-            window.scrollY -
-            headerHeight -
-            20;
-          isScrolling = true;
-          highlightHeading(index);
-          window.scrollTo({ top: targetPosition, behavior: "smooth" });
-          setTimeout(() => {
-            isScrolling = false;
-          }, 800);
-        }
+    // Navegação nativa por âncora (URL ganha #secao e o foco vai para o
+    // título); o clique só fixa o destaque enquanto a rolagem acontece.
+    entries.forEach(({ link }, index) => {
+      link.addEventListener("click", () => {
+        isScrolling = true;
+        highlightHeading(index);
+        setTimeout(() => {
+          isScrolling = false;
+        }, 800);
       });
     });
   });
