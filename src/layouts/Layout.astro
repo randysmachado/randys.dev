@@ -232,7 +232,12 @@ const jsonLd = {
       )
     }
 
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+    {/* "<" escapado: um texto com "</script>" não pode fechar a tag. */}
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")}
+      is:inline
+    />
   </head>
 
   <body>
