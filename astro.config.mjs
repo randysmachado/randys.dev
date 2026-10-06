@@ -3,7 +3,7 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
-import { satteri, satteriHeadingIdsPlugin } from "@astrojs/markdown-satteri";
+import { satteri } from "@astrojs/markdown-satteri";
 
 import { SITE_URL } from "./src/consts.ts";
 import { headingAnchors } from "./src/lib/heading-anchors.ts";
@@ -70,7 +70,6 @@ export default defineConfig({
       mdastPlugins: [calloutDirective, inlineExpressiveCode],
       hastPlugins: [
         externalLinks,
-        satteriHeadingIdsPlugin(),
         blockExpressiveCode,
         headingAnchors(),
       ],
