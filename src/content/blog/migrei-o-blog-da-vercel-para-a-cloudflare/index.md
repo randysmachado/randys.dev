@@ -16,8 +16,8 @@ A Vercel sempre funcionou bem. Não foi uma fuga, foi uma escolha. Os motivos:
 
 - **O site é estático.** Depois da migração para o Astro, o blog virou só HTML, CSS e um pouco de JavaScript. Não preciso de nada específico da Vercel para servir isso.
 - **Tudo num lugar só.** Com o domínio, o DNS e a hospedagem na Cloudflare, fica um painel a menos para cuidar.
-- **Experiência.** Comecei (muito tarde) a utilizar a Cloudflare e como eles tem uma boa integração com o Astro, resolvi testar. O blog é um bom projeto para isso.
-- **O que vem por aí.** Quero adicionar algumas coisas interativas no blog (um botão de curtir, por exemplo), e a Cloudflare tem banco de dados (D1) e armazenamento (KV) no plano gratuito, quero aproveitar para testar essas coisas.
+- **Experiência.** Comecei (muito tarde) a utilizar a Cloudflare, e como ela tem uma boa integração com o Astro, resolvi testar. O blog é um bom projeto para isso.
+- **O que vem por aí.** Quero adicionar algumas coisas interativas no blog (um botão de curtir, por exemplo), e a Cloudflare tem banco de dados (D1) e armazenamento (KV) no plano gratuito. Quero aproveitar para testar essas coisas.
 - **É gratuito.** O plano free da Cloudflare cobre com folga um blog pessoal.
 
 ## Workers ou Pages?
@@ -26,7 +26,7 @@ A Cloudflare tem dois produtos que servem site estático: o Pages e o Workers. H
 
 ## Parte 1: o DNS
 
-Essa foi a parte mais delicada, porque eu pensei em trocar tudo de uma vez e de qual jeito, daí eu pesquisei antes de fazer e descobri que a ordem de fazer as coisas importa. 
+Essa foi a parte mais delicada, porque eu pensei em trocar tudo de uma vez e de qualquer jeito. Daí eu pesquisei antes de fazer e descobri que a ordem de fazer as coisas importa.
 
 O meu domínio foi registrado no finado Google Domains, que foi vendido para a Squarespace (e até hoje não entendi o porque, coisas do Google). Então o domínio continua registrado lá, o que mudou foi quem responde pelo DNS. Isso é diferente de transferir o domínio: troquei só os **nameservers**.
 
@@ -117,7 +117,7 @@ Na Cloudflare, o **Workers Builds** conecta o repositório do GitHub e faz o mes
 
 ## Parte 4: a virada sem queda
 
-Como eu disse anteriormente "A ordem importa". O domínio só saiu da Vercel depois que o site estava validado no endereço `*.workers.dev`:
+Como eu disse anteriormente, "a ordem importa". O domínio só saiu da Vercel depois que o site estava validado no endereço `*.workers.dev`:
 
 1. Com o DNS já na Cloudflare, o registro principal continuou apontando para a Vercel. Ninguém percebeu a troca de nameservers.
 2. Conferi que o certificado HTTPS do domínio já estava emitido na Cloudflare. Isso é importante no `.dev`, que só funciona com HTTPS.
@@ -128,7 +128,7 @@ Como eu disse anteriormente "A ordem importa". O domínio só saiu da Vercel dep
 Antes, o `www.randys.dev` nem existia. Agora ele redireciona para `randys.dev` com uma regra de redirect da própria Cloudflare, mantendo o caminho e a query string. Sem nenhuma linha de código.
 :::
 
-Alguns projetos que usam subdomínios ainda continuam na Vercel por necessidades específicas, sem mudança nenhuma.
+Alguns projetos que usam subdomínios ainda estão na Vercel por necessidades específicas, sem mudança nenhuma.
 
 ## Resultado
 
