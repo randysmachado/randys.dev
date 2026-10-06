@@ -31,6 +31,10 @@ const absolutize = (html: string, site: URL, postUrl: URL): string =>
       `srcset="${set.replace(/(^|,\s*)\/(?!\/)/g, `$1${site.origin}/`)}"`,
     );
 
+/** Escapa texto puro para entrar como HTML no feed. */
+const escapeHtml = (text: string): string =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 export async function GET(context: APIContext) {
   const site = context.site!;
   const posts = (await getCollection("blog")).sort(
@@ -58,7 +62,7 @@ export async function GET(context: APIContext) {
         : "";
       const body = post.rendered?.html
         ? absolutize(cleanForFeed(post.rendered.html), site, postUrl)
-        : `<p>${description}</p>`;
+        : `<p>${escapeHtml(description)}</p>`;
 
       return {
         title,
