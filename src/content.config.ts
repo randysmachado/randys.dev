@@ -48,7 +48,8 @@ const projects = defineCollection({
       publishDate: z.date(),
       /** Obrigatória: aparece no card e na página do projeto. */
       image: image(),
-      link: z.url(),
+      /** Só http(s): o link vira href na página. */
+      link: z.url({ protocol: /^https?$/ }),
       /** Tecnologias usadas no projeto (badges neutros na página do projeto). */
       technologies: z.array(z.string()).default([]),
       tags: z.array(z.string()).optional(),
@@ -73,7 +74,8 @@ const cotidiano = defineCollection({
     detail: z.string().optional(),
     /** Autor, diretor ou estúdio. */
     author: z.string().optional(),
-    url: z.url().optional(),
+    /** Só http(s): o link vira href na página. */
+    url: z.url({ protocol: /^https?$/ }).optional(),
   }),
 });
 
