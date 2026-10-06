@@ -16,7 +16,8 @@ export const externalLinks = defineHastPlugin({
     visit(node, ctx) {
       const href = node.properties.href;
       if (typeof href !== "string" || !/^https?:\/\//.test(href)) return;
-      if (new URL(href).host === siteHost) return;
+      // URL malformada no Markdown (ex.: "https://") não deve derrubar o build.
+      if (!URL.canParse(href) || new URL(href).host === siteHost) return;
       ctx.setProperty(node, "target", "_blank");
       ctx.setProperty(node, "rel", "external nofollow noopener noreferrer");
     },
