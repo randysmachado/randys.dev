@@ -6,7 +6,7 @@ image: './cover.png'
 categories: ["dev"]
 tags: ["wordpress"]
 ---
-No post anterior eu falei sobre as funcionalidades e benefícios de utilizar o `wordpress/scripts` em seu projeto. Caso tenha perdido [clique aqui](http://localhost:3000/blog/o-que-e-o-wordpress-scripts-como-usa-lo-e-por-que-ele-e-essencial-para-seu-desenvolvimento-no-wordpress).  
+No post anterior eu falei sobre as funcionalidades e benefícios de utilizar o `wordpress/scripts` em seu projeto. Caso tenha perdido [clique aqui](/blog/o-que-e-o-wordpress-scripts-como-usa-lo-e-por-que-ele-e-essencial-para-seu-desenvolvimento-no-wordpress/).  
 
 Agora quero continuar o post anterior adicionando um pouco mais de poder ao `wordpress/scripts` utilizando o Browsersync para sincronizar o código que você está escrevendo e atualizando automaticamente a página sem precisar fazer o reload manualmente.
 
