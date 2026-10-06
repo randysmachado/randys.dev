@@ -107,6 +107,10 @@ A versão antiga já era rápida. A diferença está em não carregar o que não
 
 Nada disso se perdeu: a versão 2.0 continua guardada no repositório, na tag `v2.0`.
 
+## Uso da Inteligência Artificial 
+Utilizo este blog para colocar em prática o que aprendo, tanto que ele tem várias versões, vários commits malucos, branches e tudo que se pode imaginar. E como todo desenvolvedor que se preze, gosto de experimentar novas tecnologias e a inteligência artificial é o hype da vez.   
+Então resolvi utilizar a I.A na migração do blog e na realização de várias tarefas e testes. Vou explicar tudo em um novo post, aguardem.
+
 ## O que vem por aí
 
 Agora que a base está pronta, quero usar o blog para mais do que posts. A próxima ideia é uma área mostrando o que estou lendo, assistindo e ouvindo. Se quiser acompanhar, o [RSS](/rss.xml) está aí.
