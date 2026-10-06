@@ -130,26 +130,31 @@ const jsonLd = {
     <meta name="generator" content={Astro.generator} />
 
     <script is:inline>
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme") ?? "light";
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
+      {
+        // Escolha explícita (botão) prevalece; sem ela, segue o sistema,
+        // inclusive ao vivo. localStorage pode lançar SecurityError com
+        // armazenamento bloqueado (MDN), por isso o try/catch.
+        const savedTheme = () => {
+          try {
+            return localStorage.getItem("theme");
+          } catch {
+            return null;
+          }
+        };
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        const apply = (dark) => {
+          document.documentElement.classList.toggle("dark", dark);
+          document
+            .getElementById("theme-toggle")
+            ?.setAttribute("aria-pressed", String(dark));
+        };
 
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
+        const saved = savedTheme();
+        apply(saved ? saved === "dark" : media.matches);
+        media.addEventListener("change", (event) => {
+          if (!savedTheme()) apply(event.matches);
+        });
       }
-
-      window.localStorage.setItem("theme", theme);
     </script>
 
     <title>{pageTitle}</title>
