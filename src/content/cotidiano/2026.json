@@ -1,5 +1,12 @@
 [
   {
+    "title": "O Alienista",
+    "type": "livro",
+    "date": "2026-09-30",
+    "status": "atual",
+    "author": "Machado de Assis"
+  },
+  {
     "title": "The Leftovers",
     "type": "serie",
     "date": "2026-09-30",
@@ -16,10 +23,19 @@
     "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
   },
   {
-    "title": "O Alienista",
-    "type": "livro",
-    "date": "2026-09-30",
-    "status": "atual",
-    "author": "Machado de Assis"
+    "title": "A Protetora",
+    "type": "filme",
+    "date": "2026-08-20",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/737568-the-doorman"
+  },
+  {
+    "title": "Supergirl",
+    "type": "filme",
+    "date": "2026-10-08",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/1081003-supergirl"
   }
 ]
