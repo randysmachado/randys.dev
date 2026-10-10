@@ -37,5 +37,21 @@
     "status": "concluido",
     "detail": "",
     "url": "https://www.themoviedb.org/movie/1081003-supergirl"
+  },
+  {
+    "title": "Maníaco do Parque",
+    "type": "filme",
+    "date": "2026-10-09",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/1156212-maniaco-do-parque"
+  },
+  {
+    "title": "Mestres do Universo",
+    "type": "filme",
+    "date": "2026-09-08",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/454639-masters-of-the-universe"
   }
 ]
