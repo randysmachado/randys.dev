@@ -2,6 +2,9 @@
  * Blocos das páginas em Markdown (src/lib/page-blocks.ts): formação e
  * tecnologias da página Sobre. Visual próprio, em cores neutras (nada dos
  * callouts). Carregado só pelo PageLayout.
+ *
+ * Os dois blocos usam a mesma linha: rótulo em maiúsculas à esquerda e o
+ * conteúdo à direita. subgrid alinha os rótulos numa coluna só.
  */
 
 /* Base: listas sem marcador nem recuo do .prose. */
@@ -11,55 +14,18 @@
   list-style: none;
 }
 
-/* Formação: um cartão por curso, com capelo à esquerda. */
-.prose [data-block="formacao"] > ul {
+.prose [data-block] > ul {
   display: grid;
-  gap: var(--space-xs);
-}
-
-.prose [data-block="formacao"] li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  column-gap: var(--space-s);
-  padding: var(--space-s) var(--space-m);
-  border: 1px solid var(--border-main);
-  border-radius: 0.75rem;
-  color: var(--text-muted);
-  font-size: var(--step--1);
-}
-
-/* Capelo (Lucide "graduation-cap", ISC) como máscara: herda a cor do texto. */
-.prose [data-block="formacao"] li::before {
-  content: "";
-  grid-row: span 2;
-  inline-size: 1.75rem;
-  block-size: 1.75rem;
-  background-color: var(--text-main);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z'/%3E%3Cpath d='M22 10v6'/%3E%3Cpath d='M6 12.5V16a6 3 0 0 0 12 0v-3.5'/%3E%3C/svg%3E")
-    center / contain no-repeat;
-}
-
-.prose [data-block="formacao"] strong {
-  color: var(--text-main);
-  font-size: var(--step-0);
-}
-
-/*
- * Tecnologias: uma linha por grupo; rótulo à esquerda e pílulas à direita.
- * subgrid alinha os rótulos de todos os grupos numa mesma coluna.
- */
-.prose [data-block="tecnologias"] > ul {
-  display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 9rem 1fr;
   gap: var(--space-s) var(--space-m);
 }
 
-.prose [data-block="tecnologias"] > ul > li {
+/* Linha: rótulo (texto do item) + lista interna. */
+.prose [data-block] > ul > li {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
-  align-items: center;
+  align-items: baseline;
   color: var(--text-muted);
   font-size: var(--step--1);
   font-weight: 600;
@@ -67,30 +33,50 @@
   text-transform: uppercase;
 }
 
+.prose [data-block] li li {
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Formação: curso em destaque; grau e instituição em tom suave. */
+.prose [data-block="formacao"] li ul {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.prose [data-block="formacao"] li li {
+  color: var(--text-muted);
+  font-size: var(--step-0);
+}
+
+.prose [data-block="formacao"] li li strong {
+  margin-inline-end: 0.35em;
+  color: var(--text-main);
+}
+
+/* Tecnologias: pílulas no mesmo badge neutro da página de projetos. */
 .prose [data-block="tecnologias"] li ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem;
 }
 
-/* Pílulas: mesmo badge neutro da página de projetos. */
 .prose [data-block="tecnologias"] li li {
   padding: 0.125rem 0.5rem;
   border-radius: 999px;
   background: color-mix(in oklab, var(--bg-muted) 70%, transparent);
   color: var(--text-main);
   font-weight: 500;
-  letter-spacing: normal;
-  text-transform: none;
 }
 
-/* Telas estreitas: rótulo em cima das pílulas. */
+/* Telas estreitas: rótulo em cima do conteúdo. */
 @media (width < 40rem) {
-  .prose [data-block="tecnologias"] > ul {
+  .prose [data-block] > ul {
     grid-template-columns: 1fr;
   }
 
-  .prose [data-block="tecnologias"] > ul > li {
+  .prose [data-block] > ul > li {
     row-gap: var(--space-2xs);
   }
 }

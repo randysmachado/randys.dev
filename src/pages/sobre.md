@@ -25,20 +25,30 @@ Saudações,\
 ## Formação
 
 :::formacao
-- **Sistemas de Informação** Bacharelado · UEG
+- Graduação
+  - **Sistemas de Informação** Bacharelado · UEG
 :::
 
 ## Tecnologias
 
 :::tecnologias
 - Front-end
+  - HTML
+  - CSS
+  - SCSS
+  - JavaScript
+  - TypeScript
   - ReactJS
   - NextJS
+  - Astro
+  - Tailwind CSS
+- Design
+  - Figma
 - CMS
   - WordPress
-  - Headless
-- Back-end (estudando)
-  - NodeJS
+  - EmDash CMS
+- Back-end
   - PHP
   - Laravel
+  - NodeJS
 :::

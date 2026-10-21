@@ -7,9 +7,9 @@ import { defineMdastPlugin } from "satteri";
  * Fora do blog, o Markdown aparece como lista normal.
  *
  *   :::formacao                 :::tecnologias
- *   - **Curso** Grau · Local    - Grupo
- *   :::                           - Tecnologia
- *                               :::
+ *   - Graduação                 - Grupo
+ *     - **Curso** Grau · Local    - Tecnologia
+ *   :::                         :::
  */
 const BLOCKS = new Set(["formacao", "tecnologias"]);
 
