@@ -13,6 +13,8 @@ html.dark {
 
 :root {
   --text-main: light-dark(oklch(16.96% 0.002 17.32), oklch(84.63% 0.014 102.05));
+  /* Destaque (negrito): no escuro, mais claro que o texto (Flexoki base-50). */
+  --text-strong: light-dark(oklch(16.96% 0.002 17.32), oklch(95.56% 0.014 97.47));
   /* Texto secundário (descrições, metadados). Contraste AA nos dois temas. */
   --text-muted: light-dark(oklch(53.75% 0.008 97.45), oklch(61.69% 0.008 88.67));
   /* Terciário: só para detalhes decorativos — não atinge contraste AA. */
