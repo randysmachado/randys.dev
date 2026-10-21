@@ -21,3 +21,24 @@ Obrigado por me acompanhar nesta jornada!
 
 Saudações,\
 **Randys** 🤘
+
+## Formação
+
+:::formacao
+- **Sistemas de Informação** Bacharelado · UEG
+:::
+
+## Tecnologias
+
+:::tecnologias
+- Front-end
+  - ReactJS
+  - NextJS
+- CMS
+  - WordPress
+  - Headless
+- Back-end (estudando)
+  - NodeJS
+  - PHP
+  - Laravel
+:::
