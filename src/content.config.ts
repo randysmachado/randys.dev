@@ -36,6 +36,8 @@ const blog = defineCollection({
       imageAlt: z.string().optional(),
       categories: z.array(z.enum(categorySlugs)).min(1),
       tags: z.array(z.string()).optional(),
+      /** Rascunho: visível no `astro dev`, fora do build de produção. */
+      draft: z.boolean().default(false),
     }),
 });
 

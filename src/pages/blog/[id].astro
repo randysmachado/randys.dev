@@ -8,9 +8,10 @@ import PageHeader from "@/components/PageHeader.astro";
 import { formatDate } from "@/lib/date";
 import { tagUrl } from "@/lib/tags";
 import { getCategory } from "@/lib/categories";
+import { isPublished } from "@/lib/published";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blog", isPublished);
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post },

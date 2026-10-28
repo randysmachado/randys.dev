@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 import { getCategory } from "@/lib/categories";
+import { isPublished } from "@/lib/published";
 
 /**
  * Remove do HTML renderizado o que só serve na página: <style>/<script> e o
@@ -27,8 +28,10 @@ const absolutize = (html: string, site: URL, postUrl: URL): string =>
   html
     .replace(/(href|src)="#/g, `$1="${postUrl.href}#`)
     .replace(/(href|src)="\/(?!\/)/g, `$1="${site.origin}/`)
-    .replace(/srcset="([^"]*)"/g, (_, set: string) =>
-      `srcset="${set.replace(/(^|,\s*)\/(?!\/)/g, `$1${site.origin}/`)}"`,
+    .replace(
+      /srcset="([^"]*)"/g,
+      (_, set: string) =>
+        `srcset="${set.replace(/(^|,\s*)\/(?!\/)/g, `$1${site.origin}/`)}"`,
     );
 
 /** Escapa texto puro para entrar como HTML no feed. */
@@ -37,7 +40,7 @@ const escapeHtml = (text: string): string =>
 
 export async function GET(context: APIContext) {
   const site = context.site!;
-  const posts = (await getCollection("blog")).sort(
+  const posts = (await getCollection("blog", isPublished)).sort(
     (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
   );
 

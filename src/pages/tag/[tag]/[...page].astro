@@ -5,10 +5,11 @@ import Layout from "@/layouts/Layout.astro";
 import PostsPanel from "@/components/PostsPanel.astro";
 import Pagination from "@/components/Pagination.astro";
 import { BLOG_POSTS_PER_PAGE } from "@/consts";
+import { isPublished } from "@/lib/published";
 import { allTags, tagSlug, tagUrl } from "@/lib/tags";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = (await getCollection("blog")).sort(
+  const posts = (await getCollection("blog", isPublished)).sort(
     (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
   );
 
