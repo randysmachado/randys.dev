@@ -23,7 +23,11 @@ npm run dev       # servidor de desenvolvimento em http://localhost:4321
 npm run build     # build de produção em ./dist
 npm run preview   # serve o build de produção localmente
 npx astro check   # checagem de tipos
+npm run p -- "Título do post"            # cria o rascunho de um post novo (abre no VS Code)
+npm run p -- "Título" --c miscelanea     # o mesmo, com outra categoria (padrão: dev)
 ```
+
+No VS Code, a tarefa "Novo post" (`Ctrl+Shift+P` → "Tasks: Run Task") pede o título.
 
 ## Conteúdo
 

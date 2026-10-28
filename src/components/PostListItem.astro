@@ -40,7 +40,7 @@ const { title, summary, description, image, categories } = post.data;
         )
       }
       <Heading class="post-list-item__title">{title}</Heading>
-      <p class="post-list-item__description">{summary ?? description}</p>
+      <p class="post-list-item__description">{summary || description}</p>
     </div>
   </a>
 </article>
