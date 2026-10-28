@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "titulo",
+      "type": "promptString",
+      "description": "Título do post"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Novo post",
+      "type": "shell",
+      "command": "npm run p -- \"${input:titulo}\"",
+      "problemMatcher": []
+    }
+  ]
+}
