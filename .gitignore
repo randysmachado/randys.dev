@@ -32,3 +32,5 @@ planejamento/
 
 # posts de exemplo/teste: ficam só na máquina local (prefixo "exemplo-" após a data)
 src/content/blog/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-exemplo-*/
+
+docs/
