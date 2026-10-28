@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 import CategoryBadge from "./CategoryBadge.astro";
+import DraftBadge from "./DraftBadge.astro";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -14,13 +15,16 @@ type Props = {
 
 const { post, showCategories = false, headingLevel = "h3" } = Astro.props;
 const Heading = headingLevel;
-const { title, summary, description, image, categories } = post.data;
+const { title, summary, description, image, categories, draft } = post.data;
 ---
 
 <article>
   <a
     href={`/blog/${post.id}/`}
-    class:list={["post-list-item", { "post-list-item--has-image": image }]}
+    class:list={[
+      "post-list-item",
+      { "post-list-item--has-image": image, "post-list-item--draft": draft },
+    ]}
   >
     {
       image && (
@@ -31,11 +35,15 @@ const { title, summary, description, image, categories } = post.data;
     }
     <div class="post-list-item__body">
       {
-        showCategories && (
+        (showCategories || draft) && (
           <div class="post-list-item__categories">
-            {categories.map((slug) => (
-              <CategoryBadge slug={slug} linked={false} size="sm" />
-            ))}
+            {draft && <DraftBadge />}
+            {
+              showCategories &&
+              categories.map((slug) => (
+                <CategoryBadge slug={slug} linked={false} size="sm" />
+              ))
+            }
           </div>
         )
       }
@@ -71,6 +79,12 @@ const { title, summary, description, image, categories } = post.data;
   .post-list-item:focus-visible {
     outline: 2px solid var(--text-main);
     outline-offset: -2px;
+  }
+
+  /* Contorno tracejado (não borda): não muda a altura nem o alinhamento do card. */
+  .post-list-item--draft {
+    outline: 1px dashed color-mix(in oklab, var(--text-muted) 60%, transparent);
+    outline-offset: -1px;
   }
 
   .post-list-item__cover {
