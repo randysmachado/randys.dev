@@ -87,7 +87,7 @@ writeFileSync(
     `publishDate: ${data}`,
     // Datas não podem ficar em branco (o YAML lê vazio como null e o schema recusa).
     "# updatedDate: AAAA-MM-DD",
-    "# image: ./cover.png",
+    '# image: "./cover.png"',
     `# imageAlt: ""`,
     `categories: [${JSON.stringify(categoria)}]`,
     "tags: []",
