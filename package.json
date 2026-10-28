@@ -10,7 +10,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "p": "node scripts/novo-post.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.3.7",
