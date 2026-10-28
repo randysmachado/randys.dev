@@ -4,8 +4,9 @@ import Layout from "@/layouts/Layout.astro";
 import { HOME_POSTS_PER_CATEGORY, type CategorySlug } from "@/consts";
 import PostsPanel from "@/components/PostsPanel.astro";
 import { categoryUrl, getCategory } from "@/lib/categories";
+import { isPublished } from "@/lib/published";
 
-const allPosts = await getCollection("blog");
+const allPosts = await getCollection("blog", isPublished);
 
 const byRecent = (a: (typeof allPosts)[number], b: (typeof allPosts)[number]) =>
   b.data.publishDate.getTime() - a.data.publishDate.getTime();

@@ -7,9 +7,10 @@ import Pagination from "@/components/Pagination.astro";
 import CategoryFilter from "@/components/CategoryFilter.astro";
 import { categoriesWithPosts } from "@/lib/categories";
 import { BLOG_POSTS_PER_PAGE } from "@/consts";
+import { isPublished } from "@/lib/published";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts = (await getCollection("blog")).sort(
+  const posts = (await getCollection("blog", isPublished)).sort(
     (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
   );
 
@@ -21,7 +22,7 @@ type Props = {
 };
 
 const { page } = Astro.props;
-const categories = categoriesWithPosts(await getCollection("blog"));
+const categories = categoriesWithPosts(await getCollection("blog", isPublished));
 const title = page.currentPage === 1 ? "Blog" : `Blog — Página ${page.currentPage}`;
 ---
 

@@ -49,7 +49,7 @@ tags: ["css", "astro"]
 
 Projetos exigem `image` e `link`, e aceitam `technologies: ["Astro", …]`.
 
-**Posts de teste:** pastas começando com `exemplo-` (ex.: `src/content/blog/exemplo-teste/`) aparecem no blog local, mas são ignoradas pelo git e nunca são publicadas.
+**Posts de teste:** pastas no formato `AAAA-MM-DD-exemplo-…` (ex.: `src/content/blog/2026-01-01-exemplo-teste/`, com `publishDate` igual à data da pasta) aparecem no blog local, mas são ignoradas pelo git e nunca são publicadas.
 
 ## Publicação
 
