@@ -10,6 +10,7 @@ import {
   type CategorySlug,
   type CotidianoType,
 } from "@/consts";
+import { blogId } from "@/lib/blog-id";
 import { cotidianoLoader } from "@/lib/cotidiano-loader";
 
 const categorySlugs = CATEGORIES.map((c) => c.slug) as [
@@ -18,7 +19,11 @@ const categorySlugs = CATEGORIES.map((c) => c.slug) as [
 ];
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/blog",
+    generateId: ({ entry, data }) => blogId(entry, data),
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
