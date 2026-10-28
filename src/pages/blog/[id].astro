@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import CategoryBadge from "@/components/CategoryBadge.astro";
+import DraftBadge from "@/components/DraftBadge.astro";
 import PageHeader from "@/components/PageHeader.astro";
 import { formatDate } from "@/lib/date";
 import { tagUrl } from "@/lib/tags";
@@ -29,6 +30,7 @@ const {
   tags,
   image,
   imageAlt,
+  draft,
 } = post.data;
 ---
 
@@ -46,6 +48,7 @@ const {
   <article class="post">
     <PageHeader title={title} description={description}>
       <div class="post-meta">
+        {draft && <DraftBadge />}
         <span class="post-categories">
           {categories.map((slug) => <CategoryBadge slug={slug} />)}
         </span>
