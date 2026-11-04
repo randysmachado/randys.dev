@@ -1,60 +1,26 @@
 /*
- * Cores das categorias: fundo com o tom 50 (claro) / 950 (escuro) do Flexoki;
- * o texto mistura o tom 700 / 300 com a cor de texto do site (60/40), para
- * manter a matiz sem saturar. Contraste WCAG AA — ver planejamento/0016 e 0017.
+ * Cores das categorias do blog (Dev e Miscelânea): no claro, fundo com o tom
+ * 50 do Flexoki e texto no tom 700 misturado com a cor de texto do site (60/40),
+ * para manter a matiz sem saturar. Contraste WCAG AA — ver planejamento/0016,
+ * 0017 e 0047. Os tipos do Cotidiano têm paleta própria em CotidianoTypeBadge.astro.
  */
 
+/*
+ * No escuro, o fundo é o tom 500 e o texto é branco (Dev) ou preto Flexoki
+ * (Miscelânea), o que passa em AA em cada matiz (ver planejamento/0048).
+ */
 [data-category-color="blue"] {
-  --cat-bg: light-dark(#e1eceb, #101a24);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#1a4f8c, #66a0c8) 60%,
-    var(--text-main)
+  --cat-bg: light-dark(#e1eceb, #3171b2);
+  --cat-fg: light-dark(
+    color-mix(in oklab, #1a4f8c 60%, var(--text-main)),
+    #ffffff
   );
 }
 
 [data-category-color="orange"] {
-  --cat-bg: light-dark(#ffe7ce, #27180e);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#9d4310, #ec8b49) 60%,
-    var(--text-main)
-  );
-}
-
-/* Tons usados pelos tipos do Cotidiano (COTIDIANO_TYPES). */
-[data-category-color="cyan"] {
-  --cat-bg: light-dark(#ddf1e4, #101f1d);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#1c6c66, #5abdac) 60%,
-    var(--text-main)
-  );
-}
-
-[data-category-color="purple"] {
-  --cat-bg: light-dark(#f0eaec, #1a1623);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#4f3685, #a699d0) 60%,
-    var(--text-main)
-  );
-}
-
-[data-category-color="magenta"] {
-  --cat-bg: light-dark(#fee4e5, #24131d);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#87285e, #e47da8) 60%,
-    var(--text-main)
-  );
-}
-
-[data-category-color="green"] {
-  --cat-bg: light-dark(#edeecf, #1a1e0c);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#536907, #a0af54) 60%,
-    var(--text-main)
+  --cat-bg: light-dark(#ffe7ce, #cb6120);
+  --cat-fg: light-dark(
+    color-mix(in oklab, #9d4310 60%, var(--text-main)),
+    #100f0f
   );
 }

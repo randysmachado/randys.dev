@@ -52,16 +52,17 @@ export const HOME_POSTS_PER_CATEGORY = 2;
 
 /**
  * Tipos de item da página Cotidiano (src/content/cotidiano/*.json).
- * `verb` aparece na flag do destaque "Agora"; `color` é um tom Flexoki
- * (src/styles/categories.css). Para um tipo novo, basta acrescentar aqui.
+ * `verb` aparece na flag do destaque "Agora". A cor de cada tipo fica no
+ * rótulo (CotidianoTypeBadge.astro). Para um tipo novo, acrescente aqui e
+ * um bloco de cor naquele componente.
  */
 export const COTIDIANO_TYPES = [
-  { slug: "livro", label: "Livro", plural: "Livros", verb: "lendo", color: "blue" },
-  { slug: "artigo", label: "Artigo", plural: "Artigos", verb: "lendo", color: "cyan" },
-  { slug: "serie", label: "Série", plural: "Séries", verb: "assistindo", color: "purple" },
-  { slug: "filme", label: "Filme", plural: "Filmes", verb: "assistindo", color: "orange" },
-  { slug: "anime", label: "Anime", plural: "Animes", verb: "assistindo", color: "magenta" },
-  { slug: "documentario", label: "Documentário", plural: "Documentários", verb: "assistindo", color: "green" },
+  { slug: "livro", label: "Livro", plural: "Livros", verb: "lendo" },
+  { slug: "artigo", label: "Artigo", plural: "Artigos", verb: "lendo" },
+  { slug: "serie", label: "Série", plural: "Séries", verb: "assistindo" },
+  { slug: "filme", label: "Filme", plural: "Filmes", verb: "assistindo" },
+  { slug: "anime", label: "Anime", plural: "Animes", verb: "assistindo" },
+  { slug: "documentario", label: "Documentário", plural: "Documentários", verb: "assistindo" },
 ] as const;
 
 export type CotidianoType = (typeof COTIDIANO_TYPES)[number]["slug"];

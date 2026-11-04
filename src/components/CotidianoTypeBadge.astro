@@ -4,13 +4,18 @@ import { getCotidianoType } from "@/lib/cotidiano";
 
 type Props = { type: CotidianoType };
 
-const { label, color } = getCotidianoType(Astro.props.type);
+const { type } = Astro.props;
+const { label } = getCotidianoType(type);
 ---
 
-<span class="cotidiano-type" data-category-color={color}>{label}</span>
+<span class="cotidiano-type" data-type={type}>{label}</span>
 
 <style>
-  /* Rótulo do tipo: cores das categorias (categories.css). */
+  /*
+   * Rótulo do tipo, com cores da paleta Flexoki. Claro: fundo no tom 50 e texto
+   * no 700. Escuro: fundo no tom 500 e texto branco ou preto Flexoki (o que
+   * passa em AA em cada matiz). Ver planejamento/0046 e 0048.
+   */
   .cotidiano-type {
     display: inline-flex;
     justify-content: center;
@@ -23,5 +28,35 @@ const { label, color } = getCotidianoType(Astro.props.type);
     font-weight: 500;
     line-height: 1.5;
     white-space: nowrap;
+  }
+
+  .cotidiano-type[data-type="livro"] {
+    --cat-bg: light-dark(#e1eceb, #3171b2);
+    --cat-fg: light-dark(#1a4f8c, #ffffff);
+  }
+
+  .cotidiano-type[data-type="artigo"] {
+    --cat-bg: light-dark(#ddf1e4, #2f968d);
+    --cat-fg: light-dark(#1c6c66, #100f0f);
+  }
+
+  .cotidiano-type[data-type="serie"] {
+    --cat-bg: light-dark(#f0eaec, #735eb5);
+    --cat-fg: light-dark(#4f3685, #ffffff);
+  }
+
+  .cotidiano-type[data-type="filme"] {
+    --cat-bg: light-dark(#edeecf, #768d21);
+    --cat-fg: light-dark(#536907, #100f0f);
+  }
+
+  .cotidiano-type[data-type="anime"] {
+    --cat-bg: light-dark(#fee4e5, #b74583);
+    --cat-fg: light-dark(#87285e, #ffffff);
+  }
+
+  .cotidiano-type[data-type="documentario"] {
+    --cat-bg: light-dark(#ffe7ce, #cb6120);
+    --cat-fg: light-dark(#9d4310, #100f0f);
   }
 </style>
