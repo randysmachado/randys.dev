@@ -6,11 +6,11 @@
  */
 
 /*
- * No escuro, o fundo é o tom 600 e o texto é branco (mesmo tratamento dos
- * tipos do Cotidiano): contraste AA, sem o fundo escuro demais.
+ * No escuro, o fundo é o tom 500 e o texto é branco (Dev) ou preto Flexoki
+ * (Miscelânea), o que passa em AA em cada matiz (ver planejamento/0048).
  */
 [data-category-color="blue"] {
-  --cat-bg: light-dark(#e1eceb, #205ea6);
+  --cat-bg: light-dark(#e1eceb, #3171b2);
   --cat-fg: light-dark(
     color-mix(in oklab, #1a4f8c 60%, var(--text-main)),
     #ffffff
@@ -18,9 +18,9 @@
 }
 
 [data-category-color="orange"] {
-  --cat-bg: light-dark(#ffe7ce, #bc5215);
+  --cat-bg: light-dark(#ffe7ce, #cb6120);
   --cat-fg: light-dark(
     color-mix(in oklab, #9d4310 60%, var(--text-main)),
-    #ffffff
+    #100f0f
   );
 }
