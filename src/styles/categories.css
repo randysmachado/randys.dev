@@ -1,25 +1,26 @@
 /*
- * Cores das categorias do blog (Dev e Miscelânea): fundo com o tom 50 (claro)
- * / 950 (escuro) do Flexoki; o texto mistura o tom 700 / 300 com a cor de
- * texto do site (60/40), para manter a matiz sem saturar. Contraste WCAG AA —
- * ver planejamento/0016 e 0017. Os tipos do Cotidiano têm paleta própria em
- * CotidianoTypeBadge.astro.
+ * Cores das categorias do blog (Dev e Miscelânea): no claro, fundo com o tom
+ * 50 do Flexoki e texto no tom 700 misturado com a cor de texto do site (60/40),
+ * para manter a matiz sem saturar. Contraste WCAG AA — ver planejamento/0016,
+ * 0017 e 0047. Os tipos do Cotidiano têm paleta própria em CotidianoTypeBadge.astro.
  */
 
+/*
+ * No escuro, o fundo é o tom 600 e o texto é branco (mesmo tratamento dos
+ * tipos do Cotidiano): contraste AA, sem o fundo escuro demais.
+ */
 [data-category-color="blue"] {
-  --cat-bg: light-dark(#e1eceb, #101a24);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#1a4f8c, #66a0c8) 60%,
-    var(--text-main)
+  --cat-bg: light-dark(#e1eceb, #205ea6);
+  --cat-fg: light-dark(
+    color-mix(in oklab, #1a4f8c 60%, var(--text-main)),
+    #ffffff
   );
 }
 
 [data-category-color="orange"] {
-  --cat-bg: light-dark(#ffe7ce, #27180e);
-  --cat-fg: color-mix(
-    in oklab,
-    light-dark(#9d4310, #ec8b49) 60%,
-    var(--text-main)
+  --cat-bg: light-dark(#ffe7ce, #bc5215);
+  --cat-fg: light-dark(
+    color-mix(in oklab, #9d4310 60%, var(--text-main)),
+    #ffffff
   );
 }
