@@ -12,8 +12,8 @@ const { label } = getCotidianoType(type);
 
 <style>
   /*
-   * Rótulo do tipo: fundo no tom 50 (claro) / 950 (escuro) da paleta Flexoki e
-   * texto no 700 / 300. Todos passam WCAG AA (ver planejamento/0046).
+   * Rótulo do tipo, com cores da paleta Flexoki. Claro: fundo no tom 50 e texto
+   * no 700. Escuro: fundo no tom 600 e texto branco. Ver planejamento/0046.
    */
   .cotidiano-type {
     display: inline-flex;
@@ -29,33 +29,37 @@ const { label } = getCotidianoType(type);
     white-space: nowrap;
   }
 
+  /*
+   * No escuro, o fundo é o tom 600 (mais claro e vivo que o 950) e o texto é
+   * branco: contraste AA em todos os tipos (ciano e verde ficam perto de 4.5).
+   */
   .cotidiano-type[data-type="livro"] {
-    --cat-bg: light-dark(#e1eceb, #101a24);
-    --cat-fg: light-dark(#1a4f8c, #66a0c8);
+    --cat-bg: light-dark(#e1eceb, #205ea6);
+    --cat-fg: light-dark(#1a4f8c, #ffffff);
   }
 
   .cotidiano-type[data-type="artigo"] {
-    --cat-bg: light-dark(#ddf1e4, #101f1d);
-    --cat-fg: light-dark(#1c6c66, #5abdac);
+    --cat-bg: light-dark(#ddf1e4, #24837b);
+    --cat-fg: light-dark(#1c6c66, #ffffff);
   }
 
   .cotidiano-type[data-type="serie"] {
-    --cat-bg: light-dark(#f0eaec, #1a1623);
-    --cat-fg: light-dark(#4f3685, #a699d0);
+    --cat-bg: light-dark(#f0eaec, #5e409d);
+    --cat-fg: light-dark(#4f3685, #ffffff);
   }
 
   .cotidiano-type[data-type="filme"] {
-    --cat-bg: light-dark(#ffe7ce, #27180e);
-    --cat-fg: light-dark(#9d4310, #ec8b49);
+    --cat-bg: light-dark(#ffe7ce, #bc5215);
+    --cat-fg: light-dark(#9d4310, #ffffff);
   }
 
   .cotidiano-type[data-type="anime"] {
-    --cat-bg: light-dark(#fee4e5, #24131d);
-    --cat-fg: light-dark(#87285e, #e47da8);
+    --cat-bg: light-dark(#fee4e5, #a02f6f);
+    --cat-fg: light-dark(#87285e, #ffffff);
   }
 
   .cotidiano-type[data-type="documentario"] {
-    --cat-bg: light-dark(#edeecf, #1a1e0c);
-    --cat-fg: light-dark(#536907, #a0af54);
+    --cat-bg: light-dark(#edeecf, #66800b);
+    --cat-fg: light-dark(#536907, #ffffff);
   }
 </style>
