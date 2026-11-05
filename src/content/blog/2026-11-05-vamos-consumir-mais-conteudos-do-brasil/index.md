@@ -5,7 +5,7 @@ summary: "Vem comigo nessa jornada, vamos dar valor para o que é nosso."
 publishDate: 2026-11-05
 # updatedDate: AAAA-MM-DD
 image: "./cover.png"
-imageAlt: "Loja de discos com cartazes de shows de artistas brasileiros na parede e vários discos de vinil e CDs expostos nas prateleiras."
+imageAlt: "Loja de discos com cartazes de artistas brasileiros na parede e vários discos de vinil e CDs expostos nas prateleiras."
 categories: ["miscelanea"]
 tags: ["brasil", "cultura", "música", "filmes", "séries", "livros"]
 draft: false
