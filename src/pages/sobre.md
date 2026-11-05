@@ -1,32 +1,28 @@
 ---
 layout: ../layouts/PageLayout.astro
 title: "Sobre"
-description: "Um pouco sobre o Randys Machado: quem sou, o que faço e sobre o que escrevo neste blog."
+description: "Um pouco sobre Randys Machado: quem sou, o que faço e sobre o que escrevo neste blog."
 subtitle: "Quem escreve por aqui e sobre o que é este blog."
 ---
 
-Olá! Sou Randys, goiano *(do pé rachado)*, nascido e criado nas terras quentes de Porangatu. Desde cedo, desenvolvi uma paixão pela tecnologia que moldou meu percurso profissional e pessoal.
+Olá! Sou Randys, goiano do pé-rachado, apreciador de café e cerveja.
 
-Aos 18 anos, comecei meus primeiros passos no mundo da Tecnologia da Informação (T.I), mergulhando na manutenção de computadores e no suporte a softwares de automação comercial. Esses primeiros desafios me ensinaram valiosas lições e solidificaram minha base na área.
+Estou neste mundo da tecnologia desde os 18 anos. Comecei com manutenção de computadores (limpando memória RAM com borracha), passei pelo suporte a softwares de automação comercial feitos em **Delphi**, com banco de dados **Firebird** e **IBExpert**, até chegar no desenvolvimento web, aprendendo HTML, CSS e PHP com apostilas em PDF do **Apostilando**.
 
-Com o tempo, minha jornada me conduziu ao fascinante universo do desenvolvimento web. Há mais de seis anos, tenho o privilégio de trabalhar nesse campo dinâmico e emocionante. Iniciei minha carreira como freelancer, colaborando com empresas locais, e hoje, presto serviços para duas grandes empresas, mergulhando em projetos desafiadores e recompensadores.
+Acredito ter entregado um pouco da minha idade no parágrafo anterior. Mas eu sou da época que peguei o mundo analógico e digital onde a internet não fazia parte do cotidiano, não tinha telefones sem fio, fotos precisavam ser reveladas, computadores eram grandes, caros e lentos.
 
-Atualmente, atuo como desenvolvedor Front-end, explorando as tecnologias mais demandadas do mercado, como **ReactJS** e **NextJS**. Tenho experiência significativa com **WordPress**, participando e até mesmo liderando diversos projetos sendo alguns deles com a abordagem **Headless**. Paralelamente, estou dedicando tempo ao aprimoramento das minhas habilidades de Back-end, mergulhando nos estudos de **NodeJS**, **PHP** e **Laravel** para ampliar ainda mais meu leque de conhecimentos e possibilidades profissionais.
+Despertei minha curiosidade por computador logo cedo, era frequentador de lan houses, pois não tinha computador com internet em casa, lá eu consumia todo tipo de conteúdo, estudava, baixava PDFs de conteúdos e estudava em casa sozinho, sem fóruns, Google, I.A ou qualquer ajuda online. Era difícil.
 
-Além da experiência prática, também busquei aprimorar minha formação acadêmica. Sou graduado em **Sistemas de Informação** pela **UEG**, uma jornada que complementou minhas habilidades técnicas com uma base sólida em teoria e prática.
+Como a maioria das pessoas da época que se interessaram por tecnologia eu desisti por um tempo, mas logo voltei. Daí já consegui acesso a internet em casa, e as coisas melhoraram bastante. Logo conheci o mundo do desenvolvimento web mais a fundo. E desde então estou no universo do desenvolvimento web, sempre estudando e aprimorando habilidades.
 
-Neste espaço, pretendo compartilhar minhas experiências, aprendizados e reflexões sobre o mundo da tecnologia, desenvolvimento web e muito mais. Seja você um entusiasta da T.I, um profissional em ascensão ou simplesmente alguém curioso, espero que encontre inspiração e conhecimento aqui.
+Por enquanto é isso, não quero me estender muito por hora, mas estou escrevendo um texto mais completo que logo vai pro ar.
 
-Obrigado por me acompanhar nesta jornada!
-
-Saudações,\
-**Randys** 🤘
 
 ## Formação
 
 :::formacao
 - Graduação
-  - **Sistemas de Informação** Bacharelado · UEG
+  - **Sistemas de Informação** Bacharelado · Universidade Estadual de Goiás (UEG)
 :::
 
 ## Tecnologias
@@ -38,17 +34,20 @@ Saudações,\
   - SCSS
   - JavaScript
   - TypeScript
-  - ReactJS
-  - NextJS
+  - React
+  - Next.js
   - Astro
   - Tailwind CSS
-- Design
-  - Figma
-- CMS
-  - WordPress
-  - EmDash CMS
 - Back-end
   - PHP
   - Laravel
-  - NodeJS
+  - Node.js
+- CMS
+  - WordPress
+  - EmDash CMS
+- Design
+  - Figma
 :::
+
+Abraços,\
+**Randys** 🤘
