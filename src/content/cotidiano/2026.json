@@ -7,11 +7,27 @@
     "author": "Machado de Assis"
   },
   {
+    "title": "Donnie Darko",
+    "type": "filme",
+    "date": "2026-11-02",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/141-donnie-darko"
+  },
+  {
     "title": "The Leftovers",
     "type": "serie",
-    "date": "2026-09-30",
-    "status": "atual",
+    "date": "2026-10-25",
+    "status": "concluido",
     "detail": "2 Temporada",
+    "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
+  },
+  {
+    "title": "The Leftovers",
+    "type": "serie",
+    "date": "2026-11-01",
+    "status": "concluido",
+    "detail": "3 Temporada",
     "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
   },
   {
@@ -29,6 +45,14 @@
     "status": "concluido",
     "detail": "",
     "url": "https://www.themoviedb.org/movie/737568-the-doorman"
+  },
+  {
+    "title": "23.000 Vidas",
+    "type": "filme",
+    "date": "2026-08-18",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/1656220-23-000-leben"
   },
   {
     "title": "Supergirl",
@@ -53,5 +77,13 @@
     "status": "concluido",
     "detail": "",
     "url": "https://www.themoviedb.org/movie/454639-masters-of-the-universe"
+  },
+  {
+    "title": "Unabomber",
+    "type": "filme",
+    "date": "2026-10-16",
+    "status": "concluido",
+    "detail": "",
+    "url": "https://www.themoviedb.org/movie/1492640-unabomber"
   }
 ]
