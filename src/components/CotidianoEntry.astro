@@ -3,7 +3,7 @@ import type { CotidianoItem } from "@/lib/cotidiano";
 
 type Props = { item: CotidianoItem };
 
-const { title, url, detail, author } = Astro.props.item.data;
+const { title, url, detail, author, post, notas } = Astro.props.item.data;
 const meta = [detail, author].filter(Boolean).join(" · ");
 ---
 
@@ -21,6 +21,12 @@ const meta = [detail, author].filter(Boolean).join(" · ");
     )
   }
   {meta && <span class="cotidiano-entry__meta">{meta}</span>}
+  {post && (
+    <a class="cotidiano-entry__post" href={post}>
+      leia a análise
+    </a>
+  )}
+  {notas && <span class="cotidiano-entry__notas">{notas}</span>}
 </span>
 
 <style>
@@ -54,6 +60,20 @@ const meta = [detail, author].filter(Boolean).join(" · ");
 
   .cotidiano-entry__meta {
     margin-inline-start: 0.5rem;
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+
+  .cotidiano-entry__post {
+    margin-inline-start: 0.5rem;
+    font-size: var(--step--1);
+    color: var(--text-muted);
+    text-decoration-color: var(--text-muted);
+  }
+
+  .cotidiano-entry__notas {
+    display: block;
+    margin-block-start: 0.125rem;
     font-size: var(--step--1);
     color: var(--text-muted);
   }

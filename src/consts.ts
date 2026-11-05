@@ -52,17 +52,18 @@ export const HOME_POSTS_PER_CATEGORY = 2;
 
 /**
  * Tipos de item da página Cotidiano (src/content/cotidiano/*.json).
- * `verb` aparece na flag do destaque "Agora". A cor de cada tipo fica no
- * rótulo (CotidianoTypeBadge.astro). Para um tipo novo, acrescente aqui e
- * um bloco de cor naquele componente.
+ * `verb` aparece na flag do destaque "Agora". `grupo` é a chave do JSON do ano
+ * (src/content/cotidiano/*.json) onde o item desse tipo fica. A cor de cada tipo
+ * fica no rótulo (CotidianoTypeBadge.astro). Para um tipo novo, acrescente aqui
+ * e um bloco de cor naquele componente.
  */
 export const COTIDIANO_TYPES = [
-  { slug: "livro", label: "Livro", plural: "Livros", verb: "lendo" },
-  { slug: "artigo", label: "Artigo", plural: "Artigos", verb: "lendo" },
-  { slug: "serie", label: "Série", plural: "Séries", verb: "assistindo" },
-  { slug: "filme", label: "Filme", plural: "Filmes", verb: "assistindo" },
-  { slug: "anime", label: "Anime", plural: "Animes", verb: "assistindo" },
-  { slug: "documentario", label: "Documentário", plural: "Documentários", verb: "assistindo" },
+  { slug: "livro", label: "Livro", plural: "Livros", verb: "lendo", grupo: "livros" },
+  { slug: "artigo", label: "Artigo", plural: "Artigos", verb: "lendo", grupo: "artigos" },
+  { slug: "serie", label: "Série", plural: "Séries", verb: "assistindo", grupo: "series" },
+  { slug: "filme", label: "Filme", plural: "Filmes", verb: "assistindo", grupo: "filmes" },
+  { slug: "anime", label: "Anime", plural: "Animes", verb: "assistindo", grupo: "animes" },
+  { slug: "documentario", label: "Documentário", plural: "Documentários", verb: "assistindo", grupo: "documentarios" },
 ] as const;
 
 export type CotidianoType = (typeof COTIDIANO_TYPES)[number]["slug"];

@@ -83,6 +83,13 @@ const cotidiano = defineCollection({
     author: z.string().optional(),
     /** Só http(s): o link vira href na página. */
     url: z.url({ protocol: /^https?$/ }).optional(),
+    /** Post do blog que fala sobre o item: "/blog/<slug>/" ou URL https. */
+    post: z
+      .string()
+      .regex(/^(\/blog\/[a-z0-9-]+\/|https:\/\/.+)$/, "post deve ser /blog/<slug>/ ou uma URL https")
+      .optional(),
+    /** Comentário curto (até 140 caracteres). */
+    notas: z.string().max(140).optional(),
   }),
 });
 
