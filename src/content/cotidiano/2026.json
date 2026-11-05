@@ -10,16 +10,16 @@
   "series": [
     {
       "title": "The Leftovers",
-      "date": "2026-10-25",
+      "date": "2026-11-01",
       "status": "concluido",
-      "detail": "2 Temporada",
+      "detail": "3 Temporada",
       "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
     },
     {
       "title": "The Leftovers",
-      "date": "2026-11-01",
+      "date": "2026-10-25",
       "status": "concluido",
-      "detail": "3 Temporada",
+      "detail": "2 Temporada",
       "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
     },
     {
@@ -72,6 +72,14 @@
       "date": "2026-10-16",
       "status": "concluido",
       "url": "https://www.themoviedb.org/movie/1492640-unabomber"
+    }
+  ],
+  "animes": [
+    {
+      "title": "Death Note",
+      "date": "2026-11-05",
+      "status": "atual",
+      "url": "https://www.themoviedb.org/tv/13916-death-note"
     }
   ]
 }
