@@ -1,57 +1,85 @@
-[
-  {
-    "title": "O Alienista",
-    "type": "livro",
-    "date": "2026-09-30",
-    "status": "atual",
-    "author": "Machado de Assis"
-  },
-  {
-    "title": "The Leftovers",
-    "type": "serie",
-    "date": "2026-09-30",
-    "status": "atual",
-    "detail": "2 Temporada",
-    "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
-  },
-  {
-    "title": "The Leftovers",
-    "type": "serie",
-    "date": "2026-09-30",
-    "status": "concluido",
-    "detail": "1 Temporada",
-    "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
-  },
-  {
-    "title": "A Protetora",
-    "type": "filme",
-    "date": "2026-08-20",
-    "status": "concluido",
-    "detail": "",
-    "url": "https://www.themoviedb.org/movie/737568-the-doorman"
-  },
-  {
-    "title": "Supergirl",
-    "type": "filme",
-    "date": "2026-10-08",
-    "status": "concluido",
-    "detail": "",
-    "url": "https://www.themoviedb.org/movie/1081003-supergirl"
-  },
-  {
-    "title": "Maníaco do Parque",
-    "type": "filme",
-    "date": "2026-10-09",
-    "status": "concluido",
-    "detail": "",
-    "url": "https://www.themoviedb.org/movie/1156212-maniaco-do-parque"
-  },
-  {
-    "title": "Mestres do Universo",
-    "type": "filme",
-    "date": "2026-09-08",
-    "status": "concluido",
-    "detail": "",
-    "url": "https://www.themoviedb.org/movie/454639-masters-of-the-universe"
-  }
-]
+{
+  "livros": [
+    {
+      "title": "O Alienista",
+      "date": "2026-09-30",
+      "status": "atual",
+      "author": "Machado de Assis"
+    }
+  ],
+  "series": [
+    {
+      "title": "The Leftovers",
+      "date": "2026-11-01",
+      "status": "concluido",
+      "detail": "3 Temporada",
+      "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
+    },
+    {
+      "title": "The Leftovers",
+      "date": "2026-10-25",
+      "status": "concluido",
+      "detail": "2 Temporada",
+      "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
+    },
+    {
+      "title": "The Leftovers",
+      "date": "2026-09-30",
+      "status": "concluido",
+      "detail": "1 Temporada",
+      "url": "https://www.themoviedb.org/tv/54344-the-leftovers"
+    }
+  ],
+  "filmes": [
+    {
+      "title": "Donnie Darko",
+      "date": "2026-11-02",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/141-donnie-darko"
+    },
+    {
+      "title": "A Protetora",
+      "date": "2026-08-20",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/737568-the-doorman"
+    },
+    {
+      "title": "23.000 Vidas",
+      "date": "2026-08-18",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/1656220-23-000-leben"
+    },
+    {
+      "title": "Supergirl",
+      "date": "2026-10-08",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/1081003-supergirl"
+    },
+    {
+      "title": "Maníaco do Parque",
+      "date": "2026-10-09",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/1156212-maniaco-do-parque"
+    },
+    {
+      "title": "Mestres do Universo",
+      "date": "2026-09-08",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/454639-masters-of-the-universe"
+    },
+    {
+      "title": "Unabomber",
+      "date": "2026-10-16",
+      "status": "concluido",
+      "url": "https://www.themoviedb.org/movie/1492640-unabomber"
+    }
+  ],
+  "animes": [
+    {
+      "title": "Death Note",
+      "date": "2026-11-05",
+      "status": "atual",
+      "url": "https://www.themoviedb.org/tv/13916-death-note"
+    }
+  ]
+}
