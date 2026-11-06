@@ -31,12 +31,11 @@ const latestPosts = (await getCollection("blog", isPublished))
       <section class="home-latest">
         <PostsPanel
           title="Últimos posts"
-          description="os mais recentes, de qualquer categoria"
           posts={latestPosts}
           showCategories
         />
         <a class="home-latest__all" href="/blog/">
-          Ver todos os posts
+          Ver mais <span class="visually-hidden">posts</span>
           <span aria-hidden="true">→</span>
         </a>
       </section>
@@ -74,15 +73,18 @@ const latestPosts = (await getCollection("blog", isPublished))
     color: var(--text-muted);
   }
 
+  /* Afasta o painel da apresentação, sem mexer no espaço interno dos cards. */
   .home-latest {
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
+    margin-block-start: var(--space-l);
   }
 
-  /* Botão para o blog: contorno e fundo do site, sem competir com os cards. */
+  /* Botão para o blog: centralizado, com folga acima dos cards. */
   .home-latest__all {
-    align-self: flex-start;
+    align-self: center;
+    margin-block-start: var(--space-m);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
