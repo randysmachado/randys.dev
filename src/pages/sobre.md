@@ -7,16 +7,17 @@ subtitle: "Quem escreve por aqui e sobre o que é este blog."
 
 Olá! Sou Randys, goiano do pé-rachado, apreciador de café e cerveja.
 
-Estou neste mundo da tecnologia desde os 18 anos. Comecei com manutenção de computadores (limpando memória RAM com borracha), passei pelo suporte a softwares de automação comercial feitos em **Delphi**, com banco de dados **Firebird** e **IBExpert**, até chegar no desenvolvimento web, aprendendo HTML, CSS e PHP com apostilas em PDF do **Apostilando**.
+Estou neste mundo da tecnologia desde os 18 anos. Comecei com manutenção de computadores (limpando memória RAM com borracha), passei pelo suporte a softwares de automação comercial feitos em **Delphi**, com banco de dados **Firebird** e **IBExpert**, até chegar no desenvolvimento web, aprendendo HTML, CSS e PHP com PDFs do site **Apostilando**.
 
-Acredito ter entregado um pouco da minha idade no parágrafo anterior. Mas eu sou da época que peguei o mundo analógico e digital onde a internet não fazia parte do cotidiano, não tinha telefones sem fio, fotos precisavam ser reveladas, computadores eram grandes, caros e lentos.
+Acho que entreguei um pouco da minha idade no parágrafo anterior. Mas eu sou da época em que vivíamos entre o mundo analógico e digital onde a internet não fazia parte do cotidiano, não tinha telefones sem fio, fotos precisavam ser reveladas, computadores eram grandes, caros e lentos.
 
-Despertei minha curiosidade por computador logo cedo, era frequentador de lan houses, pois não tinha computador com internet em casa, lá eu consumia todo tipo de conteúdo, estudava, baixava PDFs de conteúdos e estudava em casa sozinho, sem fóruns, Google, I.A ou qualquer ajuda online. Era difícil.
+Sempre fui muito curioso e minha curiosidade por computador começou logo cedo. Era frequentador de lan houses, pois não tinha computador com internet em casa, lá eu consumia todo tipo de conteúdo, jogava, baixava PDFs e estudava em casa sozinho, sem fóruns, Google, I.A ou qualquer ajuda online.
 
-Como a maioria das pessoas da época que se interessaram por tecnologia eu desisti por um tempo, mas logo voltei. Daí já consegui acesso a internet em casa, e as coisas melhoraram bastante. Logo conheci o mundo do desenvolvimento web mais a fundo. E desde então estou no universo do desenvolvimento web, sempre estudando e aprimorando habilidades.
+Como a maioria das pessoas da época que se interessaram por tecnologia, eu desisti por um tempo, mas logo voltei. Daí já consegui acesso à internet em casa, e as coisas melhoraram bastante. Logo conheci o mundo do desenvolvimento web mais a fundo. E desde então estou no universo do desenvolvimento.
 
-Por enquanto é isso, não quero me estender muito por hora, mas estou escrevendo um texto mais completo que logo vai pro ar.
+Por enquanto é isso, não quero me estender muito por ora. 
 
+Ah! Veja mais algumas informações minhas abaixo.
 
 ## Formação
 
