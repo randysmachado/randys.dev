@@ -12,15 +12,14 @@ const { label } = getCotidianoType(type);
 
 <style>
   /*
-   * Rótulo do tipo, com cores da paleta Flexoki. Claro: fundo no tom 50 e texto
-   * no 700. Escuro: fundo no tom 500 e texto branco ou preto Flexoki (o que
-   * passa em AA em cada matiz). Ver planejamento/0046 e 0048.
+   * Rótulo do tipo, na paleta Flexoki (ver planejamento/0053). Claro: fundo no
+   * tom 50 e texto no 700. Escuro: fundo no tom 950 tingido e texto no 300.
    */
   .cotidiano-type {
     display: inline-flex;
     justify-content: center;
-    min-inline-size: 5.75rem;
-    padding: 0.0625rem 0.4375rem;
+    min-inline-size: 4.5rem;
+    padding: 0 0.375rem;
     border-radius: 0.375rem;
     background: var(--cat-bg);
     color: var(--cat-fg);
@@ -31,32 +30,32 @@ const { label } = getCotidianoType(type);
   }
 
   .cotidiano-type[data-type="livro"] {
-    --cat-bg: light-dark(#e1eceb, #3171b2);
-    --cat-fg: light-dark(#1a4f8c, #ffffff);
+    --cat-bg: light-dark(#e1eceb, color-mix(in oklab, #101a24 35%, var(--bg-main)));
+    --cat-fg: light-dark(#1a4f8c, #66a0c8);
   }
 
   .cotidiano-type[data-type="artigo"] {
-    --cat-bg: light-dark(#ddf1e4, #2f968d);
-    --cat-fg: light-dark(#1c6c66, #100f0f);
+    --cat-bg: light-dark(#ddf1e4, color-mix(in oklab, #101f1d 35%, var(--bg-main)));
+    --cat-fg: light-dark(#1c6c66, #5abdac);
   }
 
   .cotidiano-type[data-type="serie"] {
-    --cat-bg: light-dark(#f0eaec, #735eb5);
-    --cat-fg: light-dark(#4f3685, #ffffff);
+    --cat-bg: light-dark(#f0eaec, color-mix(in oklab, #1a1623 35%, var(--bg-main)));
+    --cat-fg: light-dark(#4f3685, #a699d0);
   }
 
   .cotidiano-type[data-type="filme"] {
-    --cat-bg: light-dark(#edeecf, #768d21);
-    --cat-fg: light-dark(#536907, #100f0f);
+    --cat-bg: light-dark(#edeecf, color-mix(in oklab, #1a1e0c 35%, var(--bg-main)));
+    --cat-fg: light-dark(#536907, #a0af54);
   }
 
   .cotidiano-type[data-type="anime"] {
-    --cat-bg: light-dark(#fee4e5, #b74583);
-    --cat-fg: light-dark(#87285e, #ffffff);
+    --cat-bg: light-dark(#fee4e5, color-mix(in oklab, #24131d 35%, var(--bg-main)));
+    --cat-fg: light-dark(#87285e, #e47da8);
   }
 
   .cotidiano-type[data-type="documentario"] {
-    --cat-bg: light-dark(#ffe7ce, #cb6120);
-    --cat-fg: light-dark(#9d4310, #100f0f);
+    --cat-bg: light-dark(#ffe7ce, color-mix(in oklab, #27180e 35%, var(--bg-main)));
+    --cat-fg: light-dark(#9d4310, #ec8b49);
   }
 </style>
