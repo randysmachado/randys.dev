@@ -1,8 +1,8 @@
 ---
 layout: ../layouts/PageLayout.astro
 title: "Sobre"
-description: "Um pouco sobre Randys Machado: quem sou, o que faço e sobre o que escrevo neste blog."
-subtitle: "Quem escreve por aqui e sobre o que é este blog."
+description: "Um pouco sobre Randys Machado: quem sou, o que faço..."
+subtitle: "Um pouco sobre quem escreve por aqui."
 ---
 
 Olá! Sou Randys, goiano do pé-rachado, apreciador de café e cerveja.
