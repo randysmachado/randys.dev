@@ -1,28 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import { HOME_POSTS_PER_CATEGORY, type CategorySlug } from "@/consts";
+import { HOME_POSTS_COUNT } from "@/consts";
 import PostsPanel from "@/components/PostsPanel.astro";
-import { categoryUrl, getCategory } from "@/lib/categories";
 import { isPublished } from "@/lib/published";
 
-const allPosts = await getCollection("blog", isPublished);
-
-const byRecent = (a: (typeof allPosts)[number], b: (typeof allPosts)[number]) =>
-  b.data.publishDate.getTime() - a.data.publishDate.getTime();
-
-const postsIn = (category: CategorySlug) =>
-  allPosts
-    .filter((post) => post.data.categories.includes(category))
-    .sort(byRecent);
-
-/** Só estas categorias aparecem na home; as demais ficam em /blog. */
-const HOME_CATEGORIES: CategorySlug[] = ["dev", "miscelanea"];
-
-const homeSections = HOME_CATEGORIES.map((slug) => ({
-  category: getCategory(slug),
-  posts: postsIn(slug),
-})).filter(({ posts }) => posts.length > 0);
+/** Os mais recentes, de qualquer categoria (mesma ordem de /blog). */
+const latestPosts = (await getCollection("blog", isPublished))
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, HOME_POSTS_COUNT);
 ---
 
 <Layout>
@@ -41,17 +27,19 @@ const homeSections = HOME_CATEGORIES.map((slug) => ({
   </section>
 
   {
-    homeSections.map(({ category, posts }) => (
-      <PostsPanel
-        title={category.label}
-        description={category.description}
-        posts={posts.slice(0, HOME_POSTS_PER_CATEGORY)}
-        more={{
-          href: categoryUrl(category.slug),
-          label: `${Math.min(posts.length, HOME_POSTS_PER_CATEGORY)} de ${posts.length} posts`,
-        }}
-      />
-    ))
+    latestPosts.length > 0 && (
+      <section class="home-latest">
+        <PostsPanel
+          title="Últimos posts"
+          posts={latestPosts}
+          showCategories
+        />
+        <a class="home-latest__all" href="/blog/">
+          Ver mais <span class="visually-hidden">posts</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </section>
+    )
   }
 </Layout>
 
@@ -83,5 +71,46 @@ const homeSections = HOME_CATEGORIES.map((slug) => ({
 
   .intro__muted {
     color: var(--text-muted);
+  }
+
+  /* Afasta o painel da apresentação, sem mexer no espaço interno dos cards. */
+  .home-latest {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    margin-block-start: var(--space-l);
+  }
+
+  /* Botão para o blog: centralizado, com folga acima dos cards. */
+  .home-latest__all {
+    align-self: center;
+    margin-block-start: var(--space-m);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-main);
+    border-radius: 999px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 200ms ease;
+  }
+
+  .home-latest__all:hover {
+    background: var(--bg-muted);
+  }
+
+  .home-latest__all:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-latest__all {
+      transition: none;
+    }
   }
 </style>

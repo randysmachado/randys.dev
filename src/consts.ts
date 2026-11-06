@@ -47,8 +47,8 @@ export type CategorySlug = (typeof CATEGORIES)[number]["slug"];
 
 export const BLOG_POSTS_PER_PAGE = 10;
 
-/** Quantidade de posts exibidos em cada bloco de categoria (Dev, Miscelânea) na home. */
-export const HOME_POSTS_PER_CATEGORY = 2;
+/** Quantidade de posts mais recentes exibidos na home, de qualquer categoria. */
+export const HOME_POSTS_COUNT = 4;
 
 /**
  * Tipos de item da página Cotidiano (src/content/cotidiano/*.json).
