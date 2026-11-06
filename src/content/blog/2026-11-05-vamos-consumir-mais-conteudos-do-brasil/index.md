@@ -1,9 +1,9 @@
 ---
 title: "Vamos consumir mais conteúdos do Brasil?"
 description: "Sempre consumi muito conteúdo estrangeiro, deixando de lado produções nacionais, então decidi que vou me esforçar para consumir mais coisas do Brasil."
-summary: "Vem comigo nessa jornada, vamos dar valor para o que é nosso."
+summary: "Vem comigo nessa jornada?"
 publishDate: 2026-11-05
-# updatedDate: AAAA-MM-DD
+updatedDate: 2026-11-06
 image: "./cover.png"
 imageAlt: "Loja de discos com cartazes de artistas brasileiros na parede e vários discos de vinil e CDs expostos nas prateleiras."
 categories: ["miscelanea"]
